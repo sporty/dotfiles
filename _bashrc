@@ -1,0 +1,44 @@
+#
+
+bash --version
+export vi
+export python
+#export CYGWIN_TTY=1
+PS1='[\!]% '
+export HISTFILE=~/.bash_history
+export HISTFILESIZE=100
+export HISTCONTROL=ignoreboth
+export HISTSIZE=100
+export EDITOR=vi
+export PAGER=less
+export LESS=-C
+export JLESSCHERSET=japanese-sjis
+#export LESSEDIT=vi %f
+export FIGNORE=.aux:.log:.o:.obj:.AUX:.LOG:.O:.OBJ
+
+if [ `uname` == 'Darwin' ]; then
+	PATH="$HOME/local/bin:$PATH"
+	export PYTHONPATH=$HOME/local/lib/python2.6/site-packages
+
+	export LS_OPTIONS='-G'
+else
+	export PATH=/usr/bin:/usr/local/bin:/cygdrive/c/Python25:/cygdrive/s/bin/effect/:/cygdrive/c/PHP/cli:$PATH
+
+	#export LS_OPTIONS='--color=auto'
+	export LS_OPTIONS='--show-control-char'
+fi
+#eval 'dircolors'
+alias ls='ls $LS_OPTIONS -CF'
+alias l='ls $LS_OPTIONS -l'
+alias la='ls $LS_OPTIONS -a'
+alias .='pwd'
+alias h='history'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias head='head -20'
+alias tail='tail -20'
+alias rehash='hash -r'
+
+
+
