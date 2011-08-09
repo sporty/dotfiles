@@ -6,13 +6,18 @@
 " ウインドウの幅
 set columns=89
 " ウインドウの高さ
-set lines=55
+if has('win32')
+	set lines=45
+elseif has('mac')
+	set lines=55
+endif
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
 " 画面をカラースキームを変更する 
 colorscheme koehler
 set synmaxcol=10000
 
+" Python
 "数字のハイライト:
 let python_highlight_numbers = 1
 "組み込み関数のハイライト:
@@ -105,6 +110,19 @@ autocmd FileType php :setlocal dictionary=~/.vim/dict/php.dict
 autocmd FileType python :setlocal expandtab
 "djangoのtagsを追加
 autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
+
+
+"---------------------------------------------------------------------------
+" vundle
+"---------------------------------------------------------------------------
+set nocompatible
+filetype off
+
+set rtp+=~/vimfiles/vundle.git/
+call vundle#rc()
+Bundle 'http://github.com/Shougo/neocomplcache.git'
+Bundle 'http://github.com/Shougo/unite.vim.git'
+filetype plugin indent on 
 
 
 "---------------------------------------------------------------------------
