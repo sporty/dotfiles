@@ -7,9 +7,9 @@
 set columns=89
 " ウインドウの高さ
 if has('win32')
-	set lines=45
+  set lines=45
 elseif has('mac')
-	set lines=55
+  set lines=55
 endif
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
