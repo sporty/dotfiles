@@ -1,3 +1,21 @@
+" vi:set sts=2 sw=2 tw=0:
+" 
+" 
+
+"---------------------------------------------------------------------------
+" フォント設定:
+"---------------------------------------------------------------------------
+if has('win32')
+  " Windows用
+  set guifont=MS_Gothic:h12:cSHIFTJIS
+  " 行間隔の設定
+  set linespace=3
+elseif has('xfontset')
+  " UNIX用 (xfontsetを使用)
+  set guifontset=a14,r14,k14
+elseif has('mac')
+  set guifont=Osaka－等幅:h14
+endif
 
 
 "---------------------------------------------------------------------------
@@ -16,18 +34,6 @@ set cmdheight=2
 " 画面をカラースキームを変更する 
 colorscheme koehler
 set synmaxcol=10000
-
-" Python
-"数字のハイライト:
-let python_highlight_numbers = 1
-"組み込み関数のハイライト:
-let python_highlight_builtins = 1
-"標準例外のハイライト:
-let python_highlight_exceptions = 1
-"行末の空白と、スペースとタブの混在をハイライト:
-let python_highlight_space_errors = 1
-"以上全部
-"let python_highlight_all = 1
 
 
 
@@ -56,31 +62,13 @@ set printoptions=number:y
 "--------------------------------------------------------------------------- 
 " タグファイル
 " 再帰的に上位ディレクトリのtagsを検索
-set tags+=tags;
+"set tags+=tags;
 
 "---------------------------------------------------------------------------
 "タブ(GUI)
 "---------------------------------------------------------------------------
 "常にタブを非表示
 set showtabline=0
-
-
-
-
-"---------------------------------------------------------------------------
-" フォント設定:
-"---------------------------------------------------------------------------
-if has('win32')
-  " Windows用
-  set guifont=ＭＳ_ゴシック:h11:cSHIFTJIS
-  " 行間隔の設定
-  set linespace=1
-elseif has('xfontset')
-  " UNIX用 (xfontsetを使用)
-  set guifontset=a14,r14,k14
-elseif has('mac')
-  set guifont=Osaka－等幅:h14
-endif
 
 
 
@@ -108,12 +96,27 @@ set modeline
 " 辞書ファイルの自動指定
 "---------------------------------------------------------------------------
 "ＰＨＰ
-autocmd FileType php :setlocal dictionary=~/.vim/dict/php.dict
+"autocmd FileType php :setlocal dictionary=~/.vim/dict/php.dict
 
+"---------------------------------------------------------------------------
+" Pythonの設定
+"---------------------------------------------------------------------------
 "タブをスペースに自動変換
 autocmd FileType python :setlocal expandtab
 "djangoのtagsを追加
-autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
+"autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
+
+"数字のハイライト:
+let python_highlight_numbers = 1
+"組み込み関数のハイライト:
+let python_highlight_builtins = 1
+"標準例外のハイライト:
+let python_highlight_exceptions = 1
+"行末の空白と、スペースとタブの混在をハイライト:
+let python_highlight_space_errors = 1
+"以上全部
+"let python_highlight_all = 1
+
 
 
 "---------------------------------------------------------------------------
