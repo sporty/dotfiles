@@ -1,4 +1,4 @@
-bundle
-vimfiles
 *~
+*.swp
 .DS_store
+Thumbs.db
