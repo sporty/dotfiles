@@ -130,6 +130,7 @@ call vundle#rc()
 Bundle 'http://github.com/Shougo/unite.vim.git'
 Bundle 'http://github.com/Shougo/neocomplcache.git'
 Bundle 'http://github.com/thinca/vim-ref.git'
+Bundle 'http://github.com/groenewege/vim-less.git'
 filetype plugin indent on 
 
 
