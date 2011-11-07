@@ -30,11 +30,19 @@ git clone
 ---------
 
 - WidnowsXP
+下記URLを参照してフォルダはlinkd、ファイルはfsutilコマンドでリンクを作成
 
-- Widnows7
+- WidnowsVista Windows7
+
+下記URLを参照してmklinkコマンドでリンクを作成
+
+http://d.hatena.ne.jp/holypp/20110516/1305552171
+
 
 - Mac,Linux
  ln -s ~/dotfiles/vimfiles ~/vimfiles
+
+ ln -s ~/dotfiles/_vimrc ~/.vimrc
 
  ln -s ~/dotfiles/_gvimrc ~/.gvimrc
 
