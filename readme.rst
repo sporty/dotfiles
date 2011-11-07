@@ -42,6 +42,8 @@ http://d.hatena.ne.jp/holypp/20110516/1305552171
 - Mac,Linux
  ln -s ~/dotfiles/vimfiles ~/vimfiles
 
+ ln -s ~/dotfiles/_vimrc ~/.vimrc
+
  ln -s ~/dotfiles/_gvimrc ~/.gvimrc
 
  ln -s ~/dotfiles/_bashrc ~/.bashrc
