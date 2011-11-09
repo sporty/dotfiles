@@ -28,7 +28,19 @@ filetype plugin indent on
 "---------------------------------------------------------------------------
 " neocomplcache
 "---------------------------------------------------------------------------
-"let g:neocomplcache_enable_at_startup = 1
+" 有効化
+let g:neocomplcache_enable_at_startup = 1
+" 自動補完を無効化
+let g:neocomplcache_disable_auto_complete = 1
+" 補完項目の自動選択を有効化
+let g:neocomplcache_enable_auto_select = 1
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 
 "===============================================================================
@@ -43,6 +55,10 @@ set ts=4
 "シフトワイズ（オートインデントの文字数）
 set sw=4
 set softtabstop=4 
+
+"--------------------------------------------------------------------------- 
+" ビープ音を消す 
+set vb t_vb= 
 
 "--------------------------------------------------------------------------- 
 " クリップボードを*レジスタに自動割り当て
