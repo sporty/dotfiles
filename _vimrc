@@ -51,6 +51,7 @@ let g:neocomplcache_enable_at_startup = 1
 "let g:neocomplcache_enable_auto_select = 1
 
 " snippet
+let g:neocomplcache_snippets_dir = '~/vimfiles/snippets'
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
 
