@@ -9,8 +9,9 @@ prev_word   '^'
 		def __init__(self, ${4}):
 			"""
 			${5:__init__ documentation}
+            @param ${6:parameter}
 			"""
-			${6:pass}
+			${7:pass}
 
 snippet     def
 abbr        def function(...): ...
@@ -18,9 +19,11 @@ prev_word   '^'
 	def ${1:name}(${2}):
 		"""
 		${3:documentation}
+		@param ${4:parameter}
+		@return ${5:result}
 		"""
 
-		${4:pass}
+		${6:pass}
 
 snippet     defm
 abbr        def method(self, ...): ...
@@ -28,9 +31,11 @@ prev_word   '^'
 	def ${1:name}(self, ${2}):
 		"""
 		${3:documentation}
+		@param ${4:parameter}
+		@return ${5:result}
 		"""
 
-		${4:pass}
+		${6:pass}
 
 snippet     elif
 abbr        elif ...: ...

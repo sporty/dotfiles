@@ -66,12 +66,12 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " 一般的な設定
 "===============================================================================
 
-"タブの幅
+" タブの幅
 "---------------------------------------------------------------------------
 
-"タブストップ（タブの文字数）
+" タブストップ（タブの文字数）
 set ts=4
-"シフトワイズ（オートインデントの文字数）
+" シフトワイズ（オートインデントの文字数）
 set sw=4
 set softtabstop=4 
 
@@ -87,7 +87,7 @@ set clipboard=unnamed,autoselect
 "--------------------------------------------------------------------------- 
 set printoptions=number:y
 
-"フォールドメソッド
+" フォールドメソッド
 "---------------------------------------------------------------------------
 set fdm=marker
 
@@ -95,25 +95,44 @@ set fdm=marker
 "---------------------------------------------------------------------------
 set modeline
 
+" QuickFix
+"---------------------------------------------------------------------------
+" ;nでQuickFixを開く
+noremap <silent> ;n :copen<CR>
+" ESC２回で閉じる
+au FileType qf :nnoremap <silent> <buffer> <ESC><ESC> :cclose<CR>
+" make後に自動でQuickFixを開く
+au QuickfixCmdPost * copen
+
 
 " Pythonの設定
 "===============================================================================
 
-"タブをスペースに自動変換
+" タブをスペースに自動変換
+"---------------------------------------------------------------------------
 autocmd FileType python :setlocal expandtab
-"djangoのtagsを追加
-"autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
 
-"数字のハイライト:
+" QuickFix関連
+"---------------------------------------------------------------------------
+" makeをpythonコマンドにしてエラーフォーマットを定義しておく
+autocmd FileType python :setlocal makeprg=python\ %
+autocmd FileType python :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+" ハイライトオプション
+"---------------------------------------------------------------------------
+" 数字のハイライト:
 let python_highlight_numbers = 1
-"組み込み関数のハイライト:
+" 組み込み関数のハイライト:
 let python_highlight_builtins = 1
-"標準例外のハイライト:
+" 標準例外のハイライト:
 let python_highlight_exceptions = 1
-"行末の空白と、スペースとタブの混在をハイライト:
+" 行末の空白と、スペースとタブの混在をハイライト:
 let python_highlight_space_errors = 1
-"以上全部
+" 以上全部
 "let python_highlight_all = 1
+
+" djangoのtagsを追加
+"autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
 
 
 " タグファイル
@@ -122,7 +141,7 @@ let python_highlight_space_errors = 1
 " タグファイルの自動指定
 "---------------------------------------------------------------------------
 
-"ＭａｙａＳＤＫ。インクルードファイルから作成
+" ＭａｙａＳＤＫ。インクルードファイルから作成
 "autocmd FileType cpp,h :set tags+=~/.vim/tags/maya.tags
 
 " 再帰的に上位ディレクトリのtagsを検索
@@ -132,7 +151,7 @@ let python_highlight_space_errors = 1
 " 辞書ファイル
 "===============================================================================
 
-"ＰＨＰ
+" ＰＨＰ
 "autocmd FileType php :setlocal dictionary=~/.vim/dict/php.dict
 
 
