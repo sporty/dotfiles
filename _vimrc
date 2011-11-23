@@ -46,7 +46,7 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 " 有効化
 let g:neocomplcache_enable_at_startup = 1
 " 自動補完を無効化
-"let g:neocomplcache_disable_auto_complete = 1
+let g:neocomplcache_disable_auto_complete = 1
 " 補完項目の自動選択を有効化
 "let g:neocomplcache_enable_auto_select = 1
 
