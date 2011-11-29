@@ -6,20 +6,20 @@ prev_word   '^'
 		${3:class documentation}
 		"""
 
-		def __init__(self, ${4}):
+		def __init__(self${4:, *args, **kwargs}):
 			"""
 			${5:__init__ documentation}
-            @param ${6:parameter}
+            @param ${6:args}
 			"""
 			${7:pass}
 
 snippet     def
 abbr        def function(...): ...
 prev_word   '^'
-	def ${1:name}(${2}):
+	def ${1:name}(${2:*arg, **kwargs}):
 		"""
 		${3:documentation}
-		@param ${4:parameter}
+		@param ${4:args}
 		@return ${5:result}
 		"""
 
@@ -28,10 +28,10 @@ prev_word   '^'
 snippet     defm
 abbr        def method(self, ...): ...
 prev_word   '^'
-	def ${1:name}(self, ${2}):
+	def ${1:name}(self${2:, *args, **kwargs}):
 		"""
 		${3:documentation}
-		@param ${4:parameter}
+		@param ${4:args}
 		@return ${5:result}
 		"""
 

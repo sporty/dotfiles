@@ -17,7 +17,6 @@ filetype off
 set rtp+=~/vimfiles/vundle.git/
 call vundle#rc()
 Bundle 'http://github.com/Shougo/unite.vim.git'
-Bundle 'http://github.com/Shougo/neocomplcache.git'
 Bundle 'http://github.com/thinca/vim-ref.git'
 Bundle 'http://github.com/groenewege/vim-less.git'
 Bundle 'http://github.com/tpope/vim-markdown.git'
@@ -38,30 +37,6 @@ noremap <silent> ;u :Unite buffer file_mru<CR>
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
-"let g:unite_source_file_ignore_pattern = '\~$'
-
-" neocomplcache
-"---------------------------------------------------------------------------
-
-" 有効化
-let g:neocomplcache_enable_at_startup = 1
-" 自動補完を無効化
-let g:neocomplcache_disable_auto_complete = 1
-" 補完項目の自動選択を有効化
-"let g:neocomplcache_enable_auto_select = 1
-
-" snippet
-let g:neocomplcache_snippets_dir = '~/vimfiles/snippets'
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 
 " 一般的な設定
 "===============================================================================
@@ -76,6 +51,7 @@ set sw=4
 set softtabstop=4 
 
 " ビープ音を消す 
+" vbはビジュアルベルを使用するというオプション。t_vbはキー
 "--------------------------------------------------------------------------- 
 set vb t_vb= 
 
