@@ -48,7 +48,7 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 " 有効化
 let g:neocomplcache_enable_at_startup = 1
 " 自動補完を無効化
-let g:neocomplcache_disable_auto_complete = 1
+"let g:neocomplcache_disable_auto_complete = 1
 
 " snippet
 let g:neocomplcache_snippets_dir = '~/vimfiles/snippets'
