@@ -26,16 +26,25 @@ endif
 
 " ウインドウに関する設定:
 "---------------------------------------------------------------------------
+
 " ウインドウの幅
-set columns=89
+if &diff
+  " diffモードで起動したときは横幅を倍で。
+  set columns=200
+else
+  set columns=89
+endif
+
 " ウインドウの高さ
 if has('win32')
   set lines=45
 elseif has('mac')
   set lines=55
 endif
+
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
+
 " 画面をカラースキームを変更する 
 colorscheme koehler
 set synmaxcol=10000
