@@ -2,12 +2,12 @@ snippet     class
 abbr        class Class(...): ...
 prev_word   '^'
 	class ${1:name}(${2:object}):
-		"""
+		u"""
 		${3:class documentation}
 		"""
 
 		def __init__(self${4:, *args, **kwargs}):
-			"""
+			u"""
 			${5:__init__ documentation}
             @param ${6:args}
 			"""
@@ -17,7 +17,7 @@ snippet     def
 abbr        def function(...): ...
 prev_word   '^'
 	def ${1:name}(${2:*arg, **kwargs}):
-		"""
+		u"""
 		${3:documentation}
 		@param ${4:args}
 		@return ${5:result}
@@ -29,7 +29,7 @@ snippet     defm
 abbr        def method(self, ...): ...
 prev_word   '^'
 	def ${1:name}(self${2:, *args, **kwargs}):
-		"""
+		u"""
 		${3:documentation}
 		@param ${4:args}
 		@return ${5:result}
