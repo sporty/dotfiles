@@ -27,12 +27,12 @@ filetype plugin indent on
 " unite
 "---------------------------------------------------------------------------
 
+" バッファとファイル履歴とファイル一覧
+noremap <silent> ;u :Unite buffer file_mru file<CR>
 " バッファ一覧
 noremap <silent> ;b :Unite buffer<CR>
 " ファイル一覧
 noremap <silent> ;f :Unite file<CR>
-" バッファとファイル履歴
-noremap <silent> ;u :Unite buffer file_mru<CR>
 " neocomplcacheのスニペット
 noremap <silent> ;s :Unite snippet<CR>
 
