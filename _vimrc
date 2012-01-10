@@ -21,6 +21,8 @@ Bundle 'http://github.com/Shougo/neocomplcache.git'
 Bundle 'http://github.com/thinca/vim-ref.git'
 Bundle 'http://github.com/groenewege/vim-less.git'
 Bundle 'http://github.com/tpope/vim-markdown.git'
+Bundle 'http://github.com/h1mesuke/unite-outline.git'
+Bundle 'http://github.com/Shougo/vimfiler.git'
 filetype plugin indent on 
 
 
@@ -29,20 +31,21 @@ filetype plugin indent on
 
 " バッファとファイル履歴とファイル一覧
 noremap <silent> ;u :Unite buffer file_mru file<CR>
-" バッファ一覧
-noremap <silent> ;b :Unite buffer<CR>
-" ファイル一覧
-noremap <silent> ;f :Unite file<CR>
+" アウトライン
+noremap <silent> ;l :Unite outline<CR>
 " neocomplcacheのスニペット
 noremap <silent> ;s :Unite snippet<CR>
+" VimFiler起動
+noremap <silent> ;f :VimFiler<CR>
 
 " ESCキー２回で終了
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+au FileType vimfiler nnoremap <silent> <buffer> <ESC><ESC> :e#<CR>
+au FileType vimfiler inoremap <silent> <buffer> <ESC><ESC> <ESC>:e#<CR>
 
 
 " neocomplcache
-" cwで置換をした際にレジスタがおかしくなるため無効化。snippetのみ利用
 "---------------------------------------------------------------------------
 
 " 有効化
