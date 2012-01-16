@@ -25,6 +25,7 @@ git submodule update
 ---------
 
 * WidnowsXP
+
 下記URLを参照してフォルダはlinkd、ファイルはfsutilコマンドでリンクを作成
 
 * WidnowsVista Windows7
@@ -35,6 +36,7 @@ http://d.hatena.ne.jp/holypp/20110516/1305552171
 
 
 * Mac,Linux
+
 ```
 ln -s ~/dotfiles/vimfiles ~/vimfiles
 ln -s ~/dotfiles/_vimrc ~/.vimrc
@@ -49,17 +51,8 @@ Vundle
 :BundleInstall
 ```
 
-
 関連情報
 =================
-
-+----------+-------------+
-|    OS    |             |
-+==========+=============+
-| mac      |             |
-+----------+-------------+
-| windows  |             |
-+----------+-------------+
 
 * http://d.hatena.ne.jp/holypp/20110515/1305443997
 * http://d.hatena.ne.jp/holypp/20110516/1305552171
