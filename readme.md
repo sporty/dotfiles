@@ -6,8 +6,7 @@ dotfiles セットアップ方法
 
 * sshの設定
   
-* Windowsの場合はCurlを用意する
- * https://github.com/gmarik/vundle/wiki/Vundle-for-Windows
+* Windowsの場合はCurlを用意する(https://github.com/gmarik/vundle/wiki/Vundle-for-Windows)
 
 
 git clone
@@ -20,22 +19,25 @@ git submodule init
 git submodule update
 ```
 
-
 シンボリックリンクの作成
 ---------
 
-* WidnowsXP
+WidnowsXP
 
-下記URLを参照してフォルダはlinkd、ファイルはfsutilコマンドでリンクを作成
+```
+fsutil hardlink create "%HOME%\_vimrc" "%HOME%\dotfiles\_vimrc"
+fsutil hardlink create "%HOME%\_gvimrc" "%HOME%\dotfiles\_gvimrc"
 
-* WidnowsVista Windows7
+linkd "%HOME%vimfiles" "%HOME%\dotfiles\vimfiles"
+```
 
-下記URLを参照してmklinkコマンドでリンクを作成
+WidnowsVista Windows7
 
-http://d.hatena.ne.jp/holypp/20110516/1305552171
+```
+使ってない・・・
+```
 
-
-* Mac,Linux
+Mac,Linux
 
 ```
 ln -s ~/dotfiles/vimfiles ~/vimfiles
