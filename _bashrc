@@ -1,9 +1,13 @@
 #
+# bash設定ファイル
+# ============================================================
+
+# 共通設定
+# ------------------------------------------------------------ 
 
 bash --version
 export vi
 export python
-#export CYGWIN_TTY=1
 PS1='[\!]% '
 export HISTFILE=~/.bash_history
 export HISTFILESIZE=100
@@ -12,21 +16,36 @@ export HISTSIZE=100
 export EDITOR=vi
 export PAGER=less
 export LESS=-C
-export JLESSCHERSET=japanese-sjis
 #export LESSEDIT=vi %f
 export FIGNORE=.aux:.log:.o:.obj:.AUX:.LOG:.O:.OBJ
 
+# プラットフォーム毎の設定
+# ------------------------------------------------------------ 
 if [ `uname` == 'Darwin' ]; then
-	PATH="$HOME/local/bin:$PATH"
-	export PYTHONPATH=$HOME/local/lib/python2.6/site-packages
+	# Macのbashは.profile経由で読み込んでいる
+	#
+
+	#PATH="$HOME/local/bin:$PATH"
+	#export PYTHONPATH=$HOME/local/lib/python2.6/site-packages
 
 	export LS_OPTIONS='-G'
+
+	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+	alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
+	alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 else
 	export PATH=/usr/bin:/usr/local/bin:/cygdrive/c/Python25:/cygdrive/s/bin/effect/:/cygdrive/c/PHP/cli:$PATH
 
 	#export LS_OPTIONS='--color=auto'
 	export LS_OPTIONS='--show-control-char'
+
+	#export CYGWIN_TTY=1
+	export JLESSCHERSET=japanese-sjis
 fi
+
+# 共通alias
+# ------------------------------------------------------------ 
+
 #eval 'dircolors'
 alias ls='ls $LS_OPTIONS -CF'
 alias l='ls $LS_OPTIONS -l'
@@ -40,5 +59,4 @@ alias head='head -20'
 alias tail='tail -20'
 alias rehash='hash -r'
 
-
-
+# EOF
