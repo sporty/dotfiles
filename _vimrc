@@ -154,6 +154,27 @@ let python_highlight_space_errors = 1
 "autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
 
 
+" PHPの設定
+"===============================================================================
+
+" タブをスペースに自動変換
+"---------------------------------------------------------------------------
+
+autocmd FileType php :setlocal expandtab
+
+" QuickFix関連
+"---------------------------------------------------------------------------
+
+" makeをphpコマンドにして文法エラーを発見する
+autocmd FileType php :setlocal makeprg=php\ -|\ %
+autocmd FileType php :setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+
+" Ref関連
+"---------------------------------------------------------------------------
+"nmap ;r :<C-u>Ref phpmanual<Space>
+"let g:ref_phpmanual_path = 'D:\Documents\phpmanual'
+
+
 " タグファイル
 "===============================================================================
 
