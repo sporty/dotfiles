@@ -20,7 +20,7 @@ elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14
 elseif has('mac')
-  set guifont=Osaka-Mono:h14
+  set guifont=Osaka-Mono:h16
 endif
 
 
@@ -45,7 +45,7 @@ endif
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
 
-" 画面をカラースキームを変更する 
+" 画面のカラースキームを変更する 
 colorscheme koehler
 set synmaxcol=10000
 

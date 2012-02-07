@@ -17,7 +17,7 @@ filetype off
 set rtp+=~/vimfiles/vundle.git/
 call vundle#rc()
 Bundle 'http://github.com/Shougo/unite.vim.git'
-Bundle 'http://github.com/Shougo/neocomplcache.git'
+"Bundle 'http://github.com/Shougo/neocomplcache.git'
 Bundle 'http://github.com/thinca/vim-ref.git'
 Bundle 'http://github.com/groenewege/vim-less.git'
 Bundle 'http://github.com/tpope/vim-markdown.git'
@@ -120,6 +120,12 @@ au QuickfixCmdPost * copen
 au FileType help nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType help inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
+" 色
+"---------------------------------------------------------------------------
+
+" 画面のカラースキームを変更する 
+set t_Co=256
+colorscheme default
 
 " Pythonの設定
 "===============================================================================
@@ -166,8 +172,8 @@ autocmd FileType php :setlocal expandtab
 "---------------------------------------------------------------------------
 
 " makeをphpコマンドにして文法エラーを発見する
-autocmd FileType php :setlocal makeprg=php\ -|\ %
-autocmd FileType php :setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+"autocmd FileType php :setlocal makeprg=php\ -|\ %
+"autocmd FileType php :setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 " Ref関連
 "---------------------------------------------------------------------------
