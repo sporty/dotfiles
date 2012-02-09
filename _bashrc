@@ -24,12 +24,15 @@ export FIGNORE=.aux:.log:.o:.obj:.AUX:.LOG:.O:.OBJ
 if [ `uname` == 'Darwin' ]; then
 	# Macのbashは.profile経由で読み込んでいる
 	#
+	# PATHは/etc/libexec/path_helper -sによって設定されている。
+	# つまり/etc/pathsと/etc/paths.d/で決まる。直接編集したくないのでbrewのパス追加。
 
-	#PATH="$HOME/local/bin:$PATH"
+	export PATH="/usr/local/bin:$PATH"
 	#export PYTHONPATH=$HOME/local/lib/python2.6/site-packages
 
 	export LS_OPTIONS='-G'
 
+	# MacVimをターミナルで使う。
 	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
 	alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
 	alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
