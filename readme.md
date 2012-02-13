@@ -25,10 +25,7 @@ git submodule update
 WidnowsXP
 
 ```
-fsutil hardlink create "%HOME%\_vimrc" "%HOME%\dotfiles\_vimrc"
-fsutil hardlink create "%HOME%\_gvimrc" "%HOME%\dotfiles\_gvimrc"
-
-linkd "%HOME%vimfiles" "%HOME%\dotfiles\vimfiles"
+setup_xp.bat
 ```
 
 WidnowsVista Windows7
@@ -40,11 +37,7 @@ WidnowsVista Windows7
 Mac,Linux
 
 ```
-ln -s ~/dotfiles/vimfiles ~/vimfiles
-ln -s ~/dotfiles/_vimrc ~/.vimrc
-ln -s ~/dotfiles/_gvimrc ~/.gvimrc
-ln -s ~/dotfiles/_bashrc ~/.bashrc
-ln -s ~/dotfiles/_profile ~/.profile
+setup_mac.sh
 ```
 
 Vundle
