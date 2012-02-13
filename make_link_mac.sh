@@ -1,5 +1,6 @@
 #!/bin/sh 
 
+# ドットファイルのシンボリックリンクを作成
 if [ ! -d ~/vimfiles ]; then
 	ln -s ~/dotfiles/vimfiles ~/vimfiles
 fi
@@ -16,4 +17,8 @@ fi
 if [ ! -f ~/.profile ]; then
 	ln -s ~/dotfiles/_profile ~/.profile
 fi
+
+# ファインダーのタイトルバーにパスを表示
+defaults write com.apple.finder _FXShowPosixPathInTitle -boolean true
+killall Finder
 
