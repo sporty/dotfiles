@@ -34,13 +34,14 @@ WidnowsVista Windows7
 未実装
 ```
 
-Mac,
+Mac
 
 ```
 ~/dotfiles/setup_mac.sh
 ```
 
 Linux
+
 ```
 未実装
 ```
