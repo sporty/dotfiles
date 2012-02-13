@@ -19,25 +19,30 @@ git submodule init
 git submodule update
 ```
 
-シンボリックリンクの作成
+自動初期設定
 ---------
 
 WidnowsXP
 
 ```
-setup_xp.bat
+~/dotfiles/setup_xp.bat
 ```
 
 WidnowsVista Windows7
 
 ```
-使ってない・・・
+未実装
 ```
 
-Mac,Linux
+Mac,
 
 ```
-setup_mac.sh
+~/dotfiles/setup_mac.sh
+```
+
+Linux
+```
+未実装
 ```
 
 Vundle
