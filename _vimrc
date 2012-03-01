@@ -4,6 +4,16 @@
 "
 "
 
+" Liuxのみ香り屋版を使用しないので、Bram氏の設定例を読み込み
+"===============================================================================
+if has('unix')
+  let uname = system('uname')
+
+  if uname =~? "linux"
+	source $VIMRUNTIME/vimrc_example.vim
+  endif
+endif
+
 
 " プラグインの設定
 "===============================================================================
@@ -125,7 +135,7 @@ au FileType help inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 " 画面のカラースキームを変更する 
 set t_Co=256
-colorscheme default
+colorscheme koehler
 
 " Pythonの設定
 "===============================================================================
