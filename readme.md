@@ -50,7 +50,7 @@ Mac
 Linux
 
 ```
-未実装
+~/dotfiles/setup_linux.sh
 ```
 
 Vundle
