@@ -4,8 +4,15 @@ dotfiles セットアップ方法
 前準備
 ---------
 
+* git 設定
+
+```
+git config  --global user.name "Ryo Takahashi"
+git config  --global user.email "rt.sporty@gmail.com"
+```
+
 * sshの設定
-  
+
 * Windowsの場合はCurlを用意する(https://github.com/gmarik/vundle/wiki/Vundle-for-Windows)
 
 
@@ -43,7 +50,7 @@ Mac
 Linux
 
 ```
-未実装
+~/dotfiles/setup_linux.sh
 ```
 
 Vundle
