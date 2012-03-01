@@ -6,9 +6,11 @@
 # ------------------------------------------------------------ 
 
 bash --version
+
+PS1='[\!]% '
+
 export vi
 export python
-PS1='[\!]% '
 export HISTFILE=~/.bash_history
 export HISTFILESIZE=100
 export HISTCONTROL=ignoreboth
@@ -36,10 +38,18 @@ if [ `uname` == 'Darwin' ]; then
 	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
 	alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
 	alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
+
+elif [ `uname` == 'Linux' ]; then
+	# linux
+
+	alias vi='/usr/local/bin/vim'
+
+	PS1='\u@\h [\!]% '
+
+	export LS_OPTIONS='--color=auto'
 else
 	export PATH=/usr/bin:/usr/local/bin:/cygdrive/c/Python25:/cygdrive/s/bin/effect/:/cygdrive/c/PHP/cli:$PATH
 
-	#export LS_OPTIONS='--color=auto'
 	export LS_OPTIONS='--show-control-char'
 
 	#export CYGWIN_TTY=1
