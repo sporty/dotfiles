@@ -1,6 +1,6 @@
 #!/bin/sh 
 
-# ドットファイルのシンボリックリンクを作成
+# Linux用ドットファイルのシンボリックリンクを作成
 if [ ! -d ~/vimfiles ]; then
 	ln -s ~/dotfiles/vimfiles ~/vimfiles
 fi
