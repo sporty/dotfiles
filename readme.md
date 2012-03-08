@@ -6,18 +6,18 @@ dotfiles セットアップ方法
 
 * git 設定
 
-家ならグローバルでプライベートメールアドレスを設定してしまう。
-
-```
-git config --global user.name "Ryo Takahashi"
-git config --global user.email "********@gmail.com"
-```
-
 会社なら会社のメールアドレスを設定する。
 
 ```
 git config --global user.name "Ryo Takahashi"
 git config --global user.email "ryo_takahashi@********.co.jp"
+```
+
+家ならグローバルでプライベートメールアドレスを設定してしまう。
+
+```
+git config --global user.name "Ryo Takahashi"
+git config --global user.email "********@gmail.com"
 ```
 
 * sshの設定
@@ -35,7 +35,7 @@ git submodule init
 git submodule update
 ```
 
-会社などではグローバル設定はプライベートメールアドレスでは無いと思うので、ここで変更しておく。
+会社ではローカル設定でメールアドレスを設定しておく。
 
 ```
 git config --local user.name "Ryo Takahashi"
