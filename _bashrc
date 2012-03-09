@@ -47,6 +47,8 @@ elif [ `uname` == 'Linux' ]; then
 	PS1='\u@\h [\!]% '
 
 	export LS_OPTIONS='--color=auto'
+	# rubygemの為にパスを追加
+	export RUBYLIB=/usr/local/lib
 else
 	export PATH=/usr/bin:/usr/local/bin:/cygdrive/c/Python25:/cygdrive/s/bin/effect/:/cygdrive/c/PHP/cli:$PATH
 
