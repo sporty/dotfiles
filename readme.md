@@ -20,16 +20,16 @@ git config --global user.name "Ryo Takahashi"
 git config --global user.email "********@gmail.com"
 ```
 
-* sshの設定
+* sshの設定 (http://rt-sporty.blogspot.jp/2012/03/ssh.html)
 
-* Windowsの場合はCurlを用意する(https://github.com/gmarik/vundle/wiki/Vundle-for-Windows)
+* Windowsの場合はCurlを用意する (https://github.com/gmarik/vundle/wiki/Vundle-for-Windows)
 
 
 git clone
 ---------
 
 ```
-git clone https://sporty@github.com/sporty/dotfiles.git ~/dotfiles
+git clone git@github.com:sporty/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 git submodule init
 git submodule update
