@@ -36,7 +36,6 @@ git clone git@github.com:sporty/dotfiles.git ~/dotfiles
 
 ```
 cd ~/dotfiles
-git config --local user.name "Ryo Takahashi"
 git config --local user.email "********@gmail.com"
 ```
 
