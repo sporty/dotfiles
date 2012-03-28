@@ -21,9 +21,8 @@ install-git:
 #
 
 install-bash:
-	rm -f ~/.bashrc
+	rm -f ~/.bashrc ~/.profile
 	ln -s ~/dotfiles/_bashrc ~/.bashrc
-	rm -f ~/.profile
 	ln -s ~/dotfiles/_profile ~/.profile
 
 #
