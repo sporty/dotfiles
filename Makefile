@@ -19,6 +19,11 @@ install-git:
 	# gitconfigは環境依存が大きいので未使用
 	#rm -f ~/.gitconfig
 	#ln -s ~/dotfiles/git/_gitconfig ~/.gitconfig
+	# config
+	git config --global user.name "Ryo Takahashi"
+ifeq ($(shell uname),Darwin)
+	git config --global core.editor "/Applications/MacVim.app/Contents/MacOS/Vim"
+endif
 
 #
 # bash
@@ -33,7 +38,7 @@ install-bash:
 # vim
 #
 
-install-vim:
+install-vim: install-git
 	# git submoduleサブコマンドでvimプラグインのvundleを取得
 	cd ~/dotfiles
 	git submodule init
@@ -59,7 +64,7 @@ ifeq ($(shell uname),Darwin)
 	killall Finder
 endif
 
-dump-plist:
+dump-preferences:
 ifeq ($(shell uname),Darwin)
 	cp ~/Library/Preferences/com.apple.Terminal.plist mac/
 	plutil -convert xml1 mac/com.apple.Terminal.plist
