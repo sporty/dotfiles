@@ -1,4 +1,6 @@
 
+all:
+	@echo "none"
 #
 # 全部
 #
