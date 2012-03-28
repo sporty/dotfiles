@@ -1,10 +1,8 @@
 dotfiles セットアップ方法
 ================================================
 
-前準備
+git 設定
 ---------
-
-* git 設定
 
 会社なら会社のメールアドレスを設定する。
 
@@ -20,9 +18,10 @@ git config --global user.name "Ryo Takahashi"
 git config --global user.email "********@gmail.com"
 ```
 
-* sshの設定 (http://rt-sporty.blogspot.jp/2012/03/ssh.html)
+sshの設定
+---------
 
-* Windowsの場合はCurlを用意する (https://github.com/gmarik/vundle/wiki/Vundle-for-Windows)
+http://rt-sporty.blogspot.jp/2012/03/ssh.html
 
 
 git clone
@@ -68,6 +67,9 @@ Linux
 
 Vundle
 ---------
+Windowsの場合はCurlを用意する (https://github.com/gmarik/vundle/wiki/Vundle-for-Windows)
+
+vimを起動し、以下のコマンドを実行
 
 ```
 :BundleInstall
