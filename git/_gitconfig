@@ -1,0 +1,12 @@
+[user]
+	name = Ryo Takahashi
+	email = ryo_takahashi@dwango.co.jp
+	mail = ryo_takahashi@dwango.co.jp
+[core]
+	excludesfile = /Users/ryo_takahashi/.gitignore_global
+[difftool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
