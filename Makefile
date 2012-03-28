@@ -1,6 +1,8 @@
+# セットアップ
 
 all:
 	@echo "初期設定を行いたい場合は make install と実行してください"
+
 #
 # 全部
 #
@@ -65,4 +67,4 @@ else
 	@echo "dump-plist can use only on mac os."
 endif
 
-
+# EOF
