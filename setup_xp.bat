@@ -1,7 +1,7 @@
 
 rem git submoduleサブコマンドでvimプラグインのvundleを取得
 
-cd ~/dotfiles
+cd %HOME%/dotfiles
 git submodule init
 git submodule update
 
