@@ -1,6 +1,6 @@
 
 all:
-	@echo "none"
+	@echo "初期設定を行いたい場合は make install と実行してください"
 #
 # 全部
 #
