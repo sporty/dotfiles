@@ -30,14 +30,12 @@ git clone
 
 ```
 git clone git@github.com:sporty/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-git submodule init
-git submodule update
 ```
 
 会社ではローカル設定でメールアドレスを設定しておく。
 
 ```
+cd ~/dotfiles
 git config --local user.name "Ryo Takahashi"
 git config --local user.email "********@gmail.com"
 ```
