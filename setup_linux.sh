@@ -1,5 +1,10 @@
 #!/bin/sh 
 
+# git submoduleサブコマンドでvimプラグインのvundleを取得
+cd ~/dotfiles
+git submodule init
+git submodule update
+
 # Linux用ドットファイルのシンボリックリンクを作成
 if [ ! -d ~/vimfiles ]; then
 	ln -s ~/dotfiles/vimfiles ~/vimfiles
