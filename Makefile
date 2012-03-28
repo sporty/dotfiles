@@ -45,12 +45,22 @@ install-vim:
 #
 
 install-mac:
+ifeq ($(shell uname),Darwin)
 	# ターミナル.appの設定をコピー
+	cp ~/Library/Preferences/com.apple.Terminal.plist ~/dotfiles/mac/com.apple.Terminal.plist.back
+	@echo "backup plist to mac/ ( with extension .back)..."
 	cp ~/dotfiles/mac/com.apple.Terminal.plist ~/Library/Preferences/
 	# ファインダーのタイトルバーにパスを表示
 	defaults write com.apple.finder _FXShowPosixPathInTitle -boolean true
 	killall Finder
+endif
 
-
+dump-plist:
+ifeq ($(shell uname),Darwin)
+	cp ~/Library/Preferences/com.apple.Terminal.plist mac/
+	plutil -convert xml1 mac/com.apple.Terminal.plist
+else
+	@echo "dump-plist can use only on mac os."
+endif
 
 
