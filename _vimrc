@@ -85,6 +85,8 @@ autocmd FileType php nmap ;r :<C-u>Ref phpmanual<Space>
 
 " 英和辞典
 nmap ;e :<C-u>Ref alc<Space>
+"let g:ref_alc_start_linenumber = 39 " 表示する行数
+"let g:ref_alc_encoding = 'Shift-JIS' " 文字化けするならここで文字コードを指定してみる
 
 " ESC２回で閉じる
 au FileType ref-pydoc nnoremap <silent> <buffer> <ESC><ESC> :q<CR>

@@ -79,7 +79,7 @@ endif
 install-documents:
 	# php
 	wget -O php_manual_ja.tgz "http://jp2.php.net/get/php_manual_ja.tar.gz/from/jp.php.net/mirror"
-	mkdir ~/Documents/references
+	mkdir -p ~/Documents/references
 	tar zxvf php_manual_ja.tgz -C ~/Documents/references
 
 # EOF
