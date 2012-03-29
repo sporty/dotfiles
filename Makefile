@@ -46,8 +46,8 @@ install-vim: install-git
 	# ドットファイルのシンボリックリンクを作成
 	rm -rf ~/vimfiles ~/.vimrc ~/.gvimrc
 	ln -s ~/dotfiles/vimfiles ~/vimfiles
-	ln -s ~/dotfiles/_vimrc ~/.vimrc
-	ln -s ~/dotfiles/_gvimrc ~/.gvimrc
+	ln -s ~/dotfiles/vimfiles/_vimrc ~/.vimrc
+	ln -s ~/dotfiles/vimfiles/_gvimrc ~/.gvimrc
 
 #
 # Mac OS
