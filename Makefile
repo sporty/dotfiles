@@ -85,4 +85,11 @@ install-documents:
 	wget -O python-doc-2.7ja1-html.tgz http://python-doc-ja.googlecode.com/files/python-doc-2.7ja1-html.tar.gz
 	tar zxvf python-doc-2.7ja1-html.tgz -C ~/Documents/references/
 
+#
+# 不要なファイルを削除
+#
+
+clean:
+	rm -f *.tgz
+
 # EOF
