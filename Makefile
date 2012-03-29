@@ -31,8 +31,8 @@ endif
 
 install-bash:
 	rm -f ~/.bashrc ~/.profile
-	ln -s ~/dotfiles/_bashrc ~/.bashrc
-	ln -s ~/dotfiles/_profile ~/.profile
+	ln -s ~/dotfiles/bash/_bashrc ~/.bashrc
+	ln -s ~/dotfiles/bash/_profile ~/.profile
 
 #
 # vim
