@@ -77,9 +77,12 @@ endif
 #
 
 install-documents:
+	mkdir -p ~/Documents/references
 	# php
 	wget -O php_manual_ja.tgz "http://jp2.php.net/get/php_manual_ja.tar.gz/from/jp.php.net/mirror"
-	mkdir -p ~/Documents/references
 	tar zxvf php_manual_ja.tgz -C ~/Documents/references
+	# python 2.7
+	wget -O python-doc-2.7ja1-html.tgz http://python-doc-ja.googlecode.com/files/python-doc-2.7ja1-html.tar.gz
+	tar zxvf python-doc-2.7ja1-html.tgz -C ~/Documents/references/
 
 # EOF
