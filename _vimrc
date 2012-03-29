@@ -75,6 +75,27 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+
+" ref.vim
+"---------------------------------------------------------------------------
+
+" リファレンス検索
+autocmd FileType python nmap ;r :<C-u>Ref pydoc<Space>
+autocmd FileType php nmap ;r :<C-u>Ref phpmanual<Space>
+
+" 英和辞典
+nmap ;e :<C-u>Ref alc<Space>
+
+" ESC２回で閉じる
+au FileType ref-pydoc nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType ref-phpmanual nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType ref-alc nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+
+" php
+let g:ref_phpmanual_path = $HOME.'/Documents/references/php-chunked-xhtml/'
+let g:ref_phpmanual_cmd = 'w3m -dump %s'
+
+
 " 一般的な設定
 "===============================================================================
 
@@ -192,11 +213,6 @@ autocmd FileType php :setlocal expandtab
 " makeをphpコマンドにして文法エラーを発見する
 "autocmd FileType php :setlocal makeprg=php\ -|\ %
 "autocmd FileType php :setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-
-" Ref関連
-"---------------------------------------------------------------------------
-"nmap ;r :<C-u>Ref phpmanual<Space>
-"let g:ref_phpmanual_path = 'D:\Documents\phpmanual'
 
 
 " タグファイル

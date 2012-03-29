@@ -72,4 +72,14 @@ else
 	@echo "dump-plist can use only on mac os."
 endif
 
+#
+# documents
+#
+
+install-documents:
+	# php
+	wget -O php_manual_ja.tgz "http://jp2.php.net/get/php_manual_ja.tar.gz/from/jp.php.net/mirror"
+	mkdir ~/Documents/references
+	tar zxvf php_manual_ja.tgz -C ~/Documents/references
+
 # EOF
