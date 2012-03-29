@@ -41,28 +41,23 @@ git config --local user.email "********@gmail.com"
 自動初期設定
 ---------
 
+Mac・Linux
+
+```
+cd ~/dotfiles
+make install
+```
+
 WidnowsXP
 
 ```
 ~/dotfiles/setup_xp.bat
 ```
 
-WidnowsVista Windows7
+WidnowsVista・Windows7
 
 ```
 未実装
-```
-
-Mac
-
-```
-~/dotfiles/setup_mac.sh
-```
-
-Linux
-
-```
-~/dotfiles/setup_linux.sh
 ```
 
 Vundle
