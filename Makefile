@@ -90,6 +90,6 @@ install-documents:
 #
 
 clean:
-	rm -f *.tgz *~
+	rm -f *.tgz *~ .*~
 
 # EOF
