@@ -29,8 +29,9 @@ if [ `uname` == 'Darwin' ]; then
 	# PATHは/etc/libexec/path_helper -sによって設定されている。
 	# つまり/etc/pathsと/etc/paths.d/で決まる。直接編集したくないのでbrewのパス追加。
 
-	export PATH="/usr/local/bin:$PATH"
+	export PATH="/usr/local/bin:$HOME/.rbenv/bin:$PATH"
 	#export PYTHONPATH=$HOME/local/lib/python2.6/site-packages
+	eval "$(rbenv init -)"
 
 	export LS_OPTIONS='-G'
 
