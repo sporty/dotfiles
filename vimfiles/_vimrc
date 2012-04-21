@@ -33,6 +33,7 @@ Bundle 'http://github.com/groenewege/vim-less.git'
 Bundle 'http://github.com/tpope/vim-markdown.git'
 Bundle 'http://github.com/h1mesuke/unite-outline.git'
 Bundle 'http://github.com/Shougo/vimfiler.git'
+Bundle 'http://github.com/altercation/vim-colors-solarized.git'
 filetype plugin indent on 
 
 
@@ -167,6 +168,11 @@ au FileType help inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 " 画面のカラースキームを変更する 
 set t_Co=256
 colorscheme koehler
+
+" solarized
+"let g:solarized_termcolors=256
+"set background=dark
+"colorscheme solarized
 
 " Pythonの設定
 "===============================================================================
