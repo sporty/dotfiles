@@ -47,6 +47,7 @@ set cmdheight=2
 
 " 画面のカラースキームを変更する 
 colorscheme koehler
+"colorscheme solarized
 set synmaxcol=10000
 
 
