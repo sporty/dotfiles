@@ -217,6 +217,24 @@ autocmd FileType php :setlocal expandtab
 "autocmd FileType php :setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 
+" Rubyの設定
+"===============================================================================
+
+" タブを2タブにして、スペースに自動変換
+"---------------------------------------------------------------------------
+
+au FileType ruby :setlocal ts=2
+au FileType ruby :setlocal sw=2
+au FileType ruby :setlocal softtabstop=2
+au FileType ruby :setlocal expandtab
+
+" QuickFix関連
+"---------------------------------------------------------------------------
+
+"autocmd FileType ruby :setlocal makeprg=ruby\ %
+"autocmd FileType ruby :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+
 " タグファイル
 "===============================================================================
 
