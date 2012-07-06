@@ -34,6 +34,7 @@ Bundle 'http://github.com/tpope/vim-markdown.git'
 Bundle 'http://github.com/h1mesuke/unite-outline.git'
 Bundle 'http://github.com/Shougo/vimfiler.git'
 Bundle 'http://github.com/altercation/vim-colors-solarized.git'
+Bundle "http://github.com/vim-scripts/pig.vim.git"
 filetype plugin indent on 
 
 
@@ -173,6 +174,16 @@ colorscheme koehler
 "let g:solarized_termcolors=256
 "set background=dark
 "colorscheme solarized
+
+" ファイルタイプ
+"---------------------------------------------------------------------------
+
+augroup filetypedetect
+  " pig
+  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+  " snippet
+  au BufNewFile,BufRead *.snip,*.snippet set filetype=snippet syntax=snippet
+augroup END
 
 " Pythonの設定
 "===============================================================================
