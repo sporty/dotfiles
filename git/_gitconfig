@@ -1,7 +1,6 @@
 [user]
 	name = Ryo Takahashi
 	email = ryo_takahashi@dwango.co.jp
-	mail = ryo_takahashi@dwango.co.jp
 [core]
 	excludesfile = /Users/ryo_takahashi/.gitignore_global
 [difftool "sourcetree"]
