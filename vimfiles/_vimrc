@@ -35,6 +35,7 @@ Bundle 'http://github.com/h1mesuke/unite-outline.git'
 Bundle 'http://github.com/Shougo/vimfiler.git'
 Bundle 'http://github.com/altercation/vim-colors-solarized.git'
 Bundle "http://github.com/vim-scripts/pig.vim.git"
+"Bundle "http://github.com/davidhalter/jedi-vim.git"
 filetype plugin indent on 
 
 
