@@ -50,6 +50,10 @@ make install
 
 WidnowsXP
 
+* msysGit(http://code.google.com/p/msysgit/downloads/list)
+
+* Resource Kit Tools(http://www.microsoft.com/downloads/details.aspx?FamilyID=9d467a69-57ff-4ae7-96ee-b18c4790cffd&DisplayLang=en&displaylang=en)
+
 ```
 ~/dotfiles/setup_xp.bat
 ```
