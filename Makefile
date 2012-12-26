@@ -33,6 +33,7 @@ install-bash:
 	rm -f ~/.bashrc ~/.profile
 	ln -s ~/dotfiles/bash/_bashrc ~/.bashrc
 	ln -s ~/dotfiles/bash/_profile ~/.profile
+	ln -s ~/dotfiles/bash/_inputrc ~/.inputrc
 
 #
 # vim
