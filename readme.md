@@ -58,10 +58,10 @@ WidnowsXP
 ~/dotfiles/setup_xp.bat
 ```
 
-WidnowsVista・Windows7
+Windows7・Windows8
 
 ```
-未実装
+~/dotfiles/setup_7.bat
 ```
 
 Vundle
