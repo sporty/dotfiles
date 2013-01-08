@@ -48,15 +48,6 @@ cd ~/dotfiles
 make install
 ```
 
-Windows7・Windows8
-
-* github for windows(http://windows.github.com/)
-* githubのGit Shell(PowerShell)で以下のコマンドにてセットアップスクリプトを実行
-
-```
-cmd /C ~/dotfiles/setup_7.bat
-```
-
 WidnowsXP
 
 * msysGit(http://code.google.com/p/msysgit/downloads/list)
@@ -65,6 +56,12 @@ WidnowsXP
 
 ```
 ~/dotfiles/setup_xp.bat
+```
+
+Windows7・Windows8
+
+```
+~/dotfiles/setup_7.bat
 ```
 
 Vundle
