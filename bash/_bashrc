@@ -49,9 +49,18 @@ elif [ `uname` == 'Linux' ]; then
 	PS1='\u@\h [\!]% '
 
 	export LS_OPTIONS='--color=auto'
+
 	# rubygemの為にパスを追加
 	export RUBYLIB=/usr/local/lib
+
+elif [ `uname` == 'MINGW32_NT-6.1' ]; then
+	# mingw
+	alias vi='/c/Program\ Files/vim/gvim'
+
+	export LS_OPTIONS='--show-control-char --color=auto'
+
 else
+	# cygwin
 	export PATH=/usr/bin:/usr/local/bin:/cygdrive/c/Python25:/cygdrive/s/bin/effect/:/cygdrive/c/PHP/cli:$PATH
 
 	export LS_OPTIONS='--show-control-char'
