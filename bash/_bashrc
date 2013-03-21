@@ -7,7 +7,8 @@
 
 #bash --version
 
-PS1='[\!]% '
+# デフォルトプロンプト
+PS1="[\!]% "
 
 export vi
 export python
@@ -23,7 +24,8 @@ export FIGNORE=.aux:.log:.o:.obj:.AUX:.LOG:.O:.OBJ
 
 # プラットフォーム毎の設定
 # ------------------------------------------------------------ 
-if [ `uname` == 'Darwin' ]; then
+uname=`uname`
+if [ $uname == 'Darwin' ]; then
 	# Macのbashは.profile経由で読み込んでいる
 	#
 	# PATHは/etc/libexec/path_helper -sによって設定されている。
@@ -41,22 +43,31 @@ if [ `uname` == 'Darwin' ]; then
 	alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
 	alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 
-elif [ `uname` == 'Linux' ]; then
+elif [ $uname == 'Linux' ]; then
 	# linux
 
 	alias vi='/usr/local/bin/vim'
 
-	PS1='\u@\h [\!]% '
+	# プロンプト
+	PS1="\u@\h [\!]% "
 
+	# ls のオプション
 	export LS_OPTIONS='--color=auto'
 
 	# rubygemの為にパスを追加
 	export RUBYLIB=/usr/local/lib
 
-elif [ `uname` == 'MINGW32_NT-6.1' ]; then
+elif [ ${uname:0:5} == 'MINGW' ]; then
 	# mingw
-	alias vi='/c/Program\ Files/vim/gvim'
 
+	# プロンプト (太文字、緑、カレントディレクトリ名、ヒストリ番号)
+	PS1="\[\033[1m\033[32m\W\033[0m\] [\!]% "
+
+	# Vimをターミナルで使う。
+	alias vi='/c/Program\ Files/vim/vim'
+	alias gvim='/c/Program\ Files/vim/gvim'
+
+	# ls のオプション
 	export LS_OPTIONS='--show-control-char --color=auto'
 
 else
@@ -76,6 +87,7 @@ fi
 alias ls='ls $LS_OPTIONS -CF'
 alias l='ls $LS_OPTIONS -l'
 alias la='ls $LS_OPTIONS -a'
+alias sl=ls
 alias .='pwd'
 alias h='history'
 alias rm='rm -i'
