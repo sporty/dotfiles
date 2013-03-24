@@ -40,8 +40,8 @@ Bundle "http://github.com/PProvost/vim-ps1.git"
 Bundle "http://github.com/nvie/vim-flake8.git"
 Bundle "http://github.com/Lokaltog/vim-powerline.git"
 "Bundle "http://github.com/Lokaltog/powerline.git"
+"Bundle "http://github.com/thinca/vim-quickrun.git"
 filetype plugin indent on 
-
 
 " unite
 "---------------------------------------------------------------------------
