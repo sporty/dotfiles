@@ -77,6 +77,13 @@ vimを起動し、以下のコマンドを実行
 :BundleInstall
 ```
 
+jediのみサブモジュールアップデートが必要。
+
+```
+cd .vim/bundle/jedi-vim
+git submodule update --init
+```
+
 関連情報
 =================
 
