@@ -33,4 +33,12 @@ mklink /H "%HOME%\_gvimrc" "%HOME%\dotfiles\vimfiles\_gvimrc"
 
 mklink /J /D "%HOME%\vimfiles" "%HOME%\dotfiles\vimfiles"
 
+rem ======================================================================
+rem powerlineの設定
+rem ======================================================================
+
+rem シンボリックリンクの作成
+
+mklink /J /D "%HOME%\.config\powerline" "%HOME%\dotfiles\powerline"
+
 rem EOF

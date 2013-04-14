@@ -7,7 +7,7 @@ all:
 # 全部
 #
 
-install: install-git install-bash install-vim install-mac
+install: install-git install-bash install-vim install-powerline install-mac
 
 #
 # git
@@ -49,6 +49,14 @@ install-vim: install-git
 	ln -s ~/dotfiles/vimfiles ~/vimfiles
 	ln -s ~/dotfiles/vimfiles/_vimrc ~/.vimrc
 	ln -s ~/dotfiles/vimfiles/_gvimrc ~/.gvimrc
+
+#
+# powerline
+#
+
+install-powerline:
+	# ドットファイルのシンボリックリンクを作成
+	ln -s ~/dotfiles/powerline ~/.config/powerline
 
 #
 # Mac OS
