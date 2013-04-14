@@ -15,96 +15,6 @@ if has('unix')
 endif
 
 
-" プラグインの設定
-"===============================================================================
-
-" vundle
-"---------------------------------------------------------------------------
-
-set nocompatible
-filetype off
-
-set rtp+=~/vimfiles/vundle.git/
-call vundle#rc()
-Bundle 'http://github.com/Shougo/unite.vim.git'
-"Bundle 'http://github.com/Shougo/neocomplcache.git'
-Bundle 'http://github.com/thinca/vim-ref.git'
-Bundle 'http://github.com/groenewege/vim-less.git'
-Bundle 'http://github.com/tpope/vim-markdown.git'
-Bundle 'http://github.com/h1mesuke/unite-outline.git'
-Bundle 'http://github.com/Shougo/vimfiler.git'
-Bundle 'http://github.com/altercation/vim-colors-solarized.git'
-Bundle "http://github.com/vim-scripts/pig.vim.git"
-"Bundle "http://github.com/davidhalter/jedi-vim.git"
-Bundle "http://github.com/PProvost/vim-ps1.git"
-Bundle "http://github.com/nvie/vim-flake8.git"
-Bundle "http://github.com/Lokaltog/vim-powerline.git"
-"Bundle "http://github.com/Lokaltog/powerline.git"
-"Bundle "http://github.com/thinca/vim-quickrun.git"
-filetype plugin indent on 
-
-" unite
-"---------------------------------------------------------------------------
-
-" バッファとファイル履歴とファイル一覧
-noremap <silent> ;u :Unite buffer file_mru file<CR>
-" アウトライン
-noremap <silent> ;l :Unite outline<CR>
-" neocomplcacheのスニペット
-noremap <silent> ;s :Unite snippet<CR>
-" VimFiler起動
-noremap <silent> ;f :VimFiler<CR>
-
-" ESCキー２回で終了
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-au FileType vimfiler nnoremap <silent> <buffer> <ESC><ESC> :e#<CR>
-au FileType vimfiler inoremap <silent> <buffer> <ESC><ESC> <ESC>:e#<CR>
-
-
-" neocomplcache
-"---------------------------------------------------------------------------
-
-" 有効化
-let g:neocomplcache_enable_at_startup = 1
-" 自動補完を無効化
-"let g:neocomplcache_disable_auto_complete = 1
-
-" snippet
-let g:neocomplcache_snippets_dir = '~/vimfiles/snippets'
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-
-" ref.vim
-"---------------------------------------------------------------------------
-
-" リファレンス検索
-autocmd FileType python nmap ;r :<C-u>Ref pydoc<Space>
-autocmd FileType php nmap ;r :<C-u>Ref phpmanual<Space>
-
-" 英和辞典
-nmap ;e :<C-u>Ref alc<Space>
-"let g:ref_alc_start_linenumber = 39 " 表示する行数
-"let g:ref_alc_encoding = 'Shift-JIS' " 文字化けするならここで文字コードを指定してみる
-
-" ESC２回で閉じる
-au FileType ref-pydoc nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType ref-phpmanual nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType ref-alc nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-
-" php
-let g:ref_phpmanual_path = $HOME.'/Documents/references/php-chunked-xhtml/'
-let g:ref_phpmanual_cmd = 'w3m -dump %s'
-
-
 " 一般的な設定
 "===============================================================================
 
@@ -163,6 +73,17 @@ set fdm=marker
 
 set modeline
 
+" キーバインド
+"---------------------------------------------------------------------------
+
+" ハイライト表示をオフ
+noremap <silent> <ESC><ESC> :nohl<CR>
+" ウインドウ移動を簡素化
+noremap <silent> <C-H> <C-W>h
+noremap <silent> <C-J> <C-W>j
+noremap <silent> <C-K> <C-W>k
+noremap <silent> <C-L> <C-W>l
+
 " QuickFix
 "---------------------------------------------------------------------------
 
@@ -173,7 +94,7 @@ au FileType qf :nnoremap <silent> <buffer> <ESC><ESC> :cclose<CR>
 " make後に自動でQuickFixを開く
 au QuickfixCmdPost * copen
 
-" キーバインド
+" help
 "---------------------------------------------------------------------------
 
 " ESCキー２回でヘルプを閉じる
@@ -187,11 +108,6 @@ au FileType help inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 set t_Co=256
 colorscheme koehler
 
-" solarized
-"let g:solarized_termcolors=256
-"set background=dark
-"colorscheme solarized
-
 " ファイルタイプ
 "---------------------------------------------------------------------------
 
@@ -201,6 +117,150 @@ augroup filetypedetect
   " snippet
   au BufNewFile,BufRead *.snip,*.snippet set filetype=snippet syntax=snippet
 augroup END
+
+
+" プラグインの設定
+"===============================================================================
+
+" vundle
+"---------------------------------------------------------------------------
+
+set nocompatible
+filetype off
+
+set rtp+=~/vimfiles/vundle.git/
+call vundle#rc()
+
+" unite関連
+Bundle 'http://github.com/Shougo/unite.vim.git'
+Bundle 'http://github.com/h1mesuke/unite-outline.git'
+Bundle 'http://github.com/thinca/vim-ref.git'
+Bundle 'http://github.com/Shougo/vimfiler.git'
+"Bundle 'http://github.com/Shougo/neocomplcache.git'
+
+" ColorScheme
+"Bundle 'http://github.com/altercation/vim-colors-solarized.git'
+Bundle 'http://github.com/tomasr/molokai.git'
+
+" FileType
+Bundle 'http://github.com/groenewege/vim-less.git'
+Bundle 'http://github.com/tpope/vim-markdown.git'
+Bundle "http://github.com/vim-scripts/pig.vim.git"
+Bundle "http://github.com/PProvost/vim-ps1.git"
+
+" python
+Bundle 'http://github.com/klen/python-mode.git'
+Bundle 'http://github.com/davidhalter/jedi-vim.git'
+
+" other
+Bundle 'http://github.com/scrooloose/nerdtree.git'
+Bundle 'http://github.com/Lokaltog/vim-powerline.git'
+"Bundle 'http://github.com/Lokaltog/powerline.git'
+
+"Bundle 'http://github.com/thinca/vim-quickrun.git'
+
+filetype plugin indent on 
+
+" unite
+"---------------------------------------------------------------------------
+
+" バッファとファイル履歴とファイル一覧
+noremap <silent> ;u :Unite buffer file_mru file<CR>
+" アウトライン
+noremap <silent> ;l :Unite outline<CR>
+" neocomplcacheのスニペット
+noremap <silent> ;s :Unite snippet<CR>
+" VimFiler起動
+noremap <silent> ;f :VimFiler<CR>
+
+" ESCキー２回で終了
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+au FileType vimfiler nnoremap <silent> <buffer> <ESC><ESC> :e#<CR>
+au FileType vimfiler inoremap <silent> <buffer> <ESC><ESC> <ESC>:e#<CR>
+
+
+" neocomplcache
+"---------------------------------------------------------------------------
+
+if 0
+" 有効化
+let g:neocomplcache_enable_at_startup = 1
+" 自動補完を無効化
+"let g:neocomplcache_disable_auto_complete = 1
+
+" snippet
+let g:neocomplcache_snippets_dir = '~/vimfiles/snippets'
+imap <C-k> <Plug>(neocomplcache_snippets_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+endif
+
+
+" ref.vim
+"---------------------------------------------------------------------------
+
+" リファレンス検索
+autocmd FileType python nmap ;r :<C-u>Ref pydoc<Space>
+autocmd FileType php nmap ;r :<C-u>Ref phpmanual<Space>
+
+" 英和辞典
+nmap ;e :<C-u>Ref alc<Space>
+"let g:ref_alc_start_linenumber = 39 " 表示する行数
+"let g:ref_alc_encoding = 'Shift-JIS' " 文字化けするならここで文字コードを指定してみる
+
+" ESC２回で閉じる
+au FileType ref-pydoc nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType ref-phpmanual nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType ref-alc nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+
+" php
+let g:ref_phpmanual_path = $HOME.'/Documents/references/php-chunked-xhtml/'
+let g:ref_phpmanual_cmd = 'w3m -dump %s'
+
+
+" カラースキーム
+"===============================================================================
+
+" solarized
+"let g:solarized_termtrans=1
+"set background=dark
+"colorscheme solarized
+
+let g:molokai_original=0
+colorscheme molokai
+
+
+" NERDtreeの設定
+"===============================================================================
+
+" 基本設定
+"---------------------------------------------------------------------------
+
+" 非表示ファイル
+let g:NERDTreeIgnore=['\.py[co]$', '\.swp$', '\.bak$', '\~$']
+" 起動時にNERDTreeを開く
+let file_name = expand("%:p")
+if has('vim_starting') && file_name == ''
+    autocmd VimEnter * execute 'NERDTree ./'
+endif
+" 終了時NERDTreeバッファのみの場合は自動で閉じる
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" キーバインド
+"---------------------------------------------------------------------------
+
+" ESC２回で閉じる
+au FileType nerdtree :nnoremap <silent> <buffer> <ESC><ESC> :NERDTreeClose<CR>
+" F3で表示切り替え
+noremap <silent> <F3> :NERDTreeToggle<CR>
+
 
 " Pythonの設定
 "===============================================================================
@@ -217,19 +277,31 @@ autocmd FileType python :setlocal expandtab
 autocmd FileType python :setlocal makeprg=python\ %
 autocmd FileType python :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
-" ハイライトオプション
+" python-mode の設定
 "---------------------------------------------------------------------------
 
-" 数字のハイライト:
-let python_highlight_numbers = 1
-" 組み込み関数のハイライト:
-let python_highlight_builtins = 1
-" 標準例外のハイライト:
-let python_highlight_exceptions = 1
-" 行末の空白と、スペースとタブの混在をハイライト:
-let python_highlight_space_errors = 1
-" 以上全部
-"let python_highlight_all = 1
+" Check code every save
+let g:pymode_lint_write = 0
+" Enable python folding
+let g:pymode_folding = 0
+" Autoremove unused whitespaces
+let g:pymode_utils_whitespaces = 0
+" Additional python paths (Mayaのパス等追加)
+let g:pymode_paths = []
+" Maximum allowed mccabe complexity
+let g:pymode_lint_mccabe_complexity = 8
+
+" jedi の設定
+"---------------------------------------------------------------------------
+
+" 関数リファレンスを表示しない
+let g:jedi#show_function_definition = "0"
+
+" キーバインド
+"---------------------------------------------------------------------------
+
+let g:pymode_run_key = 'F8'
+autocmd FileType python noremap <silent> <buffer> <F7> :PyLint<CR>
 
 " djangoのtagsを追加
 "autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags

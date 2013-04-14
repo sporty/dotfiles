@@ -32,7 +32,8 @@ if &diff
   " diffモードで起動したときは横幅を倍で。
   set columns=200
 else
-  set columns=89
+  " 通常バッファ 89 + NERDTree 30
+  set columns=119
 endif
 
 " ウインドウの高さ
@@ -46,10 +47,17 @@ endif
 set cmdheight=2
 
 " 画面のカラースキームを変更する 
-colorscheme koehler
-"colorscheme solarized
-set synmaxcol=10000
+"colorscheme koehler
 
+" solarized
+"set background=dark
+"colorscheme solarized
+
+" molokai
+let g:molokai_original=0
+colorscheme molokai
+
+set synmaxcol=10000
 
 "タブ(GUI)
 "---------------------------------------------------------------------------
