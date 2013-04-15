@@ -13,7 +13,7 @@ set vb t_vb=
 "---------------------------------------------------------------------------
 if has('win32')
   " Windows用
-  set guifont=MS_Gothic:h12:cSHIFTJIS
+  set guifont=MS_Gothic:h12:b:cSHIFTJIS
   " 行間隔の設定
   set linespace=3
 elseif has('xfontset')
