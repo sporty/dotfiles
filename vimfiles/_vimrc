@@ -140,7 +140,7 @@ Bundle 'http://github.com/Shougo/vimfiler.git'
 
 " ColorScheme
 "Bundle 'http://github.com/altercation/vim-colors-solarized.git'
-Bundle 'http://github.com/tomasr/molokai.git'
+Bundle 'http://github.com/sporty/molokai.git'
 
 " FileType
 Bundle 'http://github.com/groenewege/vim-less.git'
