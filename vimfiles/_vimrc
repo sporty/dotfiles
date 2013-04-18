@@ -154,11 +154,8 @@ Bundle 'http://github.com/davidhalter/jedi-vim.git'
 
 " other
 Bundle 'http://github.com/scrooloose/nerdtree.git'
-"Bundle 'http://github.com/Lokaltog/vim-powerline.git'
-"Bundle 'http://github.com/Lokaltog/powerline.git'
+Bundle 'http://github.com/Lokaltog/vim-powerline.git'
 "Bundle 'http://github.com/Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
-
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 "Bundle 'http://github.com/thinca/vim-quickrun.git'
 
