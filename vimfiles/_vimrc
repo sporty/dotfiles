@@ -152,6 +152,9 @@ Bundle "http://github.com/PProvost/vim-ps1.git"
 Bundle 'http://github.com/klen/python-mode.git'
 Bundle 'http://github.com/davidhalter/jedi-vim.git'
 
+" syntax checker
+Bundle 'https://github.com/scrooloose/syntastic.git'
+
 " other
 Bundle 'http://github.com/scrooloose/nerdtree.git'
 Bundle 'http://github.com/Lokaltog/vim-powerline.git'
@@ -280,6 +283,8 @@ autocmd FileType python :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ li
 " python-mode の設定
 "---------------------------------------------------------------------------
 
+" Load pylint code plugin
+let g:pymode_lint = 0
 " Check code every save
 let g:pymode_lint_write = 0
 " Enable python folding
@@ -291,23 +296,43 @@ let g:pymode_paths = []
 " Maximum allowed mccabe complexity
 let g:pymode_lint_mccabe_complexity = 8
 
-" プレビューを出さない
-autocmd FileType python setlocal completeopt-=preview
-
 " jedi の設定
 "---------------------------------------------------------------------------
 
+" プレビューを出さない
+autocmd FileType python setlocal completeopt-=preview
 " 関数リファレンスを表示しない
 let g:jedi#show_function_definition = "0"
 
 " キーバインド
 "---------------------------------------------------------------------------
 
-let g:pymode_run_key = 'F8'
-autocmd FileType python noremap <silent> <buffer> <F7> :PyLint<CR>
+let g:pymode_run_key = '<F8>'
 
 " djangoのtagsを追加
 "autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
+
+
+" シンタックスチェック
+"===============================================================================
+
+" syntasticの設定
+"---------------------------------------------------------------------------
+let g:syntastic_mode_map = { 'mode': 'passive',
+	  \						 'active_filetypes': [],
+	  \						 'passive_filetypes': ['javascript', 'python'] }
+let g:syntastic_auto_loc_list = 1
+
+let g:syntastic_javascript_checkers = ['closurecompiler']
+let g:syntastic_python_checkers = ['flake8']
+"let g:syntastic_python_checkers = ['flake8', 'py3kwarn']
+
+let g:syntastic_javascript_closure_compiler_path = '~/compiler.jar'
+let g:syntastic_javascript_closure_compiler_options = ''
+
+" キーバインド
+"---------------------------------------------------------------------------
+noremap <silent> <F7> :SyntasticCheck<CR>
 
 
 " PHPの設定
