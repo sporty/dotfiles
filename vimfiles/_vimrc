@@ -291,6 +291,9 @@ let g:pymode_paths = []
 " Maximum allowed mccabe complexity
 let g:pymode_lint_mccabe_complexity = 8
 
+" プレビューを出さない
+autocmd FileType python setlocal completeopt-=preview
+
 " jedi の設定
 "---------------------------------------------------------------------------
 
