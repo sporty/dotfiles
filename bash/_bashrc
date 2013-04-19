@@ -97,4 +97,6 @@ alias head='head -20'
 alias tail='tail -20'
 alias rehash='hash -r'
 
+alias pserv='python -m SimpleHTTPServer'
+
 # EOF
