@@ -124,6 +124,11 @@ augroup END
 " プラグインの設定
 "===============================================================================
 
+" 自分のプラグイン。まだ何も無い。
+"---------------------------------------------------------------------------
+
+set rtp+=~/vimfiles/myplugin/
+
 " vundle
 "---------------------------------------------------------------------------
 
@@ -289,14 +294,16 @@ autocmd FileType python :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ li
 let g:pymode_lint = 0
 " Check code every save
 let g:pymode_lint_write = 0
+" Maximum allowed mccabe complexity
+let g:pymode_lint_mccabe_complexity = 8
 " Enable python folding
 let g:pymode_folding = 0
 " Autoremove unused whitespaces
 let g:pymode_utils_whitespaces = 0
 " Additional python paths (Mayaのパス等追加)
 let g:pymode_paths = []
-" Maximum allowed mccabe complexity
-let g:pymode_lint_mccabe_complexity = 8
+" Enable pymode indentation
+let g:pymode_indent = 1
 
 " jedi の設定
 "---------------------------------------------------------------------------
@@ -304,7 +311,7 @@ let g:pymode_lint_mccabe_complexity = 8
 " プレビューを出さない
 autocmd FileType python setlocal completeopt-=preview
 " 関数リファレンスを表示しない
-let g:jedi#show_function_definition = "0"
+let g:jedi#show_function_definition = 0
 
 " キーバインド
 "---------------------------------------------------------------------------
