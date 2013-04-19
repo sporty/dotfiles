@@ -89,10 +89,12 @@ noremap <silent> <C-L> <C-W>l
 
 " ;nでQuickFixを開く
 noremap <silent> ;n :copen<CR>
+" ;NでLocationListを開く
+noremap <silent> ;N :lopen<CR>
 " ESC２回で閉じる
-au FileType qf :nnoremap <silent> <buffer> <ESC><ESC> :cclose<CR>
-" make後に自動でQuickFixを開く
-au QuickfixCmdPost * copen
+au FileType qf :nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+" make後に自動でQuickFixを開く syntasticが正しく動作しないのでダメ！
+"au QuickfixCmdPost * copen
 
 " help
 "---------------------------------------------------------------------------
