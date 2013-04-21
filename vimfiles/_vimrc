@@ -116,8 +116,6 @@ colorscheme koehler
 augroup filetypedetect
   " pig
   au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
-  " snippet
-  au BufNewFile,BufRead *.snip,*.snippet set filetype=snippet syntax=snippet
 augroup END
 
 
@@ -145,6 +143,10 @@ Bundle 'http://github.com/thinca/vim-ref.git'
 Bundle 'http://github.com/Shougo/vimfiler.git'
 "Bundle 'http://github.com/Shougo/neocomplcache.git'
 
+" snippet
+Bundle 'http://github.com/Shougo/neosnippet.git'
+Bundle 'http://github.com/honza/vim-snippets.git'
+
 " ColorScheme
 "Bundle 'http://github.com/altercation/vim-colors-solarized.git'
 Bundle 'http://github.com/sporty/molokai.git'
@@ -160,7 +162,7 @@ Bundle 'http://github.com/klen/python-mode.git'
 Bundle 'http://github.com/davidhalter/jedi-vim.git'
 
 " syntax checker
-Bundle 'https://github.com/scrooloose/syntastic.git'
+Bundle 'http://github.com/scrooloose/syntastic.git'
 
 " other
 Bundle 'http://github.com/scrooloose/nerdtree.git'
@@ -199,11 +201,6 @@ let g:neocomplcache_enable_at_startup = 1
 " 自動補完を無効化
 "let g:neocomplcache_disable_auto_complete = 1
 
-" snippet
-let g:neocomplcache_snippets_dir = '~/vimfiles/snippets'
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
-
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -212,6 +209,14 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 endif
 
+" neosnippet
+"---------------------------------------------------------------------------
+
+" キーバインド
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+" snippetファイル
+let g:neosnippet#snippets_directory = '~/vimfiles/snippets,~/.vim/bundle/vim-snippets/snippets'
 
 " ref.vim
 "---------------------------------------------------------------------------
@@ -333,9 +338,9 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 
-let g:syntastic_javascript_checkers = ['closurecompiler']
-let g:syntastic_javascript_closure_compiler_path = '~/compiler.jar'
-let g:syntastic_javascript_closure_compiler_options = ''
+let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_javascript_closure_compiler_path = '~/compiler.jar'
+"let g:syntastic_javascript_closure_compiler_options = ''
 
 let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_python_checkers = ['flake8', 'py3kwarn']
