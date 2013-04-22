@@ -1,0 +1,7 @@
+snippet     partial
+    from functools import partial
+
+snippet     button
+    pymel.button(l=u"${1:label}", c=partial(${2:callback}))
+
+# EOF

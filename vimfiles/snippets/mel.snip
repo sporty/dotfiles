@@ -1,0 +1,15 @@
+snippet     globalp
+abbr        global proc name(...)
+    global proc ${1:name}()
+    {
+    }
+
+snippet     pythoni
+abbr        python(import ...);
+    python("import ${1:name}");
+
+snippet     python
+abbr        python(...);
+    python("${1:name}");
+
+# EOF
