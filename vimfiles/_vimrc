@@ -176,8 +176,8 @@ filetype plugin indent on
 " unite
 "---------------------------------------------------------------------------
 
-" バッファとファイル履歴とファイル一覧
-noremap <silent> ;u :Unite buffer file_mru file<CR>
+" バッファとファイル履歴
+noremap <silent> ;u :Unite buffer file_mru<CR>
 " アウトライン
 noremap <silent> ;l :Unite outline<CR>
 " neocomplcacheのスニペット
