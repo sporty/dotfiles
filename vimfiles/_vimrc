@@ -166,6 +166,7 @@ Bundle 'http://github.com/scrooloose/syntastic.git'
 
 " other
 Bundle 'http://github.com/scrooloose/nerdtree.git'
+Bundle 'http://github.com/kien/ctrlp.vim.git'
 Bundle 'http://github.com/Lokaltog/vim-powerline.git'
 "Bundle 'http://github.com/Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
 
@@ -338,7 +339,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['jshint', 'gjslint']
 "let g:syntastic_javascript_closure_compiler_path = '~/compiler.jar'
 "let g:syntastic_javascript_closure_compiler_options = ''
 
