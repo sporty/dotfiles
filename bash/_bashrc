@@ -7,6 +7,8 @@
 
 #bash --version
 
+uname=`uname`
+
 # デフォルトプロンプト
 PS1="[\!]% "
 
@@ -22,9 +24,9 @@ export LESS=-C
 #export LESSEDIT=vi %f
 export FIGNORE=.aux:.log:.o:.obj:.AUX:.LOG:.O:.OBJ
 
-# プラットフォーム毎の設定
+# プラットフォーム別の設定
 # ------------------------------------------------------------ 
-uname=`uname`
+
 if [ $uname == 'Darwin' ]; then
 	# Macのbashは.profile経由で読み込んでいる
 	#
@@ -38,15 +40,8 @@ if [ $uname == 'Darwin' ]; then
 
 	export LS_OPTIONS='-G'
 
-	# MacVimをターミナルで使う。
-	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
-	alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim'
-	alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
-
 elif [ $uname == 'Linux' ]; then
 	# linux
-
-	alias vi='/usr/local/bin/vim'
 
 	# プロンプト
 	PS1="\u@\h [\!]% "
@@ -57,27 +52,48 @@ elif [ $uname == 'Linux' ]; then
 	# rubygemの為にパスを追加
 	export RUBYLIB=/usr/local/lib
 
-elif [ ${uname:0:5} == 'MINGW' ]; then
-	# mingw
+elif [ ${uname:0:5} == 'MINGW' -o ${uname:0:6} == 'CYGWIN' ]; then
+	# mingw, cygwin
 
 	# プロンプト (太文字、緑、カレントディレクトリ名、ヒストリ番号)
 	PS1="\[\033[1m\033[32m\W\033[0m\] [\!]% "
-
-	# Vimをターミナルで使う。
-	alias vi='/c/Program\ Files/vim/vim'
-	alias gvim='/c/Program\ Files/vim/gvim'
 
 	# ls のオプション
 	export LS_OPTIONS='--show-control-char --color=auto'
 
 else
-	# cygwin
+	# 旧cygwin向け現在は使っていない
 	export PATH=/usr/bin:/usr/local/bin:/cygdrive/c/Python25:/cygdrive/s/bin/effect/:/cygdrive/c/PHP/cli:$PATH
 
 	export LS_OPTIONS='--show-control-char'
 
 	#export CYGWIN_TTY=1
 	export JLESSCHERSET=japanese-sjis
+fi
+
+# プラットフォーム別のalias 
+# ------------------------------------------------------------ 
+
+if [ $uname == 'Darwin' ]; then
+	# MacVimをターミナルで使う。
+	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+	alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim'
+	alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
+
+elif [ $uname == 'Linux' ]; then
+	# linux
+
+	alias vi='/usr/local/bin/vim'
+
+elif [ ${uname:0:5} == 'MINGW' ]; then
+	# Vimをターミナルで使う。
+	alias vi='/c/Program\ Files/vim/vim'
+	alias gvim='/c/Program\ Files/vim/gvim'
+
+elif [ ${uname:0:6} == 'CYGWIN' ]; then
+	# Vimをターミナルで使う。
+	alias vi='/cygdrive/c/Program\ Files/vim/vim'
+	alias gvim='/cygdrive/c/Program\ Files/vim/gvim'
 fi
 
 # 共通alias
