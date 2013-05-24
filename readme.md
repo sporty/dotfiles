@@ -5,7 +5,9 @@ dotfiles セットアップ方法
 ------------------
 
 * python 2.6 
-* git
+* git 1.8
+* gvim 7.3
+ * python 2.7 x64
 
 gitの設定
 ---------
