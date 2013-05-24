@@ -27,6 +27,7 @@ def vim():
     execute('cd '+np('~/dotfiles'))
     execute('git submodule init')
     execute('git submodule update')
+
     # ドットファイルのシンボリックリンクを作成
     symlink('~/dotfiles/vimfiles', '~/vimfiles')
     if sys.platform == "win32":
@@ -36,6 +37,13 @@ def vim():
     symlink('~/dotfiles/vimfiles/_vimrc', '~/%svimrc' % (prefix, ))
     symlink('~/dotfiles/vimfiles/_gvimrc', '~/%sgvimrc' % (prefix, ))
 
+    # vundleのアップデート
+    # TODO: コマンド実行後終了するオプションがほしい
+    execute('gvim -c "BundleInstall"')
+    # jediのアップデート
+    execute('cd '+np('~/.vim/bundle/jedi-vim'))
+    execute('git submodule update --init')
+
 
 def powerline():
     symlink('~/dotfiles/powerline', '~/.config/powerline')
@@ -44,9 +52,11 @@ def powerline():
 def mac():
     if sys.platform == "mac":
         # ターミナル.appの設定をコピー
-        copy('~/Library/Preferences/com.apple.Terminal.plist', '~/dotfiles/mac/com.apple.Terminal.plist.back')
+        copy('~/Library/Preferences/com.apple.Terminal.plist',
+             '~/dotfiles/mac/com.apple.Terminal.plist.back')
         print "backup plist to mac/ (with extension .back)..."
-        copy('~/dotfiles/mac/com.apple.Terminal.plist', '~/Library/Preferences/')
+        copy('~/dotfiles/mac/com.apple.Terminal.plist',
+             '~/Library/Preferences/')
         # ファインダーのタイトルバーにパスを表示
         execute('defaults write com.apple.finder _FXShowPosixPathInTitle -boolean true')
         execute('killall Finder')
