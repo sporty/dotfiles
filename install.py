@@ -11,6 +11,8 @@ import subprocess
 def git():
     symlink("~/dotfiles/git/_gitignore_global", "~/.gitignore_global")
     execute('git config --global user.name "Ryo Takahashi"')
+    execute('git config --global user.email rt.sporty@gmail.com')
+    execute('git config --global color.ui true')
     if sys.platform == "mac":
         #execute('git config --global core.editor "/Applications/MacVim.app/Contents/MacOS/Vim"')
         pass
