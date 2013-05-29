@@ -64,5 +64,32 @@ set synmaxcol=10000
 "常にタブを非表示
 set showtabline=0
 
+" ツールバーにボタン追加
+"---------------------------------------------------------------------------
+
+if has("toolbar")
+  " セパレータ
+  an ToolBar.-MySeparatorNo01- <Nop>
+
+  " ]cで前の差分に移動してzzでカーソル行を画面中央にする
+  tmenu ToolBar.JumpPreviousDiff Jump previous diff
+  an ToolBar.JumpPreviousDiff [czz
+
+  " ]cで次の差分に移動してzzでカーソル行を画面中央にする
+  tmenu ToolBar.JumpNextDiff Jump next diff
+  an ToolBar.JumpNextDiff ]czz
+
+  " セパレータ
+  an ToolBar.-MySeparatorNo02- <Nop>
+
+  " パスが長すぎてファイル名が読めないと困る。
+  " ファイルパスにカレントディレクトリを変更する。
+  tmenu ToolBar.SetCurrentDir Set current directry to file path
+  an ToolBar.SetCurrentDir :cd %:h<CR>
+
+  " セパレータ
+  an ToolBar.-MySeparatorNo03- <Nop>
+endif
+
 
 " EOF
