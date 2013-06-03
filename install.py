@@ -12,7 +12,9 @@ def git():
     symlink("~/dotfiles/git/_gitignore_global", "~/.gitignore_global")
     execute('git config --global user.name "Ryo Takahashi"')
     execute('git config --global user.email rt.sporty@gmail.com')
-    execute('git config --global color.ui true')
+    execute('git config --global color.ui auto')
+    execute('git config --global core.pager "less -R"')
+
     if sys.platform == "mac":
         #execute('git config --global core.editor "/Applications/MacVim.app/Contents/MacOS/Vim"')
         pass
@@ -41,7 +43,10 @@ def vim():
 
     # vundleのアップデート
     # TODO: コマンド実行後終了するオプションがほしい
-    execute('gvim -c "BundleInstall"')
+    if sys.platform == "win32":
+        execute('gvim -c "BundleInstall"')
+    else:
+        execute('vim -c "BundleInstall"')
     # jediのアップデート
     execute('cd '+np('~/.vim/bundle/jedi-vim'))
     execute('git submodule update --init')
@@ -139,10 +144,10 @@ if __name__ == "__main__":
         シンボリックリンク作成
         """
 
-        if sys.platform == "win32":
-            src = np(src)
-            dest = np(dest)
+        src = np(src)
+        dest = np(dest)
 
+        if sys.platform == "win32":
             # 一旦削除
             if os.path.isdir(dest):
                 execute('RMDIR /Q %s' % (dest, ))
