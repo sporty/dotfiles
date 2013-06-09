@@ -6,6 +6,10 @@ import os
 import shutil
 import inspect
 import subprocess
+import urlparse
+import httplib
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
 
 
 def git():
@@ -16,8 +20,16 @@ def git():
     execute('git config --global core.pager "less -R"')
 
     if sys.platform == "mac":
-        #execute('git config --global core.editor "/Applications/MacVim.app/Contents/MacOS/Vim"')
+        #execute('git config --global core.editor
+        #"/Applications/MacVim.app/Contents/MacOS/Vim"')
         pass
+
+
+def python():
+    fn = download('http://python-distribute.org/distribute_setup.py')
+    sudo('python ' + fn)
+    sudo('easy_install virtualenv')
+    sudo('easy_install flake8')
 
 
 def bash():
@@ -65,7 +77,8 @@ def mac():
         copy('~/dotfiles/mac/com.apple.Terminal.plist',
              '~/Library/Preferences/')
         # ファインダーのタイトルバーにパスを表示
-        execute('defaults write com.apple.finder _FXShowPosixPathInTitle -boolean true')
+        execute('defaults write com.apple.finder \
+                _FXShowPosixPathInTitle -boolean true')
         execute('killall Finder')
 
 
@@ -84,13 +97,10 @@ def documents():
     #
 
     install-documents:
+        http://jp2.php.net/get/php_manual_ja.tar.gz/from/jp.php.net/mirror
+        http://python-doc-ja.googlecode.com/files/python-doc-2.7ja1-html.tar.gz
         mkdir -p ~/Documents/references
-        # php
-        wget -O php_manual_ja.tgz "http://jp2.php.net/get/php_manual_ja.tar.gz/from/jp.php.net/mirror"
         tar zxvf php_manual_ja.tgz -C ~/Documents/references
-        # python 2.7
-        wget -O python-doc-2.7ja1-html.tgz http://python-doc-ja.googlecode.com/files/python-doc-2.7ja1-html.tar.gz
-        tar zxvf python-doc-2.7ja1-html.tgz -C ~/Documents/references/
 
     '''
     pass
@@ -100,6 +110,7 @@ def all():
     git()
     bash()
     vim()
+    python()
 
 
 def test():
@@ -119,6 +130,13 @@ if __name__ == "__main__":
         fpath = os.path.abspath(fpath)
         return fpath
 
+    def sudo(cmd):
+        """
+        sudoでコマンド実行
+        TODO: 未実装
+        """
+        execute(cmd)
+
     def execute(cmd):
         """
         コマンド実行
@@ -130,7 +148,7 @@ if __name__ == "__main__":
             pass
 
         if subprocess.call(cmd, shell=True):
-            raise Exception("error")
+            raise Exception("process error. stop installation.")
 
     def copy(src, dest):
         """
@@ -165,6 +183,39 @@ if __name__ == "__main__":
             # シンボリックリンク作成
             print "ln -s %s %s" % (src, dest)
             os.symlink(src, dest)
+
+    def download(url, filename=None):
+        print "download %s" % (url, )
+        o = urlparse.urlparse(url)
+        if o.scheme == "http":
+            conn = httplib.HTTPConnection(o.netloc)
+            conn.request("GET", o.path)
+            r1 = conn.getresponse()
+            if r1.status == 200:
+                data = r1.read()
+            else:
+                raise Exception("status error. %d (%s)" % (r1.status, url))
+        else:
+            raise Exception("unsupported scheme.")
+
+        if filename:
+            output_filename = np(filename)
+        else:
+            # ヘッダで指定されていたらファイル名を取り出す
+            disposition = r1.getheader("Content-Disposition")
+            if disposition:
+                output_filename = disposition
+            else:
+                # URLからファイル名を決定する
+                utmp = url
+                utmp = utmp.strip('/')
+                utmp = utmp.split('/')
+                output_filename = utmp[-1]
+
+        with file(output_filename, "wb") as fp:
+            fp.write(data)
+
+        return output_filename
 
     # 使用可能関数の検索
     funcs = {}
