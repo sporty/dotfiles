@@ -13,7 +13,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 def git():
-    _symlink("~/dotfiles/git/_gitignore_global", "~/.gitignore_global")
+    _ln("~/dotfiles/git/_gitignore_global", "~/.gitignore_global")
     _do('git config --global user.name "Ryo Takahashi"')
     _do('git config --global user.email rt.sporty@gmail.com')
     _do('git config --global color.ui auto')
@@ -26,16 +26,16 @@ def git():
 
 
 def python():
-    fn = download('http://python-distribute.org/distribute_setup.py')
+    fn = _dl('http://python-distribute.org/distribute_setup.py')
     _sudo('python ' + fn)
     _sudo('easy_install virtualenv')
     _sudo('easy_install flake8')
 
 
 def bash():
-    _symlink('~/dotfiles/bash/_bashrc', '~/.bashrc')
-    _symlink('~/dotfiles/bash/_profile', '~/.profile')
-    _symlink('~/dotfiles/bash/_inputrc', '~/.inputrc')
+    _ln('~/dotfiles/bash/_bashrc', '~/.bashrc')
+    _ln('~/dotfiles/bash/_profile', '~/.profile')
+    _ln('~/dotfiles/bash/_inputrc', '~/.inputrc')
 
 
 def vim():
@@ -45,13 +45,13 @@ def vim():
     _do('git submodule update')
 
     # ドットファイルのシンボリックリンクを作成
-    _symlink('~/dotfiles/vimfiles', '~/vimfiles')
+    _ln('~/dotfiles/vimfiles', '~/vimfiles')
     if sys.platform == "win32":
         prefix = "_"
     else:
         prefix = "."
-    _symlink('~/dotfiles/vimfiles/_vimrc', '~/%svimrc' % (prefix, ))
-    _symlink('~/dotfiles/vimfiles/_gvimrc', '~/%sgvimrc' % (prefix, ))
+    _ln('~/dotfiles/vimfiles/_vimrc', '~/%svimrc' % (prefix, ))
+    _ln('~/dotfiles/vimfiles/_gvimrc', '~/%sgvimrc' % (prefix, ))
 
     # vundleのアップデート
     # TODO: コマンド実行後終了するオプションがほしい
@@ -65,26 +65,26 @@ def vim():
 
 
 def powerline():
-    _symlink('~/dotfiles/powerline', '~/.config/powerline')
+    _ln('~/dotfiles/powerline', '~/.config/powerline')
 
 
 def mac():
     if sys.platform == "mac":
         # ターミナル.appの設定をコピー
-        _copy('~/Library/Preferences/com.apple.Terminal.plist',
-              '~/dotfiles/mac/com.apple.Terminal.plist.back')
+        _cp('~/Library/Preferences/com.apple.Terminal.plist',
+            '~/dotfiles/mac/com.apple.Terminal.plist.back')
         print "backup plist to mac/ (with extension .back)..."
-        _copy('~/dotfiles/mac/com.apple.Terminal.plist',
-              '~/Library/Preferences/')
+        _cp('~/dotfiles/mac/com.apple.Terminal.plist',
+            '~/Library/Preferences/')
         # ファインダーのタイトルバーにパスを表示
         _do('defaults write com.apple.finder \
-                _FXShowPosixPathInTitle -boolean true')
+            _FXShowPosixPathInTitle -boolean true')
         _do('killall Finder')
 
 
 def dump_preferences():
     if sys.platform == "mac":
-        _copy('~/Library/Preferences/com.apple.Terminal.plist', 'mac/')
+        _cp('~/Library/Preferences/com.apple.Terminal.plist', 'mac/')
         _do('plutil -convert xml1 mac/com.apple.Terminal.plist')
     else:
         print "dump_preference can use only on mac os."
@@ -114,8 +114,8 @@ def all():
 
 
 def test():
-    _symlink('./test', '~/test_link')
-    _symlink('./test_dir', '~/test_dir_link')
+    _ln('./test', '~/test_link')
+    _ln('./test_dir', '~/test_dir_link')
 
 
 if __name__ == "__main__":
@@ -150,14 +150,14 @@ if __name__ == "__main__":
         if subprocess.call(cmd, shell=True):
             raise Exception("process error. stop installation.")
 
-    def _copy(src, dest):
+    def _cp(src, dest):
         """
         コピー作成
         """
         print "cp %s %s" % (src, dest)
         shutil.copyfile(src, dest)
 
-    def _symlink(src, dest):
+    def _ln(src, dest):
         """
         シンボリックリンク作成
         """
@@ -184,7 +184,10 @@ if __name__ == "__main__":
             print "ln -s %s %s" % (src, dest)
             os.symlink(src, dest)
 
-    def download(url, filename=None):
+    def _dl(url, filename=None):
+        """
+        ファイルをダウンロード
+        """
         print "download %s" % (url, )
         o = urlparse.urlparse(url)
         if o.scheme == "http":
@@ -219,7 +222,7 @@ if __name__ == "__main__":
 
     # 使用可能関数の検索
     funcs = {}
-    excepts = ["_np", "_sudo", "_do", "_copy", "_symlink"]
+    excepts = ["_np", "_sudo", "_do", "_cp", "_ln", "_dl"]
     mod = inspect.getmodule(all)
     for (name, function) in inspect.getmembers(mod, inspect.isfunction):
         if inspect.isfunction(function) and not name in excepts:
