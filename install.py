@@ -54,11 +54,10 @@ def vim():
     _ln('~/dotfiles/vimfiles/_gvimrc', '~/%sgvimrc' % (prefix, ))
 
     # vundleのアップデート
-    # TODO: コマンド実行後終了するオプションがほしい
     if sys.platform == "win32":
-        _do('gvim -c "BundleInstall"')
+        _do('gvim +BundleInstall +qall')
     else:
-        _do('vim -c "BundleInstall"')
+        _do('vim +BundleInstall +qall')
     # jediのアップデート
     _do('cd '+_np('~/.vim/bundle/jedi-vim'))
     _do('git submodule update --init')
