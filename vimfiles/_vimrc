@@ -217,7 +217,10 @@ endif
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 " snippetファイル
-let g:neosnippet#snippets_directory = '~/vimfiles/snippets,~/.vim/bundle/vim-snippets/snippets'
+" ~/.vim/bundle/vim-snippets/snippets は参考
+let g:neosnippet#snippets_directory = '~/vimfiles/snippets'
+" ランタイムディレクトリのスニペットをすべて無効化
+let g:neosnippet#disable_runtime_snippets = {'_': 1}
 
 " ref.vim
 "---------------------------------------------------------------------------
