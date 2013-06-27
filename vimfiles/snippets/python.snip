@@ -94,3 +94,12 @@ abbr        while ...: ...
 prev_word   '^'
 	while ${1:condition}:
 		${2:pass}
+
+
+snippet     pp
+abbr        pprint.PrettyPrinter(...
+prev_word   '^'
+    import pprint
+    pp = pprint.PrettyPrinter(indent=4, stream=sys.stderr)
+
+
