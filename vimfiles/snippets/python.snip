@@ -102,4 +102,35 @@ prev_word   '^'
     import pprint
     pp = pprint.PrettyPrinter(indent=4, stream=sys.stderr)
 
+snippet     argparse
+abbr        argparse.ArgumentParser(...
+prev_word   '^'
+    import argparse
+    parser = argparse.ArgumentParser(description=u'${1:description}')
+    parser.add_argument(
+        '-${2:short_flag}', '--${3:long_flag}',
+        dest='${4:var_name}',
+        type=${5:str}, default=${6:None},
+        metavar='${7:VALUE}',
+        help=u'${8:description}'
+        )
+    args = parser.parse_args()
+
+snippet     csv.reader
+abbr        csv.reader(...
+prev_word   '^'
+    import csv
+    csv_reader = csv.reader(${1:stream}, delimiter=',')
+    labels = next(csv_reader)
+    for row in csv_reader:
+        ${2:pass}
+
+snippet     csv.writer
+abbr        csv.writer(...
+prev_word   '^'
+    import csv
+    csv_writer = csv.writer(${1:stream}, delimiter=',')
+    csv_writer.writerow(row)
+
+
 
