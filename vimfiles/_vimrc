@@ -381,11 +381,26 @@ au FileType ruby :setlocal sw=2
 au FileType ruby :setlocal softtabstop=2
 au FileType ruby :setlocal expandtab
 
+
+" JavaScriptの設定
+"===============================================================================
+
+" タブをスペースに自動変換
+"---------------------------------------------------------------------------
+au FileType javascript :setlocal expandtab
+
+
 " QuickFix関連
 "---------------------------------------------------------------------------
 
 "autocmd FileType ruby :setlocal makeprg=ruby\ %
 "autocmd FileType ruby :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+
+" その他ファイル毎の設定
+"===============================================================================
+
+autocmd FileType xml :setlocal nowrap
 
 
 " タグファイル
