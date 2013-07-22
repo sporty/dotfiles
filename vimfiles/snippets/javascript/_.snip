@@ -1,6 +1,38 @@
-snippet     myfunc
-abbr        var name = function(...){...};
-    var ${1:name} = function(${2:hello}){
+
+# class
+snippet class
+    ${1:ClassName} = function(${2:arg}) {
     };
+
+snippet class_method
+    ${1:ClassName}.prototype.${2:method} = function() {
+    };
+
+# exception
+snippet exception
+    ${1:ExceptionName} = function(${2:message}){
+        this.message = ${2:message};
+        this.name = "${1:ExceptionName}";
+        this.toString = function() {
+            return this.name + " : " + this.message;
+        };
+    }
+
+snippet exception_throw
+    throw new ${1:ExceptionName}( ${2:""} );
+
+# jsdoc
+snippet jsdoc_par
+	@param {${1:type}} ${2:name} ${3:description}
+
+snippet jsdoc_ret
+	@return {${1:type}} ${2:description}
+
+# json
+snippet jsonp
+	JSON.parse(${1:jstr});
+
+snippet jsons
+	JSON.stringify(${1:object});
 
 # EOF
