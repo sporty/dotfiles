@@ -151,7 +151,7 @@ Bundle 'http://github.com/honza/vim-snippets.git'
 "Bundle 'http://github.com/altercation/vim-colors-solarized.git'
 Bundle 'http://github.com/sporty/molokai.git'
 
-" syntax
+" FileType
 Bundle 'http://github.com/groenewege/vim-less.git'
 Bundle 'http://github.com/tpope/vim-markdown.git'
 Bundle "http://github.com/vim-scripts/pig.vim.git"
@@ -161,21 +161,10 @@ Bundle "http://github.com/PProvost/vim-ps1.git"
 Bundle 'http://github.com/klen/python-mode.git'
 Bundle 'http://github.com/davidhalter/jedi-vim.git'
 
-" html
-Bundle 'http://github.com/mattn/zencoding-vim.git'
-
-" javascript
-Bundle 'http://github.com/jelera/vim-javascript-syntax.git'
-Bundle 'http://github.com/pangloss/vim-javascript.git'
-
-" ruby
-Bundle 'http://github.com/tpope/vim-rails.git'
-
 " syntax checker
 Bundle 'http://github.com/scrooloose/syntastic.git'
 
 " other
-Bundle 'http://github.com/tpope/vim-surround.git'
 Bundle 'http://github.com/scrooloose/nerdtree.git'
 Bundle 'http://github.com/kien/ctrlp.vim.git'
 Bundle 'http://github.com/Lokaltog/vim-powerline.git'
@@ -393,19 +382,19 @@ au FileType ruby :setlocal softtabstop=2
 au FileType ruby :setlocal expandtab
 
 
+" QuickFix関連
+"---------------------------------------------------------------------------
+
+"autocmd FileType ruby :setlocal makeprg=ruby\ %
+"autocmd FileType ruby :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+
 " JavaScriptの設定
 "===============================================================================
 
 " タブをスペースに自動変換
 "---------------------------------------------------------------------------
 au FileType javascript :setlocal expandtab
-
-
-" QuickFix関連
-"---------------------------------------------------------------------------
-
-"autocmd FileType ruby :setlocal makeprg=ruby\ %
-"autocmd FileType ruby :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 
 " その他ファイル毎の設定
