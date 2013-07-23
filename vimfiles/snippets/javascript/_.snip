@@ -10,11 +10,11 @@ snippet class_method
 
 # exception
 snippet exception
-    ${1:ExceptionName} = function(${2:message}){
+    ${1:ExceptionName} = function(${2:message}) {
         this.message = ${2:message};
-        this.name = "${1:ExceptionName}";
+        this.name = '${1:ExceptionName}';
         this.toString = function() {
-            return this.name + " : " + this.message;
+            return this.name + ' : ' + this.message;
         };
     }
 
