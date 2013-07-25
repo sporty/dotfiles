@@ -399,6 +399,11 @@ au FileType ruby :setlocal expandtab
 "autocmd FileType ruby :setlocal makeprg=ruby\ %
 "autocmd FileType ruby :setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+" その他
+"---------------------------------------------------------------------------
+" apache再起動
+noremap <silent> <F12> :!sudo /etc/init.d/httpd restart<CR>
+
 
 " JavaScriptの設定
 "===============================================================================
