@@ -132,5 +132,18 @@ prev_word   '^'
     csv_writer = csv.writer(${1:stream}, delimiter=',')
     csv_writer.writerow(row)
 
+snippet     get_method
+abbr        get_method(...
+prev_word   '^'
+    import inspect
+    def get_method(instance, method_name):
+        for m in inspect.getmembers(instance):
+            if m[0] == method_name:
+                return m[1]
+        return None
 
+snippet     sorted
+abbr        sorted(...
+prev_word   '^'
+    sorted(${1:listdata}, key=lambda ${2:member}: ${3:member.name()})
 
