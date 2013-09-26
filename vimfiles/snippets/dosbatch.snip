@@ -18,4 +18,12 @@ snippet     s_trim_r
 abbr        %VAR:~0,-4%==C:\no_ext_filename
     %${1:var}:~0,-${2:length_from_end}%
 
+snippet     filesize
+abbr        %~zFILENAME
+    FOR %%I IN (${1:filename}) DO IF NOT %%~zI==0 (echo hello)
+
+snippet     timestamp
+abbr        %~tFILENAME
+    FOR %%I IN (${1:filename}) DO IF EXIST %%I (echo %%~tI) 
+
 # EOF
