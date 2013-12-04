@@ -48,8 +48,9 @@ PROMPT="%{${fg[white]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[white]
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
-    #alias ls="ls -G -w"
 	alias ls='ls -G -w -C -F'
+
+	alias tmux='sh ~/dotfiles/tmux/tmuxx.sh'
 
 	# MacVim
 	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
@@ -58,7 +59,6 @@ freebsd*|darwin*)
 
     ;;
 linux*)
-    #alias ls="ls --color"
 	alias ls='ls --color=auto -C -F'
 
 	# 独自ビルドvim
