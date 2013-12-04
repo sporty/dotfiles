@@ -15,8 +15,12 @@ abbr        %VAR:~0,2%==C:
     %${1:var}:~0,${2:length}%
 
 snippet     s_trim_r
-abbr        %VAR:~0,-4%==C:\no_ext_filename
+abbr        %VAR:~0,-4%==C:\no_ext_filepath
     %${1:var}:~0,-${2:length_from_end}%
+
+snippet     s_trim_l
+abbr        %VAR:~2%==C:\no_drive_filepath
+    %${1:var}:~${2:length_from_start}%
 
 snippet     filesize
 abbr        %~zFILENAME
