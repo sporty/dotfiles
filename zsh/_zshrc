@@ -50,7 +50,7 @@ case "${OSTYPE}" in
 freebsd*|darwin*)
 	alias ls='ls -G -w -C -F'
 
-	alias tmux='sh ~/dotfiles/tmux/tmuxx.sh'
+	alias tmux='~/dotfiles/tmux/tmuxx.sh'
 
 	# MacVim
 	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
