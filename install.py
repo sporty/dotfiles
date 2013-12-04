@@ -38,6 +38,14 @@ def bash():
     _ln('~/dotfiles/bash/_inputrc', '~/.inputrc')
 
 
+def zsh():
+    _ln('~/dotfiles/zsh/_zshrc', '~/.zshrc')
+
+
+def tmux():
+    _ln('~/dotfiles/tmux/_tmux.conf', '~/.tmux.conf')
+
+
 def vim():
     # submoduleを更新。主にvundle。
     _do('cd '+_np('~/dotfiles'))
@@ -108,6 +116,8 @@ def documents():
 def all():
     git()
     bash()
+    zsh()
+    tmux()
     vim()
     python()
 
