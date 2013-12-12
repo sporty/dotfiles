@@ -30,4 +30,12 @@ snippet     timestamp
 abbr        %~tFILENAME
     FOR %%I IN (${1:filename}) DO IF EXIST %%I (echo %%~tI) 
 
+snippet     random
+abbr        %RANDOM%
+    %RANDOM%
+
+snippet     file_exists
+abbr        if exists
+    if exist ${1:filename} ${2:command}
+
 # EOF
