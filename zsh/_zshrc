@@ -71,7 +71,7 @@ MINGW*)
 	alias vi='/c/Program\ Files/vim/vim'
 	alias gvim='/c/Program\ Files/vim/gvim'
     ;;
-CYGWIN*)
+cygwin*)
 	alias ls='ls --show-control-char --color=auto -C -F'
 
 	# Vim
