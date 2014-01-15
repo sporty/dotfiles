@@ -186,6 +186,7 @@ Bundle 'http://github.com/tpope/vim-surround.git'
 Bundle 'http://github.com/scrooloose/nerdtree.git'
 Bundle 'http://github.com/kien/ctrlp.vim.git'
 Bundle 'http://github.com/Lokaltog/vim-powerline.git'
+Bundle 'http://github.com/dbarsam/vim-maxscript.git'
 "Bundle 'http://github.com/Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
 
 "Bundle 'http://github.com/thinca/vim-quickrun.git'
