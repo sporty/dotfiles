@@ -113,10 +113,11 @@ colorscheme koehler
 " ファイルタイプ
 "---------------------------------------------------------------------------
 
-augroup filetypedetect
-  " pig
-  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
-augroup END
+" pig
+au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+" shading language
+au BufNewFile,BufRead *.fx,*.cg,*.cgfx,*.hlsl set filetype=hlsl syntax=hlsl
+
 
 
 " 検索オプション
@@ -161,6 +162,7 @@ Bundle 'http://github.com/groenewege/vim-less.git'
 Bundle 'http://github.com/tpope/vim-markdown.git'
 Bundle "http://github.com/vim-scripts/pig.vim.git"
 Bundle "http://github.com/PProvost/vim-ps1.git"
+Bundle "http://github.com/beyondmarc/hlsl.vim.git"
 
 " python
 Bundle 'http://github.com/klen/python-mode.git'
