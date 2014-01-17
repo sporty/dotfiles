@@ -203,7 +203,7 @@ noremap <silent> ;u :Unite buffer file_mru<CR>
 " アウトライン
 noremap <silent> ;l :Unite outline<CR>
 " neocomplcacheのスニペット
-noremap <silent> ;s :Unite snippet<CR>
+noremap <silent> ;s :Unite neosnippet<CR>
 " VimFiler起動
 noremap <silent> ;f :VimFiler<CR>
 
@@ -341,7 +341,7 @@ let g:pymode_indent = 1
 " プレビューを出さない
 autocmd FileType python setlocal completeopt-=preview
 " 関数リファレンスを表示しない
-let g:jedi#show_function_definition = 0
+let g:jedi#show_call_signatures = 0
 
 " キーバインド
 "---------------------------------------------------------------------------
