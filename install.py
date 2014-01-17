@@ -63,9 +63,9 @@ def vim():
 
     # vundleのアップデート
     if sys.platform == "win32":
-        _do('gvim +BundleInstall +qall')
+        _do('gvim +NeoBundleInstall +qall')
     else:
-        _do('vim +BundleInstall +qall')
+        _do('vim +NeoBundleInstall +qall')
     # jediのアップデート
     _do('cd '+_np('~/.vim/bundle/jedi-vim'))
     _do('git submodule update --init')
