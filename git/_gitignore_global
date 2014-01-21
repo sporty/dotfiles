@@ -5,3 +5,4 @@ Thumbs.db
 *.back
 *.pyc
 *.pyo
+.ropeproject
