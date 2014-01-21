@@ -61,14 +61,11 @@ def vim():
     _ln('~/dotfiles/vimfiles/_vimrc', '~/%svimrc' % (prefix, ))
     _ln('~/dotfiles/vimfiles/_gvimrc', '~/%sgvimrc' % (prefix, ))
 
-    # vundleのアップデート
+    # プラグインの更新
     if sys.platform == "win32":
         _do('gvim +NeoBundleInstall +qall')
     else:
         _do('vim +NeoBundleInstall +qall')
-    # jediのアップデート
-    _do('cd '+_np('~/.vim/bundle/jedi-vim'))
-    _do('git submodule update --init')
 
 
 def powerline():

@@ -167,7 +167,14 @@ NeoBundle "http://github.com/beyondmarc/hlsl.vim.git"
 
 " python
 NeoBundle 'http://github.com/klen/python-mode.git'
-NeoBundle 'http://github.com/davidhalter/jedi-vim.git'
+NeoBundle 'http://github.com/davidhalter/jedi-vim.git', {
+\ 'build' : {
+\     'windows' : 'git submodule update --init',
+\     'cygwin' : 'git submodule update --init',
+\     'mac' : 'git submodule update --init',
+\     'unix' : 'git submodule update --init',
+\    },
+\ }
 
 " html
 NeoBundle 'http://github.com/mattn/zencoding-vim.git'
