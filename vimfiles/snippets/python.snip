@@ -147,3 +147,35 @@ abbr        sorted(...
 prev_word   '^'
     sorted(${1:listdata}, key=lambda ${2:member}: ${3:member.name()})
 
+snippet     my_cache
+abbr        set_cache(...
+prev_word   '^'
+    import datetime
+    cache_db = {}
+    def get_cache(key):
+        if key in cache_db.keys():
+            n = datetime.datetime.now()
+            e = cache_db[key]["expire"]
+            if n > e:
+                del cache_db[key]
+            else:
+                return cache_db[key]["value"]
+        return None
+    def set_cache(key, value, expire=0):
+        delta = datetime.timedelta(seconds=expire)
+        expire_time = datetime.datetime.now() + delta
+        cache_db[key] = {"expire": expire_time, "value": value}
+
+snippet     timezone now
+abbr        dateutil.tz.tzlocal(...
+prev_word   '^'
+    import dateutil.tz
+    now = datetime.datetime.now(dateutil.tz.tzlocal())
+
+snippet     timezone replace
+abbr        tzinfo=dateutil.tz.tzlocal(...
+prev_word   '^'
+    import dateutil.tz
+    now = now.replace(tzinfo=dateutil.tz.tzlocal())
+
+
