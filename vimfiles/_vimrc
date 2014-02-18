@@ -156,7 +156,9 @@ NeoBundle 'http://github.com/honza/vim-snippets.git'
 
 " ColorScheme
 "NeoBundle 'http://github.com/altercation/vim-colors-solarized.git'
-NeoBundle 'http://github.com/sporty/molokai.git'
+"NeoBundle 'http://github.com/sporty/molokai.git'
+"NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 " syntax
 NeoBundle 'http://github.com/groenewege/vim-less.git'
@@ -281,8 +283,10 @@ let g:ref_phpmanual_cmd = 'w3m -dump %s'
 "set background=dark
 "colorscheme solarized
 
-let g:molokai_original=0
-colorscheme molokai
+"let g:molokai_original=0
+"colorscheme molokai
+
+colorscheme Tomorrow-Night
 
 
 " NERDtreeの設定
