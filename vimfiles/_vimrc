@@ -76,6 +76,8 @@ set modeline
 " キーバインド
 "---------------------------------------------------------------------------
 
+" exモードを無効化
+nnoremap Q <Nop>
 " ハイライト表示をオフ
 noremap <silent> <ESC><ESC> :nohl<CR>
 " ウインドウ移動を簡素化
@@ -87,10 +89,14 @@ noremap <silent> <C-L> <C-W>l
 " QuickFix
 "---------------------------------------------------------------------------
 
-" ;nでQuickFixを開く
-noremap <silent> ;n :copen<CR>
-" ;NでLocationListを開く
-noremap <silent> ;N :lopen<CR>
+" prefix
+nnoremap [quickfix]    <Nop>
+nmap     <Space>n [quickfix]
+
+" [quickfix]nでQuickFixを開く
+noremap <silent> [quickfix]n :copen<CR>
+" [quickfix]NでLocationListを開く
+noremap <silent> [quickfix]N :lopen<CR>
 " ESC２回で閉じる
 au FileType qf :nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 " make後に自動でQuickFixを開く syntasticが正しく動作しないのでダメ！
@@ -156,7 +162,9 @@ NeoBundle 'http://github.com/honza/vim-snippets.git'
 
 " ColorScheme
 "NeoBundle 'http://github.com/altercation/vim-colors-solarized.git'
-NeoBundle 'http://github.com/sporty/molokai.git'
+"NeoBundle 'http://github.com/sporty/molokai.git'
+"NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 " syntax
 NeoBundle 'http://github.com/groenewege/vim-less.git'
@@ -206,14 +214,17 @@ filetype plugin indent on
 " unite
 "---------------------------------------------------------------------------
 
+" prefix
+nnoremap [unite]    <Nop>
+nmap     <Space>u [unite]
 " バッファとファイル履歴
-noremap <silent> ;u :Unite buffer file_mru<CR>
+noremap <silent> [unite]u :Unite buffer file_mru<CR>
 " アウトライン
-noremap <silent> ;l :Unite outline<CR>
+noremap <silent> [unite]l :Unite outline<CR>
 " neocomplcacheのスニペット
-noremap <silent> ;s :Unite neosnippet<CR>
+noremap <silent> [unite]s :Unite neosnippet<CR>
 " VimFiler起動
-noremap <silent> ;f :VimFiler<CR>
+noremap <silent> [unite]f :VimFiler<CR>
 
 " ESCキー２回で終了
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
@@ -254,12 +265,16 @@ let g:neosnippet#disable_runtime_snippets = {'_': 1}
 " ref.vim
 "---------------------------------------------------------------------------
 
+" prefix
+nnoremap [ref]    <Nop>
+nmap     <Space>r [ref]
+
 " リファレンス検索
-autocmd FileType python nmap ;r :<C-u>Ref pydoc<Space>
-autocmd FileType php nmap ;r :<C-u>Ref phpmanual<Space>
+autocmd FileType python nmap [ref]r :<C-u>Ref pydoc<Space>
+autocmd FileType php nmap [ref]r :<C-u>Ref phpmanual<Space>
 
 " 英和辞典
-nmap ;e :<C-u>Ref alc<Space>
+nmap [ref]e :<C-u>Ref alc<Space>
 "let g:ref_alc_start_linenumber = 39 " 表示する行数
 "let g:ref_alc_encoding = 'Shift-JIS' " 文字化けするならここで文字コードを指定してみる
 
@@ -281,8 +296,10 @@ let g:ref_phpmanual_cmd = 'w3m -dump %s'
 "set background=dark
 "colorscheme solarized
 
-let g:molokai_original=0
-colorscheme molokai
+"let g:molokai_original=0
+"colorscheme molokai
+
+colorscheme Tomorrow-Night
 
 
 " NERDtreeの設定

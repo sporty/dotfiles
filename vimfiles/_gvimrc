@@ -54,8 +54,9 @@ set cmdheight=2
 "colorscheme solarized
 
 " molokai
-let g:molokai_original=0
-colorscheme molokai
+"let g:molokai_original=0
+"colorscheme molokai
+colorscheme Tomorrow-Night
 
 set synmaxcol=10000
 
