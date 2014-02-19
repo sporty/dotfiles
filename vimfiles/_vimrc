@@ -116,7 +116,7 @@ colorscheme koehler
 " pig
 au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 " shading language
-au BufNewFile,BufRead *.fx,*.cg,*.cgfx,*.hlsl set filetype=hlsl syntax=hlsl
+au BufNewFile,BufRead *.fx,*.fxh,*.cg,*.cgfx,*.vsh,*.psh,*.vs,*.ps,*.hlsl,*.hlsli set filetype=hlsl syntax=hlsl
 
 
 
