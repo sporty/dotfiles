@@ -4,4 +4,18 @@ snippet     partial
 snippet     button
     pymel.button(l=u"${1:label}", c=partial(${2:callback}))
 
-# EOF
+snippet     undoable
+    import maya.cmds as cmds
+    def undoable(func):
+        def f(*args, **kwargs):
+            cmds.undoInfo(openChunk=True)
+            try:
+                func(*args, **kwargs)
+            except Exception, e:
+                traceback.print_exc()
+                print("")
+                error(e.message)
+            finally:
+                cmds.undoInfo(closeChunk=True)
+        return f
+

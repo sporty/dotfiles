@@ -178,4 +178,15 @@ prev_word   '^'
     import dateutil.tz
     now = now.replace(tzinfo=dateutil.tz.tzlocal())
 
+snippet     print_function
+abbr        import print_function
+prev_word   '^'
+    from __future__ import print_function
+
+snippet     flatten
+abbr        import itertools
+prev_word   '^'
+    import itertools
+    itertools.chain.from_iterable(${1:stream})
+
 
