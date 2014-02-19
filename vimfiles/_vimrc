@@ -150,11 +150,16 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 " unite関連
-NeoBundle 'http://github.com/Shougo/unite.vim.git'
-NeoBundle 'http://github.com/Shougo/unite-outline.git'
-NeoBundle 'http://github.com/thinca/vim-ref.git'
-NeoBundle 'http://github.com/Shougo/vimfiler.git'
-"NeoBundle 'http://github.com/Shougo/neocomplcache.git'
+NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-outline.git'
+NeoBundle 'Shougo/vimfiler.git'
+NeoBundle 'thinca/vim-ref.git'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'ujihisa/unite-font'
+NeoBundle 'tacroe/unite-mark'
 
 " snippet
 NeoBundle 'http://github.com/Shougo/neosnippet.git'
