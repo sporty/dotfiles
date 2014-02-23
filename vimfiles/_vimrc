@@ -162,25 +162,26 @@ NeoBundle 'ujihisa/unite-font'
 NeoBundle 'tacroe/unite-mark'
 
 " snippet
-NeoBundle 'http://github.com/Shougo/neosnippet.git'
-NeoBundle 'http://github.com/honza/vim-snippets.git'
+NeoBundle 'Shougo/neosnippet.git'
+NeoBundle 'honza/vim-snippets.git'
 
 " ColorScheme
-"NeoBundle 'http://github.com/altercation/vim-colors-solarized.git'
-"NeoBundle 'http://github.com/sporty/molokai.git'
-"NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'altercation/vim-colors-solarized.git'
+NeoBundle 'sporty/molokai.git'
+NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 " syntax
-NeoBundle 'http://github.com/groenewege/vim-less.git'
-NeoBundle 'http://github.com/tpope/vim-markdown.git'
-NeoBundle "http://github.com/vim-scripts/pig.vim.git"
-NeoBundle "http://github.com/PProvost/vim-ps1.git"
-NeoBundle "http://github.com/beyondmarc/hlsl.vim.git"
+NeoBundle 'groenewege/vim-less.git'
+NeoBundle 'tpope/vim-markdown.git'
+NeoBundle "vim-scripts/pig.vim.git"
+NeoBundle "PProvost/vim-ps1.git"
+NeoBundle "beyondmarc/hlsl.vim.git"
+NeoBundle 'dbarsam/vim-maxscript.git'
 
 " python
-NeoBundle 'http://github.com/klen/python-mode.git'
-NeoBundle 'http://github.com/davidhalter/jedi-vim.git', {
+NeoBundle 'klen/python-mode.git'
+NeoBundle 'davidhalter/jedi-vim.git', {
 \ 'build' : {
 \     'windows' : 'git submodule update --init',
 \     'cygwin' : 'git submodule update --init',
@@ -190,29 +191,29 @@ NeoBundle 'http://github.com/davidhalter/jedi-vim.git', {
 \ }
 
 " html
-NeoBundle 'http://github.com/mattn/zencoding-vim.git'
-NeoBundle 'http://github.com/hail2u/vim-css3-syntax.git'
-NeoBundle 'http://github.com/othree/html5.vim.git'
+NeoBundle 'mattn/zencoding-vim.git'
+NeoBundle 'hail2u/vim-css3-syntax.git'
+NeoBundle 'othree/html5.vim.git'
 
 " javascript
-NeoBundle 'http://github.com/jelera/vim-javascript-syntax.git'
-NeoBundle 'http://github.com/pangloss/vim-javascript.git'
+NeoBundle 'jelera/vim-javascript-syntax.git'
+NeoBundle 'pangloss/vim-javascript.git'
 
 " ruby
-NeoBundle 'http://github.com/tpope/vim-rails.git'
+NeoBundle 'tpope/vim-rails.git'
 
 " syntax checker
-NeoBundle 'http://github.com/scrooloose/syntastic.git'
+NeoBundle 'scrooloose/syntastic.git'
 
 " other
-NeoBundle 'http://github.com/tpope/vim-surround.git'
-NeoBundle 'http://github.com/scrooloose/nerdtree.git'
-NeoBundle 'http://github.com/kien/ctrlp.vim.git'
-NeoBundle 'http://github.com/Lokaltog/vim-powerline.git'
-NeoBundle 'http://github.com/dbarsam/vim-maxscript.git'
-"NeoBundle 'http://github.com/Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
+NeoBundle 'tpope/vim-surround.git'
+NeoBundle 'scrooloose/nerdtree.git'
+NeoBundle 'kien/ctrlp.vim.git'
+NeoBundle 'Lokaltog/vim-powerline.git'
+"NeoBundle 'Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
+NeoBundle 'Yggdroot/indentLine'
 
-"NeoBundle 'http://github.com/thinca/vim-quickrun.git'
+"NeoBundle 'thinca/vim-quickrun.git'
 
 filetype plugin indent on 
 
@@ -380,6 +381,11 @@ let g:pymode_run_key = '<F8>'
 
 " djangoのtagsを追加
 "autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
+
+" indentLineの設定
+"---------------------------------------------------------------------------
+"let g:indentLine_char = ''
+"let g:indentLine_color_term = 239
 
 
 " シンタックスチェック

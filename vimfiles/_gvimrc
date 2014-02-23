@@ -93,4 +93,9 @@ if has("toolbar")
 endif
 
 
+" indentLineの設定
+"---------------------------------------------------------------------------
+let g:indentLine_color_gui = '#404040'
+
+
 " EOF
