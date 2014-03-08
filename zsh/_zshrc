@@ -54,7 +54,7 @@ freebsd*|darwin*)
 
 	# MacVim
 	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
-	alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim'
+	alias v='/Applications/MacVim.app/Contents/MacOS/mvim'
 	alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 
     ;;
@@ -69,14 +69,14 @@ MINGW*)
 
 	# Vim
 	alias vi='/c/Program\ Files/vim/vim'
-	alias gvim='/c/Program\ Files/vim/gvim'
+	alias v='/c/Program\ Files/vim/gvim'
     ;;
 cygwin*)
 	alias ls='ls --show-control-char --color=auto -C -F'
 
 	# Vim
 	alias vi='/cygdrive/c/Program\ Files/vim/vim'
-	alias gvim='/cygdrive/c/Program\ Files/vim/gvim'
+	alias v='/cygdrive/c/Program\ Files/vim/gvim'
     ;;
 esac
 
