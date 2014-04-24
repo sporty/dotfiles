@@ -191,7 +191,7 @@ NeoBundle 'davidhalter/jedi-vim.git', {
 \ }
 
 " html
-NeoBundle 'mattn/zencoding-vim.git'
+NeoBundle 'mattn/emmet-vim.git'
 NeoBundle 'hail2u/vim-css3-syntax.git'
 NeoBundle 'othree/html5.vim.git'
 
