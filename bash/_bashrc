@@ -77,7 +77,7 @@ fi
 if [ $uname == 'Darwin' ]; then
 	# MacVimをターミナルで使う。
 	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
-	alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim'
+	alias v='/Applications/MacVim.app/Contents/MacOS/mvim'
 	alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 
 elif [ $uname == 'Linux' ]; then
@@ -88,12 +88,12 @@ elif [ $uname == 'Linux' ]; then
 elif [ ${uname:0:5} == 'MINGW' ]; then
 	# Vimをターミナルで使う。
 	alias vi='/c/Program\ Files/vim/vim'
-	alias gvim='/c/Program\ Files/vim/gvim'
+	alias v='/c/Program\ Files/vim/gvim'
 
 elif [ ${uname:0:6} == 'CYGWIN' ]; then
 	# Vimをターミナルで使う。
 	alias vi='/cygdrive/c/Program\ Files/vim/vim'
-	alias gvim='/cygdrive/c/Program\ Files/vim/gvim'
+	alias v='/cygdrive/c/Program\ Files/vim/gvim'
 fi
 
 # 共通alias
