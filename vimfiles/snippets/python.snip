@@ -189,4 +189,17 @@ prev_word   '^'
     import itertools
     itertools.chain.from_iterable(${1:stream})
 
+snippet     mkstemp
+abbr        tempfile.mkstemp()
+prev_word   '^'
+    import tempfile, os
+    tup = tempfile.mkstemp()
+    fp = os.fdopen(tup[0])
+
+snippet     thisdir
+abbr        thisdir()
+prev_word   '^'
+    def thisdir(filename):
+        path = os.path.abspath(os.path.dirname(__file__))
+        return os.path.normpath(os.path.join(path, filename))
 
