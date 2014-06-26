@@ -1,15 +1,20 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+from __future__ import print_function
 import sys
 import os
 import shutil
 import inspect
 import subprocess
-import urlparse
-import httplib
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
+try:
+    import urlparse
+except:
+    import urllib.parse as urlparse
+try:
+    import httplib
+except:
+    import http.client as httplib
 
 
 def git():
@@ -20,8 +25,8 @@ def git():
     _do('git config --global core.pager "less -R"')
 
     if sys.platform == "mac":
-        #_do('git config --global core.editor
-        #"/Applications/MacVim.app/Contents/MacOS/Vim"')
+        # _do('git config --global core.editor
+        # "/Applications/MacVim.app/Contents/MacOS/Vim"')
         pass
 
 
@@ -58,8 +63,8 @@ def vim():
         prefix = "_"
     else:
         prefix = "."
-    _ln('~/dotfiles/vimfiles/_vimrc', '~/%svimrc' % (prefix, ))
-    _ln('~/dotfiles/vimfiles/_gvimrc', '~/%sgvimrc' % (prefix, ))
+    _ln('~/dotfiles/vimfiles/_vimrc', '~/{0}vimrc'.format(prefix))
+    _ln('~/dotfiles/vimfiles/_gvimrc', '~/{0}gvimrc'.format(prefix))
 
     # プラグインの更新
     if sys.platform == "win32":
@@ -77,7 +82,7 @@ def mac():
         # ターミナル.appの設定をコピー
         _cp('~/Library/Preferences/com.apple.Terminal.plist',
             '~/dotfiles/mac/com.apple.Terminal.plist.back')
-        print "backup plist to mac/ (with extension .back)..."
+        print("backup plist to mac/ (with extension .back)...")
         _cp('~/dotfiles/mac/com.apple.Terminal.plist',
             '~/Library/Preferences/')
         # ファインダーのタイトルバーにパスを表示
@@ -91,7 +96,7 @@ def dump_preferences():
         _cp('~/Library/Preferences/com.apple.Terminal.plist', 'mac/')
         _do('plutil -convert xml1 mac/com.apple.Terminal.plist')
     else:
-        print "dump_preference can use only on mac os."
+        print("dump_preference can use only on mac os.")
 
 
 def documents():
@@ -147,7 +152,7 @@ if __name__ == "__main__":
         """
         コマンド実行
         """
-        print cmd
+        print(cmd)
         if sys.platform == "win32":
             pass
         else:
@@ -160,7 +165,7 @@ if __name__ == "__main__":
         """
         コピー作成
         """
-        print "cp %s %s" % (src, dest)
+        print("cp {0} {1}".format(src, dest))
         shutil.copyfile(src, dest)
 
     def _ln(src, dest):
@@ -174,27 +179,27 @@ if __name__ == "__main__":
         if sys.platform == "win32":
             # 一旦削除
             if os.path.isdir(dest):
-                _do('RMDIR /Q %s' % (dest, ))
+                _do('RMDIR /Q {0}'.format(dest))
             elif os.path.isfile(dest):
-                _do('DEL /F /Q %s' % (dest, ))
+                _do('DEL /F /Q {0}'.format(dest))
 
             # ジャンクションまたはハードリンク作成
             if os.path.isdir(src):
-                _do("CMD.EXE /C mklink /J /D %s %s" % (dest, src))
+                _do("CMD.EXE /C mklink /J /D {0} {1}".format(dest, src))
             else:
-                _do("CMD.EXE /C mklink /H %s %s" % (dest, src))
+                _do("CMD.EXE /C mklink /H {0} {1}".format(dest, src))
         else:
             # 一旦削除
-            _do('rm -f %s' % (dest, ))
+            _do('rm -f {0}'.format(dest))
             # シンボリックリンク作成
-            print "ln -s %s %s" % (src, dest)
+            print("ln -s {0} {1}".format(src, dest))
             os.symlink(src, dest)
 
     def _dl(url, filename=None):
         """
         ファイルをダウンロード
         """
-        print "download %s" % (url, )
+        print("download {0}".format(url))
         o = urlparse.urlparse(url)
         if o.scheme == "http":
             conn = httplib.HTTPConnection(o.netloc)
@@ -203,7 +208,9 @@ if __name__ == "__main__":
             if r1.status == 200:
                 data = r1.read()
             else:
-                raise Exception("status error. %d (%s)" % (r1.status, url))
+                raise Exception(
+                    "status error. {0} ({1})".format(r1.status, url)
+                )
         else:
             raise Exception("unsupported scheme.")
 
@@ -221,7 +228,7 @@ if __name__ == "__main__":
                 utmp = utmp.split('/')
                 output_filename = utmp[-1]
 
-        with file(output_filename, "wb") as fp:
+        with open(output_filename, "wb") as fp:
             fp.write(data)
 
         return output_filename
@@ -231,23 +238,23 @@ if __name__ == "__main__":
     excepts = ["_np", "_sudo", "_do", "_cp", "_ln", "_dl"]
     mod = inspect.getmodule(all)
     for (name, function) in inspect.getmembers(mod, inspect.isfunction):
-        if inspect.isfunction(function) and not name in excepts:
+        if inspect.isfunction(function) and name not in excepts:
             funcs[name] = function
 
     # 引数で指定された関数を実行
     if len(sys.argv) == 1:
-        print "usage: install.py [TARGETS]"
-        print ""
-        print "TARGETS:"
+        print("usage: install.py [TARGETS]")
+        print("")
+        print("TARGETS:")
         for key in funcs.keys():
-            print " "+key
+            print(" "+key)
     else:
         for arg in sys.argv[1:]:
             if arg in funcs.keys():
                 funcs[arg]()
             else:
-                print "can't find function [%s]" % (arg, )
+                print("can't find function [{0}]".format(arg))
 
-        print "finish."
+        print("finish.")
 
 # EOF
