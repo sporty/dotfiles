@@ -162,6 +162,7 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-font'
 NeoBundle 'tacroe/unite-mark'
+NeoBundle 'YamasakiKenta/unite-perforce.vim'
 
 " snippet
 NeoBundle 'Shougo/neosnippet.git'
@@ -214,6 +215,7 @@ NeoBundle 'kien/ctrlp.vim.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
 "NeoBundle 'Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'vim-scripts/perforce.vim'
 
 "NeoBundle 'thinca/vim-quickrun.git'
 
