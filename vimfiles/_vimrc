@@ -152,58 +152,132 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 " unite関連
-NeoBundle 'Shougo/unite.vim.git'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite-outline.git'
-NeoBundle 'Shougo/vimfiler.git'
-NeoBundle 'thinca/vim-ref.git'
-NeoBundle 'tsukkee/unite-help'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/unite-font'
-NeoBundle 'tacroe/unite-mark'
-NeoBundle 'YamasakiKenta/unite-perforce.vim'
+NeoBundleLazy 'Shougo/unite.vim', {
+\ 'autoload' : {
+\	'commands' : ["Unite"]
+\ }
+\}
+NeoBundleLazy 'Shougo/neomru.vim', {
+\ 'autoload' : {
+\   'unite_sources' : ['mru'],
+\ }
+\}
+NeoBundleLazy 'Shougo/unite-outline.git', {
+\ 'autoload' : {
+\   'unite_sources' : ['outline'],
+\ }
+\}
+NeoBundleLazy 'thinca/vim-ref.git', {
+\ 'autoload' : {
+\   'unite_sources' : ['ref'],
+\ }
+\}
+NeoBundleLazy 'tsukkee/unite-help', {
+\ 'autoload' : {
+\   'unite_sources' : ['help'],
+\ }
+\}
+NeoBundleLazy 'tsukkee/unite-tag', {
+\ 'autoload' : {
+\   'unite_sources' : ['tag'],
+\ }
+\}
+NeoBundleLazy 'ujihisa/unite-colorscheme', {
+\ 'autoload' : {
+\   'unite_sources' : ['colorscheme'],
+\ }
+\}
+NeoBundleLazy 'ujihisa/unite-font', {
+\ 'autoload' : {
+\   'unite_sources' : ['font'],
+\ }
+\}
+NeoBundleLazy 'tacroe/unite-mark', {
+\ 'autoload' : {
+\   'unite_sources' : ['mark'],
+\ }
+\}
+NeoBundleLazy 'Shougo/vimfiler.vim', {
+\ 'depends' : ["Shougo/unite.vim"],
+\ 'autoload' : {
+\   'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer" ]
+\ }
+\}
 
 " snippet
-NeoBundle 'Shougo/neosnippet.git'
+NeoBundleLazy 'Shougo/neosnippet.git', {
+\ 'autoload' : {
+\   'unite_sources' : ['neosnippet'],
+\ }
+\}
 NeoBundle 'honza/vim-snippets.git'
 
 " ColorScheme
-NeoBundle 'altercation/vim-colors-solarized.git'
-NeoBundle 'sporty/molokai.git'
-NeoBundle 'w0ng/vim-hybrid'
+"NeoBundle 'altercation/vim-colors-solarized.git'
+"NeoBundle 'sporty/molokai.git'
+"NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 " syntax
-NeoBundle 'groenewege/vim-less.git'
-NeoBundle 'tpope/vim-markdown.git'
-NeoBundle "vim-scripts/pig.vim.git"
-NeoBundle "PProvost/vim-ps1.git"
-NeoBundle "beyondmarc/hlsl.vim.git"
-NeoBundle 'dbarsam/vim-maxscript.git'
+NeoBundleLazy 'groenewege/vim-less.git', {
+\ "autoload" : { "filetypes" : ["less"] }
+\}
+NeoBundleLazy 'tpope/vim-markdown.git', {
+\ "autoload" : { "filetypes" : ["markdown"] }
+\}
+NeoBundleLazy "vim-scripts/pig.vim.git", {
+\ "autoload" : { "filetypes" : ["pig"] }
+\}
+NeoBundleLazy "PProvost/vim-ps1.git", {
+\ "autoload" : { "filetypes" : ["ps1"] }
+\}
+NeoBundleLazy "beyondmarc/hlsl.vim.git", {
+\ "autoload" : { "filetypes" : ["hlsl"] }
+\}
+NeoBundleLazy 'dbarsam/vim-maxscript.git', {
+\ "autoload" : { "filetypes" : ["maxscript"] }
+\}
 
 " python
-NeoBundle 'klen/python-mode.git'
-NeoBundle 'davidhalter/jedi-vim.git', {
+NeoBundleLazy 'klen/python-mode.git', {
+\ "autoload" : { "filetypes" : ["python"] }
+\}
+NeoBundleLazy 'davidhalter/jedi-vim.git', {
 \ 'build' : {
-\     'windows' : 'git submodule update --init',
-\     'cygwin' : 'git submodule update --init',
-\     'mac' : 'git submodule update --init',
-\     'unix' : 'git submodule update --init',
-\    },
-\ }
+\   'windows' : 'git submodule update --init',
+\   'cygwin' : 'git submodule update --init',
+\   'mac' : 'git submodule update --init',
+\	'unix' : 'git submodule update --init',
+\ },
+\ "autoload" : { "filetypes" : ["python"] }
+\}
+NeoBundleLazy 'Yggdroot/indentLine', {
+\ "autoload" : { "filetypes" : ["python"] }
+\}
 
 " html
-NeoBundle 'mattn/emmet-vim.git'
-NeoBundle 'hail2u/vim-css3-syntax.git'
-NeoBundle 'othree/html5.vim.git'
+NeoBundleLazy 'mattn/emmet-vim.git', {
+\ "autoload" : { "filetypes" : ["html", "css", "scss"] }
+\}
+NeoBundleLazy 'hail2u/vim-css3-syntax.git', {
+\ "autoload" : { "filetypes" : ["html", "css", "scss"] }
+\}
+NeoBundleLazy 'othree/html5.vim.git', {
+\ "autoload" : { "filetypes" : ["html", "css", "scss"] }
+\}
 
 " javascript
-NeoBundle 'jelera/vim-javascript-syntax.git'
-NeoBundle 'pangloss/vim-javascript.git'
+NeoBundleLazy 'jelera/vim-javascript-syntax.git', {
+\ "autoload" : { "filetypes" : ["javascript"] }
+\}
+NeoBundleLazy 'pangloss/vim-javascript.git', {
+\ "autoload" : { "filetypes" : ["javascript"] }
+\}
 
 " ruby
-NeoBundle 'tpope/vim-rails.git'
+NeoBundleLazy 'tpope/vim-rails.git', {
+\ "autoload" : { "filetypes" : ["ruby"] }
+\}
 
 " syntax checker
 NeoBundle 'scrooloose/syntastic.git'
@@ -214,8 +288,6 @@ NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'kien/ctrlp.vim.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
 "NeoBundle 'Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'vim-scripts/perforce.vim'
 
 "NeoBundle 'thinca/vim-quickrun.git'
 
