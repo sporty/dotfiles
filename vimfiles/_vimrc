@@ -419,6 +419,7 @@ au BufNewFile,BufRead SConstruct,SConscript* set filetype=python syntax=python
 "---------------------------------------------------------------------------
 
 autocmd FileType python :setlocal expandtab
+"autocmd FileType python :setlocal g:indentLine_enabled = 1
 
 " QuickFix関連
 "---------------------------------------------------------------------------
@@ -463,8 +464,7 @@ let g:pymode_run_key = '<F8>'
 
 " indentLineの設定
 "---------------------------------------------------------------------------
-"let g:indentLine_char = ''
-"let g:indentLine_color_term = 239
+let g:indentLine_enabled = 1
 
 
 " シンタックスチェック
