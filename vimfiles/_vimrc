@@ -126,11 +126,21 @@ au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 " shading language
 au BufNewFile,BufRead *.fx,*.fxh,*.cg,*.cgfx,*.vsh,*.psh,*.vs,*.ps,*.hlsl,*.hlsli set filetype=hlsl syntax=hlsl
 
-
-
 " 検索オプション
 "---------------------------------------------------------------------------
+
 set wildignore=*.py[co],*.swp,*.o,*.bak,*~
+
+" エンコーディング
+"---------------------------------------------------------------------------
+
+command! -bang -complete=file -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
+command! -bang -complete=file -nargs=? Cp932 edit<bang> ++enc=cp932 <args>
+command! -bang -complete=file -nargs=? Euc edit<bang> ++enc=eucjp <args>
+
+command! -bang -complete=file -nargs=? Dos edit<bang> ++ff=dos <args>
+command! -bang -complete=file -nargs=? Mac edit<bang> ++ff=mac <args>
+command! -bang -complete=file -nargs=? Unix edit<bang> ++ff=unix <args>
 
 
 " プラグインの設定
