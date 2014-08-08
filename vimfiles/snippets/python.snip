@@ -203,3 +203,9 @@ prev_word   '^'
         path = os.path.abspath(os.path.dirname(__file__))
         return os.path.normpath(os.path.join(path, filename))
 
+snippet     chmod
+abbr        os.chmod()
+prev_word   '^'
+		import os
+		import stat
+        os.chmod(${1:filename}, stat.S_IWRITE|stat.S_IREAD)
