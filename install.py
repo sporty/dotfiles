@@ -35,6 +35,7 @@ def python():
     _sudo('python ' + fn)
     _sudo('easy_install virtualenv')
     _sudo('easy_install flake8')
+    _sudo('easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz')
 
 
 def bash():
