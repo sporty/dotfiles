@@ -206,6 +206,23 @@ prev_word   '^'
 snippet     chmod
 abbr        os.chmod()
 prev_word   '^'
-		import os
-		import stat
-        os.chmod(${1:filename}, stat.S_IWRITE|stat.S_IREAD)
+    import os
+    import stat
+    os.chmod(${1:filename}, stat.S_IWRITE|stat.S_IREAD)
+
+snippet     utime
+abbr        os.utime()
+prev_word   '^'
+    import os
+    import time
+    atime = mtime = time.mktime((${1:year}, ${2:month}, ${3:day}, ${4:hour}, ${5:minite}, ${6:second}, 0, 0, -1))
+    os.utime(${7:filename}, (atime, mtime))
+
+snippet     walk
+abbr        os.walk()
+prev_word   '^'
+    import os
+    for root, dirs, files in os.walk(${1:dirname}):
+        for name in files:
+            print(os.path.join(root, name))
+
