@@ -416,13 +416,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " ESC２回で閉じる
 au FileType nerdtree :nnoremap <silent> <buffer> <ESC><ESC> :NERDTreeClose<CR>
 " F3で表示切り替え
+noremap <silent> <S-F3> :NERDTreeFind<CR>
 noremap <silent> <F3> :NERDTreeToggle<CR>
 
 
 " Pythonの設定
 "===============================================================================
 
-" pythonとして扱う拡張子またはファイル名の定義
+" pythonとして扱う拡張子またはファイル名の追加定義
+"---------------------------------------------------------------------------
+
 au BufNewFile,BufRead SConstruct,SConscript* set filetype=python syntax=python
 
 " タブをスペースに自動変換
