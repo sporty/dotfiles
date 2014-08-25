@@ -100,6 +100,19 @@ def dump_preferences():
         print("dump_preference can use only on mac os.")
 
 
+def windows():
+    reg_files = [
+        "excel_multi_windows.reg",  # エクセルで同名ファイルを開く
+        "foldertype.reg",  # ファイル名ソート
+        "no_window_minimizing_shortcuts.reg",  # 最小化ジェスチャーの無効化
+        "us_keybord.reg",  # 英語キーボード
+    ]
+
+    if sys.platform == "win32":
+        for reg_filename in reg_files:
+            _do(r"regedit /S windows\{0}".format(reg_filename))
+
+
 def documents():
     '''
     #
