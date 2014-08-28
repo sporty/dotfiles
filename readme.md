@@ -9,18 +9,21 @@ dotfiles セットアップ方法
 * gvim 7.3
  * python 2.7 x64
 
-gitの設定
----------
-
-```
-git config --global core.autocrlf false
-```
 
 git clone
 ---------
 
 ```
 git clone git@github.com:sporty/dotfiles.git ~/dotfiles
+```
+
+gitの設定
+---------
+
+git://は通りにくいのでhttps://に自動変換されるようにしておく。
+
+```
+git config --global url."https://".insteadOf git://
 ```
 
 会社ではローカル設定でメールアドレスを設定しておく。
