@@ -218,6 +218,7 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
 NeoBundleLazy 'Shougo/neosnippet.git', {
 \ 'autoload' : {
 \   'unite_sources' : ['neosnippet'],
+\	'filetypes' : ['neosnippet'],
 \ }
 \}
 NeoBundle 'honza/vim-snippets.git'

@@ -1,0 +1,35 @@
+
+snippet     maya_main_window
+    from maya import OpenMayaUI as omui
+    from shiboken import wrapInstance
+
+	def maya_main_window():
+		mayaMainWindowPtr = omui.MQtUtil.mainWindow()
+		return wrapInstance(long(mayaMainWindowPtr), QtGui.QWidget)
+
+snippet     PySide
+abbr        import PySide
+prev_word   '^'
+    from PySide import QtGui, QtCore
+    from PySide.QtUiTools import QUiLoader
+
+snippet     QDialog
+abbr        class Widget(QtGui.QDialog)
+prev_word   '^'
+	class ${1:name}(QtGui.QDialog):
+		def __init__(self, parent):
+			super(${1:name}, self).__init__(parent)
+
+			uiloader = QUiLoader()
+			self._ui = uiloader.load(${2:ui}, self)
+
+			layout = QtGui.QVBoxLayout()
+			layout.addWidget(self._ui)
+			self.setLayout(layout)
+
+snippet     QWidget.show
+abbr        QtWidget().show()
+prev_word   '^'
+    win = NgxGetlatestWindow(maya_main_window())
+    win.show()
+
