@@ -1,10 +1,7 @@
-snippet     partial
-    from functools import partial
-
-snippet     button
+snippet     pm__button
     pymel.button(l=u"${1:label}", c=partial(${2:callback}))
 
-snippet     undoable
+snippet     pm__undoable
     import maya.cmds as cmds
     def undoable(func):
         def f(*args, **kwargs):

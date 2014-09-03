@@ -1,19 +1,16 @@
 
-snippet     maya_main_window
-    from maya import OpenMayaUI as omui
-    from shiboken import wrapInstance
-
-	def maya_main_window():
-		mayaMainWindowPtr = omui.MQtUtil.mainWindow()
-		return wrapInstance(long(mayaMainWindowPtr), QtGui.QWidget)
-
-snippet     PySide
+snippet     qt__import
 abbr        import PySide
 prev_word   '^'
     from PySide import QtGui, QtCore
     from PySide.QtUiTools import QUiLoader
 
-snippet     QDialog
+snippet     qt__file_dialog
+abbr        QtGui.QFileDialog.get...
+prev_word   '^'
+        dirname = QtGui.QFileDialog.getExistingDirectory(self)
+
+snippet     qt__class_QDialog
 abbr        class Widget(QtGui.QDialog)
 prev_word   '^'
 	class ${1:name}(QtGui.QDialog):
@@ -27,9 +24,40 @@ prev_word   '^'
 			layout.addWidget(self._ui)
 			self.setLayout(layout)
 
-snippet     QWidget.show
+snippet     qt__class_QMainWindow
+abbr        class Widget(QtGui.QDialog)
+prev_word   '^'
+    class ${1:class}(QtGui.QMainWindow):
+        def __init__(self, parent=None):
+            super(${1:class}, self).__init__(parent)
+
+			uiloader = QUiLoader()
+			self._ui = uiloader.load(${2:ui}, self)
+
+snippet     qt__maya_main_window
+prev_word   '^'
+    from maya import OpenMayaUI as omui
+    from shiboken import wrapInstance
+
+	def maya_main_window():
+		mayaMainWindowPtr = omui.MQtUtil.mainWindow()
+		return wrapInstance(long(mayaMainWindowPtr), QtGui.QWidget)
+
+snippet     qt__main__maya
 abbr        QtWidget().show()
 prev_word   '^'
-    win = NgxGetlatestWindow(maya_main_window())
+    win = ${1:class}(maya_main_window())
     win.show()
+
+snippet     qt__main__app
+abbr        if __name__ == '__main__':app = QtGui.QApplication(sys.argv)
+prev_word   '^'
+    if __name__ == '__main__':
+        app = QtGui.QApplication(sys.argv)
+
+        frame = ${1:class}()
+        frame.show()
+
+        app.exec_()
+        sys.exit()
 
