@@ -86,7 +86,7 @@ if has("toolbar")
   " パスが長すぎてファイル名が読めないと困る。
   " ファイルパスにカレントディレクトリを変更する。
   tmenu ToolBar.SetCurrentDir Set current directry to file path
-  an ToolBar.SetCurrentDir :cd %:h<CR>
+  an ToolBar.SetCurrentDir :lcd %:h<CR>
 
   " セパレータ
   an ToolBar.-MySeparatorNo03- <Nop>
