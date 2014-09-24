@@ -444,7 +444,6 @@ au BufNewFile,BufRead SConstruct,SConscript* set filetype=python syntax=python
 "---------------------------------------------------------------------------
 
 autocmd FileType python :setlocal expandtab
-"autocmd FileType python :setlocal g:indentLine_enabled = 1
 
 " QuickFix関連
 "---------------------------------------------------------------------------
@@ -489,10 +488,12 @@ let g:pymode_run_key = '<F8>'
 " djangoのtagsを追加
 "autocmd FileType python :setlocal tags+=C:/Python25/Lib/site-packages/django/tags
 
-" indentLineの設定
-"---------------------------------------------------------------------------
 
-let g:indentLine_enabled = 1
+" indentLineの設定
+"===============================================================================
+
+" 有効なファイルタイプ
+let g:indentLine_fileType = ['python', 'javascript']
 
 
 " シンタックスチェック
