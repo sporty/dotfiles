@@ -31,8 +31,9 @@ def git():
 
 
 def python():
-    fn = _dl('http://python-distribute.org/distribute_setup.py')
-    _sudo('python ' + fn)
+    _sudo('python ' + _np('~/dotfiles/python/get-pip.py'))
+    _sudo('python -m pip install -U pip')
+    _sudo('python -m pip install -U setuptools')
     _sudo('easy_install virtualenv')
     _sudo('easy_install flake8')
     _sudo('easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz')
