@@ -32,6 +32,8 @@ set backupdir=~/vimfiles/tmp
 " 行番号
 set number
 
+set cursorline
+
 " タブの幅
 "---------------------------------------------------------------------------
 
@@ -398,6 +400,10 @@ let g:ref_phpmanual_cmd = 'w3m -dump %s'
 "colorscheme molokai
 
 colorscheme Tomorrow-Night
+
+" カーソルラインの設定だけ上書き
+hi clear CursorLine
+"hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE
 
 
 " NERDtreeの設定

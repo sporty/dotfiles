@@ -104,6 +104,7 @@ def windows():
     reg_files = [
         "excel_multi_windows.reg",  # エクセルで同名ファイルを開く
         "foldertype.reg",  # ファイル名ソート
+        "max_cached_icons.reg",  # アイコンキャッシュサイズ最大
         "no_window_minimizing_shortcuts.reg",  # 最小化ジェスチャーの無効化
         "us_keybord.reg",  # 英語キーボード
     ]

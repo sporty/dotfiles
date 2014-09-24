@@ -13,7 +13,7 @@ set vb t_vb=
 "---------------------------------------------------------------------------
 if has('win32')
   " Windows用
-  set guifont=MS_Gothic:h12:b:cSHIFTJIS
+  set guifont=MS_Gothic:h10
   " 行間隔の設定
   set linespace=3
 elseif has('xfontset')
@@ -57,6 +57,9 @@ set cmdheight=2
 "let g:molokai_original=0
 "colorscheme molokai
 colorscheme Tomorrow-Night
+
+" カーソルラインの設定だけ上書き
+hi clear CursorLine
 
 set synmaxcol=10000
 
