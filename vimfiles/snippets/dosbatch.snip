@@ -1,45 +1,59 @@
 
 snippet     error
 abbr        if not %ERRORLEVEL%==0 (goto error)
+prev_word   '^'
     if not %ERRORLEVEL%==0 (goto end)
 
 snippet     s_endswith
 abbr        %VAR:-4%==.exe
+prev_word   '^'
     %${1:var}:~-${2:length}%"
-
-snippet     if_endswith
-    if "%${1:var}:~-${2:length}%"=="${2:str}" ()
 
 snippet     s_startswith
 abbr        %VAR:~0,2%==C:
+prev_word   '^'
     %${1:var}:~0,${2:length}%
 
 snippet     s_trim_r
 abbr        %VAR:~0,-4%==C:\no_ext_filepath
+prev_word   '^'
     %${1:var}:~0,-${2:length_from_end}%
 
 snippet     s_trim_l
 abbr        %VAR:~2%==C:\no_drive_filepath
+prev_word   '^'
     %${1:var}:~${2:length_from_start}%
 
 snippet     filesize
 abbr        %~zFILENAME
+prev_word   '^'
     FOR %%I IN (${1:filename}) DO IF NOT %%~zI==0 (echo hello)
 
 snippet     timestamp
 abbr        %~tFILENAME
+prev_word   '^'
     FOR %%I IN (${1:filename}) DO IF EXIST %%I (echo %%~tI) 
 
 snippet     random
 abbr        %RANDOM%
+prev_word   '^'
     %RANDOM%
 
 snippet     file_exists
 abbr        if exists
+prev_word   '^'
     if exist ${1:filename} ${2:command}
 
 snippet     thisdir
 abbr        thisdir
+prev_word   '^'
     set THISDIR=%~dp0
+
+snippet     mirror copy
+abbr        robocopy /mir ...
+prev_word   '^'
+    robocopy /mir /R:5 ${1:src} ${2:dest}
+    if %ERRORLEVEL%==8 (goto error)
+
 
 # EOF

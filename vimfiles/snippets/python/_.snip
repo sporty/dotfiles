@@ -70,8 +70,12 @@ prev_word   '^'
 snippet     ifmain
 abbr        if __name__ == '__main__': ...
 prev_word   '^'
-	if __name__ == '__main__':
+    def main():
 		${1:pass}
+
+
+	if __name__ == '__main__':
+        main()
 
 snippet     tryexcept
 abbr        try: ... except ...: ...
