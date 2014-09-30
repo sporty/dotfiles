@@ -252,7 +252,10 @@ NeoBundleLazy 'dbarsam/vim-maxscript.git', {
 \}
 
 " python
-NeoBundleLazy 'klen/python-mode.git', {
+"NeoBundleLazy 'klen/python-mode.git', {
+"\ "autoload" : { "filetypes" : ["python"] }
+"\}
+NeoBundle 'hynek/vim-python-pep8-indent', {
 \ "autoload" : { "filetypes" : ["python"] }
 \}
 NeoBundleLazy 'davidhalter/jedi-vim.git', {
@@ -301,6 +304,7 @@ NeoBundleLazy 'vim-jp/cpp-vim', {
 NeoBundle 'scrooloose/syntastic.git'
 
 " other
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'tpope/vim-surround.git'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -321,7 +325,7 @@ nmap     <Space>u [unite]
 noremap <silent> [unite]u :Unite buffer file_mru<CR>
 " アウトライン
 noremap <silent> [unite]l :Unite outline<CR>
-" neocomplcacheのスニペット
+" スニペット
 noremap <silent> [unite]s :Unite neosnippet<CR>
 " VimFiler起動
 noremap <silent> [unite]f :VimFiler<CR>
@@ -333,12 +337,11 @@ au FileType vimfiler nnoremap <silent> <buffer> <ESC><ESC> :e#<CR>
 au FileType vimfiler inoremap <silent> <buffer> <ESC><ESC> <ESC>:e#<CR>
 
 
-" neocomplcache
+" neocomplete
 "---------------------------------------------------------------------------
 
-if 0
 " 有効化
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 " 自動補完を無効化
 "let g:neocomplcache_disable_auto_complete = 1
 
@@ -347,8 +350,14 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" 自動的に候補を表示するパターン
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
 endif
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 " neosnippet
 "---------------------------------------------------------------------------
@@ -468,7 +477,7 @@ let g:pymode_utils_whitespaces = 0
 " Additional python paths (Mayaのパス等追加)
 let g:pymode_paths = []
 " Enable pymode indentation
-let g:pymode_indent = 1
+let g:pymode_indent = 0
 
 let g:pymode_options_max_line_length = 99
 
@@ -479,6 +488,9 @@ let g:pymode_options_max_line_length = 99
 autocmd FileType python setlocal completeopt-=preview
 " 関数リファレンスを表示しない
 let g:jedi#show_call_signatures = 0
+" 補完はneocompleteで行うので無効化
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
 
 " キーバインド
 "---------------------------------------------------------------------------
