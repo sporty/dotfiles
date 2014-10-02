@@ -453,6 +453,7 @@ au BufNewFile,BufRead SConstruct,SConscript* set filetype=python syntax=python
 "---------------------------------------------------------------------------
 
 autocmd FileType python :setlocal expandtab
+autocmd FileType python :setlocal colorcolumn=100
 
 " QuickFix関連
 "---------------------------------------------------------------------------
