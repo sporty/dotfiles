@@ -58,9 +58,6 @@ set cmdheight=2
 "colorscheme molokai
 colorscheme Tomorrow-Night
 
-" カーソルラインの設定だけ上書き
-hi clear CursorLine
-
 set synmaxcol=10000
 
 "タブ(GUI)
