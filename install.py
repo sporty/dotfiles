@@ -116,6 +116,11 @@ def windows():
             _do(r"regedit /S windows\{0}".format(reg_filename))
 
 
+def chocolatey():
+    if sys.platform == "win32":
+        _do(r"cinst chocolatey/packages.config")
+
+
 def documents():
     '''
     #
