@@ -1,72 +1,3 @@
-snippet     class
-abbr        class Class(...): ...
-prev_word   '^'
-	class ${1:name}(${2:object}):
-		u"""
-		${3:class documentation}
-		"""
-
-		def __init__(self${4:, *args, **kwargs}):
-			u"""
-			${5:__init__ documentation}
-            @param ${6:args}
-			"""
-			${7:pass}
-
-snippet     def
-abbr        def function(...): ...
-prev_word   '^'
-	def ${1:name}(${2:*arg, **kwargs}):
-		u"""
-		${3:documentation}
-		@param ${4:args}
-		@return ${5:result}
-		"""
-
-		${6:pass}
-
-snippet     defm
-abbr        def method(self, ...): ...
-prev_word   '^'
-	def ${1:name}(self${2:, *args, **kwargs}):
-		u"""
-		${3:documentation}
-		@param ${4:args}
-		@return ${5:result}
-		"""
-
-		${6:pass}
-
-snippet     elif
-abbr        elif ...: ...
-prev_word   '^'
-	elif ${1:condition}:
-		${2:pass}
-
-snippet     else
-abbr        else: ...
-prev_word   '^'
-	else:
-		${1:pass}
-
-snippet     withfile
-abbr        with file(...) as fp: ...
-prev_word   '^'
-	with file(${1:filename}, "${2:mode}") as fp:
-		lines = fp.readlines()
-
-snippet     for
-abbr        for ... in ...: ...
-prev_word   '^'
-	for ${1:value} in ${2:list}:
-		${3:pass}
-
-snippet     if
-abbr        if ...: ...
-prev_word   '^'
-	if ${1:condition}:
-		${2:pass}
-
 snippet     ifmain
 abbr        if __name__ == '__main__': ...
 prev_word   '^'
@@ -76,29 +7,6 @@ prev_word   '^'
 
 	if __name__ == '__main__':
         main()
-
-snippet     tryexcept
-abbr        try: ... except ...: ...
-prev_word   '^'
-	try:
-		${1:pass}
-	except ${2:ExceptionClass}:
-		${3:pass}
-
-snippet     tryfinally
-abbr        try: ... finally: ...
-prev_word   '^'
-	try:
-		${1:pass}
-	finally:
-		${2:pass}
-
-snippet     while
-abbr        while ...: ...
-prev_word   '^'
-	while ${1:condition}:
-		${2:pass}
-
 
 snippet     pp
 abbr        pprint.PrettyPrinter(...
@@ -146,30 +54,6 @@ prev_word   '^'
                 return m[1]
         return None
 
-snippet     sorted
-abbr        sorted(...
-prev_word   '^'
-    sorted(${1:listdata}, key=lambda ${2:member}: ${3:member.name()})
-
-snippet     my_cache
-abbr        set_cache(...
-prev_word   '^'
-    import datetime
-    cache_db = {}
-    def get_cache(key):
-        if key in cache_db.keys():
-            n = datetime.datetime.now()
-            e = cache_db[key]["expire"]
-            if n > e:
-                del cache_db[key]
-            else:
-                return cache_db[key]["value"]
-        return None
-    def set_cache(key, value, expire=0):
-        delta = datetime.timedelta(seconds=expire)
-        expire_time = datetime.datetime.now() + delta
-        cache_db[key] = {"expire": expire_time, "value": value}
-
 snippet     timezone now
 abbr        dateutil.tz.tzlocal(...
 prev_word   '^'
@@ -186,12 +70,6 @@ snippet     print_function
 abbr        import print_function
 prev_word   '^'
     from __future__ import print_function
-
-snippet     flatten
-abbr        import itertools
-prev_word   '^'
-    import itertools
-    itertools.chain.from_iterable(${1:stream})
 
 snippet     mkstemp
 abbr        tempfile.mkstemp()
@@ -231,5 +109,20 @@ prev_word   '^'
             print(os.path.join(root, name))
 
 snippet     partial
+abbr        functools.partial
+prev_word   '^'
     from functools import partial
+
+snippet     TestCase
+abbr        TestCase(unittest.TestCase)...
+prev_word   '^'
+    class TestCase(unittest.TestCase):
+        def setUp(self):
+            pass
+
+        def tearDown(self):
+            pass
+
+        def test_hello_world():
+            self.assertEqual()
 
