@@ -14,8 +14,9 @@ snippet     qt__class_QDialog
 abbr        class Widget(QtGui.QDialog)
 prev_word   '^'
 	class ${1:name}(QtGui.QDialog):
-		def __init__(self, parent):
+		def __init__(self, parent=None):
 			super(${1:name}, self).__init__(parent)
+            self.setAcceptDrops(True)
 
 			uiloader = QUiLoader()
 			self._ui = uiloader.load(${2:ui}, self)
@@ -24,15 +25,38 @@ prev_word   '^'
 			layout.addWidget(self._ui)
 			self.setLayout(layout)
 
+            widget = self._ui.findChild(QtCore.QObject, "ok")
+            widget.clicked.connect(self.execute)
+
+        def dragEnterEvent(self, e):
+            e.accept()
+
+        def dropEvent(self, e):
+            text = e.mimeData().text()
+
 snippet     qt__class_QMainWindow
-abbr        class Widget(QtGui.QDialog)
+abbr        class Widget(QtGui.QMainWindow)
 prev_word   '^'
     class ${1:class}(QtGui.QMainWindow):
         def __init__(self, parent=None):
             super(${1:class}, self).__init__(parent)
+            self.setAcceptDrops(True)
 
 			uiloader = QUiLoader()
 			self._ui = uiloader.load(${2:ui}, self)
+
+			layout = QtGui.QVBoxLayout()
+			layout.addWidget(self._ui)
+			self.setLayout(layout)
+
+            widget = self._ui.findChild(QtCore.QObject, "ok")
+            widget.clicked.connect(self.execute)
+
+        def dragEnterEvent(self, e):
+            e.accept()
+
+        def dropEvent(self, e):
+            text = e.mimeData().text()
 
 snippet     qt__maya_main_window
 prev_word   '^'
@@ -52,12 +76,16 @@ prev_word   '^'
 snippet     qt__main__app
 abbr        if __name__ == '__main__':app = QtGui.QApplication(sys.argv)
 prev_word   '^'
-    if __name__ == '__main__':
+    def main():
         app = QtGui.QApplication(sys.argv)
 
         frame = ${1:class}()
+        frame.setWindowTitle(${2:title})
         frame.show()
 
         app.exec_()
         sys.exit()
+
+    if __name__ == '__main__':
+        main()
 
