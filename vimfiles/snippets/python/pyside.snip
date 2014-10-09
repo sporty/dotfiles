@@ -1,22 +1,22 @@
 
-snippet     qt__import
-abbr        import PySide
-prev_word   '^'
-    from PySide import QtGui, QtCore
-    from PySide.QtUiTools import QUiLoader
+snippet qt__import
+abbr import PySide
+prev_word '^'
+	from PySide import QtGui, QtCore
+	from PySide.QtUiTools import QUiLoader
 
-snippet     qt__file_dialog
-abbr        QtGui.QFileDialog.get...
-prev_word   '^'
-        dirname = QtGui.QFileDialog.getExistingDirectory(self)
+snippet qt__file_dialog
+abbr QtGui.QFileDialog.get...
+prev_word '^'
+	dirname = QtGui.QFileDialog.getExistingDirectory(self)
 
-snippet     qt__class_QDialog
-abbr        class Widget(QtGui.QDialog)
-prev_word   '^'
+snippet qt__class_QDialog
+abbr class Widget(QtGui.QDialog)
+prev_word '^'
 	class ${1:name}(QtGui.QDialog):
 		def __init__(self, parent=None):
 			super(${1:name}, self).__init__(parent)
-            self.setAcceptDrops(True)
+			self.setAcceptDrops(True)
 
 			uiloader = QUiLoader()
 			self._ui = uiloader.load(${2:ui}, self)
@@ -25,22 +25,22 @@ prev_word   '^'
 			layout.addWidget(self._ui)
 			self.setLayout(layout)
 
-            widget = self._ui.findChild(QtCore.QObject, "ok")
-            widget.clicked.connect(self.execute)
+			widget = self._ui.findChild(QtCore.QObject, "ok")
+			widget.clicked.connect(self.execute)
 
-        def dragEnterEvent(self, e):
-            e.accept()
+		def dragEnterEvent(self, e):
+			e.accept()
 
-        def dropEvent(self, e):
-            text = e.mimeData().text()
+		def dropEvent(self, e):
+			text = e.mimeData().text()
 
-snippet     qt__class_QMainWindow
-abbr        class Widget(QtGui.QMainWindow)
-prev_word   '^'
-    class ${1:class}(QtGui.QMainWindow):
-        def __init__(self, parent=None):
-            super(${1:class}, self).__init__(parent)
-            self.setAcceptDrops(True)
+snippet qt__class_QMainWindow
+abbr class Widget(QtGui.QMainWindow)
+prev_word '^'
+	class ${1:class}(QtGui.QMainWindow):
+		def __init__(self, parent=None):
+			super(${1:class}, self).__init__(parent)
+			self.setAcceptDrops(True)
 
 			uiloader = QUiLoader()
 			self._ui = uiloader.load(${2:ui}, self)
@@ -49,43 +49,43 @@ prev_word   '^'
 			layout.addWidget(self._ui)
 			self.setLayout(layout)
 
-            widget = self._ui.findChild(QtCore.QObject, "ok")
-            widget.clicked.connect(self.execute)
+			widget = self._ui.findChild(QtCore.QObject, "ok")
+			widget.clicked.connect(self.execute)
 
-        def dragEnterEvent(self, e):
-            e.accept()
+		def dragEnterEvent(self, e):
+			e.accept()
 
-        def dropEvent(self, e):
-            text = e.mimeData().text()
+		def dropEvent(self, e):
+			text = e.mimeData().text()
 
-snippet     qt__maya_main_window
-prev_word   '^'
-    from maya import OpenMayaUI as omui
-    from shiboken import wrapInstance
+snippet qt__maya_main_window
+prev_word '^'
+	from maya import OpenMayaUI as omui
+	from shiboken import wrapInstance
 
 	def maya_main_window():
 		mayaMainWindowPtr = omui.MQtUtil.mainWindow()
 		return wrapInstance(long(mayaMainWindowPtr), QtGui.QWidget)
 
-snippet     qt__main__maya
-abbr        QtWidget().show()
-prev_word   '^'
-    win = ${1:class}(maya_main_window())
-    win.show()
+snippet qt__main__maya
+abbr QtWidget().show()
+prev_word '^'
+	win = ${1:class}(maya_main_window())
+	win.show()
 
-snippet     qt__main__app
-abbr        if __name__ == '__main__':app = QtGui.QApplication(sys.argv)
-prev_word   '^'
-    def main():
-        app = QtGui.QApplication(sys.argv)
+snippet qt__main__app
+abbr if __name__ == '__main__':app = QtGui.QApplication(sys.argv)
+prev_word '^'
+	def main():
+		app = QtGui.QApplication(sys.argv)
 
-        frame = ${1:class}()
-        frame.setWindowTitle(${2:title})
-        frame.show()
+		frame = ${1:class}()
+		frame.setWindowTitle(${2:title})
+		frame.show()
 
-        app.exec_()
-        sys.exit()
+		app.exec_()
+		sys.exit()
 
-    if __name__ == '__main__':
-        main()
+	if __name__ == '__main__':
+		main()
 

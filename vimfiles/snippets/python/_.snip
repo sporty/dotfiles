@@ -1,128 +1,128 @@
-snippet     ifmain
-abbr        if __name__ == '__main__': ...
-prev_word   '^'
-    def main():
+snippet ifmain
+abbr if __name__ == '__main__': ...
+prev_word '^'
+	def main():
 		${1:pass}
 
 
 	if __name__ == '__main__':
-        main()
+		main()
 
-snippet     pp
-abbr        pprint.PrettyPrinter(...
-prev_word   '^'
-    import pprint
-    pp = pprint.PrettyPrinter(indent=4, stream=sys.stderr)
+snippet pp
+abbr pprint.PrettyPrinter(...
+prev_word '^'
+	import pprint
+	pp = pprint.PrettyPrinter(indent=4, stream=sys.stderr)
 
-snippet     argparse
-abbr        argparse.ArgumentParser(...
-prev_word   '^'
-    import argparse
-    parser = argparse.ArgumentParser(description=u'${1:description}')
-    parser.add_argument(
-        '-${2:short_flag}', '--${3:long_flag}',
-        dest='${4:var_name}',
-        type=${5:str}, default=${6:None},
-        metavar='${7:VALUE}',
-        help=u'${8:description}'
-        )
-    args = parser.parse_args()
+snippet argparse
+abbr argparse.ArgumentParser(...
+prev_word '^'
+	import argparse
+	parser = argparse.ArgumentParser(description=u'${1:description}')
+	parser.add_argument(
+		'-${2:short_flag}', '--${3:long_flag}',
+		dest='${4:var_name}',
+		type=${5:str}, default=${6:None},
+		metavar='${7:VALUE}',
+		help=u'${8:description}'
+		)
+	args = parser.parse_args()
 
-snippet     csv.reader
-abbr        csv.reader(...
-prev_word   '^'
-    import csv
-    csv_reader = csv.reader(${1:stream}, delimiter=',')
-    labels = next(csv_reader)
-    for row in csv_reader:
-        ${2:pass}
+snippet csv.reader
+abbr csv.reader(...
+prev_word '^'
+	import csv
+	csv_reader = csv.reader(${1:stream}, delimiter=',')
+	labels = next(csv_reader)
+	for row in csv_reader:
+		${2:pass}
 
-snippet     csv.writer
-abbr        csv.writer(...
-prev_word   '^'
-    import csv
-    csv_writer = csv.writer(${1:stream}, delimiter=',')
-    csv_writer.writerow(row)
+snippet csv.writer
+abbr csv.writer(...
+prev_word '^'
+	import csv
+	csv_writer = csv.writer(${1:stream}, delimiter=',')
+	csv_writer.writerow(row)
 
-snippet     get_method
-abbr        get_method(...
-prev_word   '^'
-    import inspect
-    def get_method(instance, method_name):
-        for m in inspect.getmembers(instance):
-            if m[0] == method_name:
-                return m[1]
-        return None
+snippet get_method
+abbr get_method(...
+prev_word '^'
+	import inspect
+	def get_method(instance, method_name):
+		for m in inspect.getmembers(instance):
+			if m[0] == method_name:
+				return m[1]
+		return None
 
-snippet     timezone now
-abbr        dateutil.tz.tzlocal(...
-prev_word   '^'
-    import dateutil.tz
-    now = datetime.datetime.now(dateutil.tz.tzlocal())
+snippet timezone now
+abbr dateutil.tz.tzlocal(...
+prev_word '^'
+	import dateutil.tz
+	now = datetime.datetime.now(dateutil.tz.tzlocal())
 
-snippet     timezone replace
-abbr        tzinfo=dateutil.tz.tzlocal(...
-prev_word   '^'
-    import dateutil.tz
-    now = now.replace(tzinfo=dateutil.tz.tzlocal())
+snippet timezone replace
+abbr tzinfo=dateutil.tz.tzlocal(...
+prev_word '^'
+	import dateutil.tz
+	now = now.replace(tzinfo=dateutil.tz.tzlocal())
 
-snippet     print_function
-abbr        import print_function
-prev_word   '^'
-    from __future__ import print_function
+snippet print_function
+abbr import print_function
+prev_word '^'
+	from __future__ import print_function
 
-snippet     mkstemp
-abbr        tempfile.mkstemp()
-prev_word   '^'
-    import tempfile, os
-    tup = tempfile.mkstemp()
-    fp = os.fdopen(tup[0])
+snippet mkstemp
+abbr tempfile.mkstemp()
+prev_word '^'
+	import tempfile, os
+	tup = tempfile.mkstemp()
+	fp = os.fdopen(tup[0])
 
-snippet     thisdir
-abbr        thisdir()
-prev_word   '^'
-    def thisdir(filename):
-        path = os.path.abspath(os.path.dirname(__file__))
-        return os.path.normpath(os.path.join(path, filename))
+snippet thisdir
+abbr thisdir()
+prev_word '^'
+	def thisdir(filename):
+		path = os.path.abspath(os.path.dirname(__file__))
+		return os.path.normpath(os.path.join(path, filename))
 
-snippet     chmod
-abbr        os.chmod()
-prev_word   '^'
-    import os
-    import stat
-    os.chmod(${1:filename}, stat.S_IWRITE|stat.S_IREAD)
+snippet chmod
+abbr os.chmod()
+prev_word '^'
+	import os
+	import stat
+	os.chmod(${1:filename}, stat.S_IWRITE|stat.S_IREAD)
 
-snippet     utime
-abbr        os.utime()
-prev_word   '^'
-    import os
-    import time
-    atime = mtime = time.mktime((${1:year}, ${2:month}, ${3:day}, ${4:hour}, ${5:minite}, ${6:second}, 0, 0, -1))
-    os.utime(${7:filename}, (atime, mtime))
+snippet utime
+abbr os.utime()
+prev_word '^'
+	import os
+	import time
+	atime = mtime = time.mktime((${1:year}, ${2:month}, ${3:day}, ${4:hour}, ${5:minite}, ${6:second}, 0, 0, -1))
+	os.utime(${7:filename}, (atime, mtime))
 
-snippet     walk
-abbr        os.walk()
-prev_word   '^'
-    import os
-    for root, dirs, files in os.walk(${1:dirname}):
-        for name in files:
-            print(os.path.join(root, name))
+snippet walk
+abbr os.walk()
+prev_word '^'
+	import os
+	for root, dirs, files in os.walk(${1:dirname}):
+		for name in files:
+			print(os.path.join(root, name))
 
-snippet     partial
-abbr        functools.partial
-prev_word   '^'
-    from functools import partial
+snippet partial
+abbr functools.partial
+prev_word '^'
+	from functools import partial
 
-snippet     TestCase
-abbr        TestCase(unittest.TestCase)...
-prev_word   '^'
-    class TestCase(unittest.TestCase):
-        def setUp(self):
-            pass
+snippet TestCase
+abbr TestCase(unittest.TestCase)...
+prev_word '^'
+	class TestCase(unittest.TestCase):
+		def setUp(self):
+			pass
 
-        def tearDown(self):
-            pass
+		def tearDown(self):
+			pass
 
-        def test_hello_world():
-            self.assertEqual()
+		def test_hello_world():
+			self.assertEqual()
 

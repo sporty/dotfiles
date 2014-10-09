@@ -1,41 +1,41 @@
 # class
 snippet class
-    var ${1:ClassName} = function(${2:arg}) {
-    };
+	var ${1:ClassName} = function(${2:arg}) {
+	};
 
 snippet class_method
-    ${1:ClassName}.prototype.${2:method} = function() {
-    };
+	${1:ClassName}.prototype.${2:method} = function() {
+	};
 
 # exception
 snippet exception
-    ${1:ExceptionName} = function(${2:message}) {
-        this.message = ${2:message};
-        this.name = '${1:ExceptionName}';
-        this.toString = function() {
-            return this.name + ' : ' + this.message;
-        };
-    }
+	${1:ExceptionName} = function(${2:message}) {
+		this.message = ${2:message};
+		this.name = '${1:ExceptionName}';
+		this.toString = function() {
+			return this.name + ' : ' + this.message;
+		};
+	}
 
 snippet exception_throw
-    throw new ${1:ExceptionName}( ${2:""} );
+	throw new ${1:ExceptionName}( ${2:""} );
 
 # jsdoc
 snippet jsdoc
-abbr    /** ...
-prev_word   '^'
-    /**
-     * ${1:name}
-     */
+abbr /** ...
+prev_word '^'
+	/**
+	 * ${1:name}
+	 */
 
 snippet jsdoc_par
-abbr    @param ...
-prev_word   '^'
+abbr @param ...
+prev_word '^'
 	@param {${1:type}} ${2:name} ${3:description}
 
 snippet jsdoc_ret
-abbr    @return ...
-prev_word   '^'
+abbr @return ...
+prev_word '^'
 	@return {${1:type}} ${2:description}
 
 # json
@@ -46,11 +46,11 @@ snippet jsons
 	JSON.stringify(${1:object});
 
 snippet strict
-    "use strict";
+	"use strict";
 
 snippet strict(function form)
-    (function (){
-        "use strict";
-    }());
+	(function (){
+		"use strict";
+	}());
 
 # EOF
