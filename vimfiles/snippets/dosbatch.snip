@@ -55,5 +55,15 @@ prev_word   '^'
 	robocopy /mir /R:5 ${1:src} ${2:dest}
 	if %ERRORLEVEL%==8 (goto error)
 
+snippet date_str
+abbr 20141031
+prev_word   '^'
+    set date_str=%date:~-10,4%%date:~-5,2%%date:~-2,2%
+
+snippet time_str
+abbr 124500
+prev_word   '^'
+    set time2=%time: =0%
+    set time_str=%time2:~0,2%%time2:~3,2%%time2:~6,2%
 
 # EOF
