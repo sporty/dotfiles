@@ -1,32 +1,62 @@
 
 snippet qt__import
-abbr import PySide
+abbr from PySide import QtGui...
 prev_word '^'
 	from PySide import QtGui, QtCore
 	from PySide.QtUiTools import QUiLoader
 
-snippet qt__file_dialog
-abbr QtGui.QFileDialog.get...
+snippet qt__dialog_open
+abbr QtGui.QFileDialog.getOpenFileName...
 prev_word '^'
+	widget = self.findChild(QtCore.QObject, "${1:lineedit}")
+	current_dir = os.path.dirname(widget.text())
+	if os.path.isdir(current_dir):
+		curent_dir = ""
+
+	input_filename = QtGui.QFileDialog.getOpenFileName(self, dir=current_dir)[0]
+	if input_filename:
+
+snippet qt__dialog_save
+abbr QtGui.QFileDialog.getSaveFileName...
+prev_word '^'
+	widget = self.findChild(QtCore.QObject, "${1:lineedit}")
+	current_dir = os.path.dirname(widget.text())
+	if os.path.isdir(current_dir):
+		curent_dir = ""
+	output_filename = QtGui.QFileDialog.getSaveFileName(self, dir=current_dir)[0]
+	if output_filename:
+
+snippet qt__dialog_dir
+abbr QtGui.QFileDialog.getExistingDirectory...
+prev_word '^'
+	widget = self.findChild(QtCore.QObject, "${1:lineedit}")
+	current_dir = widget.text()
+	if os.path.isdir(current_dir):
+		curent_dir = ""
 	dirname = QtGui.QFileDialog.getExistingDirectory(self)
 
 snippet qt__class_QDialog
 abbr class Widget(QtGui.QDialog)
 prev_word '^'
+	import ui.weight_cache
 	class ${1:name}(QtGui.QDialog):
+		TITLE = ${3:title}
 		def __init__(self, parent=None):
 			super(${1:name}, self).__init__(parent)
 			self.setAcceptDrops(True)
-
-			uiloader = QUiLoader()
-			self._ui = uiloader.load(${2:ui}, self)
+			self.setWindowTitle(self.TITLE)
 
 			layout = QtGui.QVBoxLayout()
-			layout.addWidget(self._ui)
+			form = ui.weight_cache.Ui_Form()
+			form.setupUi(self)
 			self.setLayout(layout)
 
-			widget = self._ui.findChild(QtCore.QObject, "ok")
-			widget.clicked.connect(self.execute)
+			widget = self.findChild(QtCore.QObject, "ok")
+			widget.clicked.connect(self.callback_execute)
+
+			# 履歴ファイルを読み込み、一番新しい値でGUIの値を上書き
+			self._history = jack.pyside_utility.ToolHistory(self.TITLE, "input_filename")
+			self.set_params(self._history.get_params())
 
 		def dragEnterEvent(self, e):
 			e.accept()
@@ -34,31 +64,58 @@ prev_word '^'
 		def dropEvent(self, e):
 			text = e.mimeData().text()
 
-snippet qt__class_QMainWindow
-abbr class Widget(QtGui.QMainWindow)
+		def contextMenuEvent(self, event):
+			# 履歴ポップアップメニューの構築
+			actions = self._history.get_actions(self, self.callback_action)
+			if not actions:
+				return
+
+			menu = QtGui.QMenu(self)
+			for action in actions:
+				menu.addAction(action)
+			menu.exec_(event.globalPos())
+
+		def set_params(self, params):
+			# GUIに値を入力
+			pass
+
+		def callback_action(self, params):
+			self.set_params(params)
+
+		def callback_execute(self):
+			# 履歴に追加
+			self._history.add_params({
+				"input_filename": input_filename,
+				"force": force,
+			})
+
+snippet qt__checkbox_set
+abbr widget.setCheckState(...
 prev_word '^'
-	class ${1:class}(QtGui.QMainWindow):
-		def __init__(self, parent=None):
-			super(${1:class}, self).__init__(parent)
-			self.setAcceptDrops(True)
+	widget = self.findChild(QtCore.QObject, "${1:checkbox}")
+	widget.setCheckState(
+		QtCore.Qt.CheckState.Checked if ${2:value} else QtCore.Qt.CheckState.Unchecked)
 
-			uiloader = QUiLoader()
-			self._ui = uiloader.load(${2:ui}, self)
+snippet qt__checkbox_get
+abbr value = widget.checkState()...
+prev_word '^'
+	widget = self.findChild(QtCore.QObject, "${1:checkbox}")
+	${2:value} = widget.checkState() == QtCore.Qt.CheckState.Checked
 
-			layout = QtGui.QVBoxLayout()
-			layout.addWidget(self._ui)
-			self.setLayout(layout)
+snippet qt__text_set
+abbr widget.setText(...
+prev_word '^'
+	widget = self.findChild(QtCore.QObject, "${1:edit}")
+	widget.setText(${2:value})
 
-			widget = self._ui.findChild(QtCore.QObject, "ok")
-			widget.clicked.connect(self.execute)
+snippet qt__text_get
+abbr value = widget.text()...
+prev_word '^'
+	widget = self.findChild(QtCore.QObject, "${1:edit}")
+	${2:value} = widget.text()
 
-		def dragEnterEvent(self, e):
-			e.accept()
-
-		def dropEvent(self, e):
-			text = e.mimeData().text()
-
-snippet qt__maya_main_window
+snippet qt__main__maya
+abbr QtWidget().show()
 prev_word '^'
 	from maya import OpenMayaUI as omui
 	from shiboken import wrapInstance
@@ -67,11 +124,9 @@ prev_word '^'
 		mayaMainWindowPtr = omui.MQtUtil.mainWindow()
 		return wrapInstance(long(mayaMainWindowPtr), QtGui.QWidget)
 
-snippet qt__main__maya
-abbr QtWidget().show()
-prev_word '^'
-	win = ${1:class}(maya_main_window())
-	win.show()
+	def main():
+		win = ${1:class}(maya_main_window())
+		win.show()
 
 snippet qt__main__app
 abbr if __name__ == '__main__':app = QtGui.QApplication(sys.argv)
@@ -80,7 +135,6 @@ prev_word '^'
 		app = QtGui.QApplication(sys.argv)
 
 		frame = ${1:class}()
-		frame.setWindowTitle(${2:title})
 		frame.show()
 
 		app.exec_()
