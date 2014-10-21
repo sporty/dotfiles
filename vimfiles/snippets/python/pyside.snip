@@ -43,13 +43,13 @@ prev_word '^'
 		TITLE = ${3:title}
 		def __init__(self, parent=None):
 			super(${1:name}, self).__init__(parent)
-			self.setAcceptDrops(True)
-			self.setWindowTitle(self.TITLE)
 
 			layout = QtGui.QVBoxLayout()
 			form = ui.weight_cache.Ui_Form()
 			form.setupUi(self)
 			self.setLayout(layout)
+
+			self.setWindowTitle(self.TITLE)
 
 			widget = self.findChild(QtCore.QObject, "ok")
 			widget.clicked.connect(self.callback_execute)
@@ -62,7 +62,11 @@ prev_word '^'
 			e.accept()
 
 		def dropEvent(self, e):
-			text = e.mimeData().text()
+			urls = e.mimeData().urls()
+			if urls:
+				text = urls[0].toLocalFile()
+			else:
+				text = e.mimeData().text()
 
 		def contextMenuEvent(self, event):
 			# 履歴ポップアップメニューの構築

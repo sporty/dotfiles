@@ -1,8 +1,6 @@
-
-snippet pm__button
-	pymel.button(l=u"${1:label}", c=partial(${2:callback}))
-
 snippet pm__undoable
+abbr @undoable ...
+prev_word '^'
 	import maya.cmds as cmds
 	def undoable(func):
 		def f(*args, **kwargs):
@@ -17,3 +15,7 @@ snippet pm__undoable
 				cmds.undoInfo(closeChunk=True)
 		return f
 
+snippet pm__showHelp
+abbr pm.showHelp(...
+prev_word '^'
+	pm.showHelp("${1:url}", absolute=True)
