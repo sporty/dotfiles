@@ -113,7 +113,7 @@ def windows():
 
     if sys.platform == "win32":
         for reg_filename in reg_files:
-            _do(r"regedit /S windows\{0}".format(reg_filename))
+            _do(r"regedit windows\{0}".format(reg_filename))
 
 
 def chocolatey():
