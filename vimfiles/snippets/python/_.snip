@@ -128,3 +128,10 @@ prev_word '^'
 		def test_hello_world():
 			self.assertEqual()
 
+snippet logging
+abbr logging.basicConfig(...
+prev_word '^'
+	LOG_FORMAT = r"%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d %(message)s "
+	LOG_LEVEL = logging.DEBUG
+	logging.basicConfig(format=LOG_FORMAT, level=LOG_LEVEL)
+
