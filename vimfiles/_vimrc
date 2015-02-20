@@ -117,8 +117,8 @@ au FileType help inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 "---------------------------------------------------------------------------
 
 " 画面のカラースキームを変更する 
-set t_Co=256
-colorscheme koehler
+"set t_Co=256
+"colorscheme koehler
 
 " ファイルタイプ
 "---------------------------------------------------------------------------
@@ -310,6 +310,7 @@ NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Lokaltog/vim-powerline.git'
 "NeoBundle 'Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
+NeoBundle 'rking/ag.vim'
 
 "NeoBundle 'thinca/vim-quickrun.git'
 
@@ -329,6 +330,10 @@ noremap <silent> [unite]l :Unite outline<CR>
 noremap <silent> [unite]s :Unite neosnippet<CR>
 " VimFiler起動
 noremap <silent> [unite]f :VimFiler<CR>
+" grep検索
+nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" grep検索結果の再呼出
+nnoremap <silent> [unite]p :<C-u>UniteResume search-buffer<CR>
 
 " ESCキー２回で終了
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
@@ -336,6 +341,11 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 au FileType vimfiler nnoremap <silent> <buffer> <ESC><ESC> :e#<CR>
 au FileType vimfiler inoremap <silent> <buffer> <ESC><ESC> <ESC>:e#<CR>
 
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 
 " neocomplete
 "---------------------------------------------------------------------------
@@ -396,6 +406,40 @@ au FileType ref-alc nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 let g:ref_phpmanual_path = $HOME.'/Documents/references/php-chunked-xhtml/'
 let g:ref_phpmanual_cmd = 'w3m -dump %s'
 
+" NERDtreeの設定
+"---------------------------------------------------------------------------
+
+" 基本設定
+
+" 非表示ファイル
+let g:NERDTreeIgnore=['\.py[co]$', '\.swp$', '\.bak$', '\~$']
+" 起動時にNERDTreeを開く
+let file_name = expand("%:p")
+if has('vim_starting') && file_name == ''
+    autocmd VimEnter * execute 'NERDTree ./'
+endif
+" 終了時NERDTreeバッファのみの場合は自動で閉じる
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" キーバインド
+
+" ESC２回で閉じる
+au FileType nerdtree :nnoremap <silent> <buffer> <ESC><ESC> :NERDTreeClose<CR>
+" F3で表示切り替え
+noremap <silent> <S-F3> :NERDTreeFind<CR>
+noremap <silent> <F3> :NERDTreeToggle<CR>
+
+" ag
+"---------------------------------------------------------------------------
+
+" prefix
+nnoremap [ag]    <Nop>
+nmap     <Space>g [ag]
+" Ag起動
+noremap [ag]g :<C-u>Ag 
+" 検索済みの文字列で検索
+noremap <silent> [ag]G :AgFromSearch<CR>
+
 
 " カラースキーム
 "===============================================================================
@@ -413,32 +457,6 @@ colorscheme Tomorrow-Night
 " カーソルラインの設定だけ上書き
 hi clear CursorLine
 "hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE
-
-
-" NERDtreeの設定
-"===============================================================================
-
-" 基本設定
-"---------------------------------------------------------------------------
-
-" 非表示ファイル
-let g:NERDTreeIgnore=['\.py[co]$', '\.swp$', '\.bak$', '\~$']
-" 起動時にNERDTreeを開く
-let file_name = expand("%:p")
-if has('vim_starting') && file_name == ''
-    autocmd VimEnter * execute 'NERDTree ./'
-endif
-" 終了時NERDTreeバッファのみの場合は自動で閉じる
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" キーバインド
-"---------------------------------------------------------------------------
-
-" ESC２回で閉じる
-au FileType nerdtree :nnoremap <silent> <buffer> <ESC><ESC> :NERDTreeClose<CR>
-" F3で表示切り替え
-noremap <silent> <S-F3> :NERDTreeFind<CR>
-noremap <silent> <F3> :NERDTreeToggle<CR>
 
 
 " Pythonの設定
