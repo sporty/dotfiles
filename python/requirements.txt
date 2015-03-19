@@ -1,0 +1,4 @@
+closure-linter
+flake8
+nose
+virtualenv
