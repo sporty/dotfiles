@@ -606,6 +606,11 @@ au FileType javascript :setlocal sw=2
 au FileType javascript :setlocal softtabstop=2
 au FileType javascript :setlocal expandtab
 
+au FileType json :setlocal ts=2
+au FileType json :setlocal sw=2
+au FileType json :setlocal softtabstop=2
+au FileType json :setlocal expandtab
+
 
 " その他ファイル毎の設定
 "===============================================================================
