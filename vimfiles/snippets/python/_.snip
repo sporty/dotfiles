@@ -83,9 +83,16 @@ prev_word '^'
 snippet thisdir
 abbr thisdir()
 prev_word '^'
-	def thisdir(filename):
-		path = os.path.abspath(os.path.dirname(__file__))
-		return os.path.normpath(os.path.join(path, filename))
+	import sys
+	import os.path
+	def thisdir(filename=""):
+		if hasattr(sys, "frozen") and sys.frozen in ("windows_exe", "console_exe"):
+			path = os.path.dirname(unicode(sys.executable, sys.getfilesystemencoding()))
+		else:
+			path = os.path.dirname(unicode(__file__, sys.getfilesystemencoding()))
+
+		return os.path.normpath(os.path.abspath(
+			os.path.join(path, filename)))
 
 snippet chmod
 abbr os.chmod()
