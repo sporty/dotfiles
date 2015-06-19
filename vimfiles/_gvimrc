@@ -17,7 +17,7 @@ if has('win32')
   "set guifont=Source_Code_Pro:h11:cSHIFTJIS,MS_Gothic:h10
   set guifont=Source_Code_Pro_Medium:h11:cSHIFTJIS,MS_Gothic:h10
   " 行間隔の設定
-  set linespace=0
+  set linespace=3
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14
@@ -40,7 +40,7 @@ endif
 
 " ウインドウの高さ
 if has('win32')
-  set lines=55
+  set lines=45
 elseif has('mac')
   set lines=55
 endif
