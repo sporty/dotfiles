@@ -14,10 +14,14 @@ set vb t_vb=
 if has('win32')
   " Windows用
   "set guifont=MS_Gothic:h10
-  "set guifont=Source_Code_Pro:h11:cSHIFTJIS,MS_Gothic:h10
-  set guifont=Source_Code_Pro_Medium:h9:cSHIFTJIS,MS_Gothic:h9
+
+  set encoding=utf8
+  set guifont=Source_Code_Pro_Medium:h10,MS_Gothic:h11
+  set guifontwide=MS_Gothic:h11
+  set ambiwidth=double
+
   " 行間隔の設定
-  set linespace=3
+  set linespace=0
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14
@@ -34,13 +38,12 @@ if &diff
   " diffモードで起動したときは横幅を倍で。
   set columns=200
 else
-  " 通常バッファ 89 + NERDTree 30
-  set columns=119
+  set columns=110
 endif
 
 " ウインドウの高さ
 if has('win32')
-  set lines=55
+  set lines=50
 elseif has('mac')
   set lines=55
 endif
