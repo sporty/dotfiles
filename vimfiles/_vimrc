@@ -309,7 +309,7 @@ NeoBundle 'tpope/vim-surround.git'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Lokaltog/vim-powerline.git'
-"NeoBundle 'Lokaltog/powerline.git', {'rtp': 'powerline/bindings/vim/'}
+" NeoBundle 'powerline/powerline.git', {'rtp': 'powerline/bindings/vim/'}
 NeoBundle 'rking/ag.vim'
 
 "NeoBundle 'thinca/vim-quickrun.git'
