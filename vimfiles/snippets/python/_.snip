@@ -142,3 +142,8 @@ prev_word '^'
 	LOG_LEVEL = logging.DEBUG
 	logging.basicConfig(format=LOG_FORMAT, level=LOG_LEVEL)
 
+snippet sort by key
+abbr sorted(members, key=lambda n: n["name"])
+prev_word '^'
+	sorted(${1:dict}, key=lambda n: n["key"])
+
