@@ -147,3 +147,18 @@ abbr sorted(members, key=lambda n: n["name"])
 prev_word '^'
 	sorted(${1:dict}, key=lambda n: n["key"])
 
+snippet list comprehension if
+abbr [v for v in values if m > 3]
+prev_word '^'
+	[v for v in ${1:list} if ${2:condition}]
+
+snippet list comprehension if else
+abbr [v if m > 3 else "small" for v in values if m > 3]
+prev_word '^'
+	[v if ${1:condition} else ${2:value} for v in ${3:list}]
+
+snippet nose raises decorator
+abbr @nose.tools.raises(Exception)
+prev_word '^'
+	@nose.tools.raises(${1:Exception})
+
