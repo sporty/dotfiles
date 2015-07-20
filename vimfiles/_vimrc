@@ -552,6 +552,7 @@ let g:syntastic_python_flake8_args = "--max-line-length=99"
 
 let g:syntastic_cpp_checkers = ['cpplint']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
+let g:syntastic_cpp_cpplint_args = '--verbose=0 --linelength=100 --filter=-readability/utf8,-build/header_guard'
 
 " キーバインド
 "---------------------------------------------------------------------------
