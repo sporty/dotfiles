@@ -571,6 +571,8 @@ au FileType cpp :setlocal sw=2
 au FileType cpp :setlocal softtabstop=2
 au FileType cpp :setlocal expandtab
 
+autocmd FileType cpp :setlocal colorcolumn=100
+
 
 " PHPの設定
 "===============================================================================
