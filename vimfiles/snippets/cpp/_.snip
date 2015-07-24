@@ -1,0 +1,10 @@
+
+snippet float precision
+abbr cout.precision(dbl::digits10)
+prev_word '^'
+	#include <limits>
+	typedef std::numeric_limits<double> dbl;
+	cout.precision(dbl::digits10);
+	std::cout << ${1:float_value} << std::endl;
+
+
