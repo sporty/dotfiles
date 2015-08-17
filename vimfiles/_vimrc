@@ -127,6 +127,8 @@ au FileType help inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 " shading language
 au BufNewFile,BufRead *.fx,*.fxh,*.cg,*.cgfx,*.vsh,*.psh,*.vs,*.ps,*.hlsl,*.hlsli set filetype=hlsl syntax=hlsl
+" hta
+au BufNewFile,BufRead *.hta set filetype=html syntax=html
 
 " 検索オプション
 "---------------------------------------------------------------------------
@@ -628,6 +630,18 @@ au FileType json :setlocal ts=2
 au FileType json :setlocal sw=2
 au FileType json :setlocal softtabstop=2
 au FileType json :setlocal expandtab
+
+
+" HTMLの設定
+"===============================================================================
+
+" タブを2タブにして、スペースに自動変換
+"---------------------------------------------------------------------------
+
+au FileType html :setlocal ts=2
+au FileType html :setlocal sw=2
+au FileType html :setlocal softtabstop=2
+au FileType html :setlocal expandtab
 
 
 " その他ファイル毎の設定
