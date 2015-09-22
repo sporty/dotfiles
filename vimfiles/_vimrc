@@ -643,6 +643,11 @@ au FileType html :setlocal sw=2
 au FileType html :setlocal softtabstop=2
 au FileType html :setlocal expandtab
 
+au FileType htmldjango :setlocal ts=2
+au FileType htmldjango :setlocal sw=2
+au FileType htmldjango :setlocal softtabstop=2
+au FileType htmldjango :setlocal expandtab
+
 
 " その他ファイル毎の設定
 "===============================================================================
