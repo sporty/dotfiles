@@ -301,6 +301,9 @@ NeoBundleLazy 'tpope/vim-rails.git', {
 NeoBundleLazy 'vim-jp/cpp-vim', {
 \ 'autoload' : {'filetypes' : 'cpp'}
 \}
+NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {
+\ 'autoload' : {'filetypes' : 'cpp'}
+\}
 
 " syntax checker
 NeoBundle 'scrooloose/syntastic.git'
