@@ -162,3 +162,13 @@ abbr @nose.tools.raises(Exception)
 prev_word '^'
 	@nose.tools.raises(${1:Exception})
 
+snippet format centering
+abbr "{label:^10}".format(label="title")
+prev_word '^'
+	"{label:^10}".format(label="title")
+
+snippet format zero padding
+abbr "{0:0>8}".format(index)
+prev_word '^'
+	"{0:0>8}".format(index)
+
