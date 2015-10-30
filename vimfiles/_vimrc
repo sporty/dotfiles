@@ -553,7 +553,8 @@ let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_python_checkers = ['flake8', 'py3kwarn']
 
 " １行の最大文字数をデフォルトの79文字から99文字に変更
-let g:syntastic_python_flake8_args = "--max-line-length=99"
+" flake8-future-importのdivision,print_function以外を無効にする
+let g:syntastic_python_flake8_args = "--max-line-length=99 --ignore FI11,FI12,FI14,FI15,FI5"
 
 let g:syntastic_cpp_checkers = ['cpplint']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
