@@ -158,7 +158,7 @@ command! -bang -complete=file -nargs=? Unix edit<bang> ++ff=unix <args>
 
 set rtp+=~/vimfiles/myplugin/
 
-" neobundle
+" dein
 "---------------------------------------------------------------------------
 
 if has('vim_starting')

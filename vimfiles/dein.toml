@@ -20,9 +20,6 @@ repo = 'tpope/vim-surround.git'
 [[plugins]]
 repo = 'scrooloose/nerdtree.git'
 
-#[[plugins]]
-#repo = 'majutsushi/tagbar.git'
-
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
