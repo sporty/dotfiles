@@ -66,10 +66,10 @@ def vim():
     _ln('~/dotfiles/vimfiles/_gvimrc', '~/{0}gvimrc'.format(prefix))
 
     # プラグインの更新
-    if sys.platform == "win32":
-        _do('gvim +NeoBundleInstall +qall')
-    else:
-        _do('vim +NeoBundleInstall +qall')
+    #if sys.platform == "win32":
+    #    _do('gvim +NeoBundleInstall +qall')
+    #else:
+    #    _do('vim +NeoBundleInstall +qall')
 
 
 def powerline():

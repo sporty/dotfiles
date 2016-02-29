@@ -1,0 +1,35 @@
+# snippet
+[[plugins]]
+repo = 'honza/vim-snippets.git'
+
+# ColorScheme
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
+
+# syntax checker
+[[plugins]]
+repo = 'scrooloose/syntastic.git'
+
+# other
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround.git'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree.git'
+
+#[[plugins]]
+#repo = 'majutsushi/tagbar.git'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+
+[[plugins]]
+repo = 'Lokaltog/vim-powerline.git'
+
+[[plugins]]
+repo = 'rking/ag.vim'
+
+

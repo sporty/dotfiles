@@ -1,0 +1,134 @@
+
+# unite関連
+[[plugins]]
+repo = 'Shougo/unite.vim'
+on_cmd = ['Unite']
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'Shougo/unite-outline.git'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'thinca/vim-ref.git'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'tsukkee/unite-help'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'ujihisa/unite-font'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'tacroe/unite-mark'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+on_source = ['unite.vim']
+
+# snippet
+[[plugins]]
+repo = 'Shougo/neosnippet.git'
+on_ft = 'neosnippet'
+on_source = ['unite.vim']
+
+
+
+# syntax
+[[plugins]]
+repo = 'groenewege/vim-less.git'
+on_ft = ['less']
+
+[[plugins]]
+repo = 'tpope/vim-markdown.git'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = "vim-scripts/pig.vim.git"
+on_ft = ['pig']
+
+[[plugins]]
+repo = "PProvost/vim-ps1.git"
+on_ft = ['psl']
+
+[[plugins]]
+repo = "beyondmarc/hlsl.vim.git"
+on_ft = ['hlsl']
+
+[[plugins]]
+repo = 'dbarsam/vim-maxscript.git'
+on_ft = ['maxscript']
+
+[[plugins]]
+repo = 'kelan/gyp.vim'
+on_ft = ['gyp']
+
+
+# python
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim.git'
+on_ft = ['python']
+  [[plugins.build]]
+    windows = 'git submodule update --init'
+    cygwin  = 'git submodule update --init'
+    mac     = 'git submodule update --init'
+    unix    = 'git submodule update --init'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+on_ft = ['python']
+
+# html
+[[plugins]]
+repo = 'mattn/emmet-vim.git'
+on_ft = ['html', 'htmldjango', 'css', 'scss']
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax.git'
+on_ft = ['html', 'htmldjango', 'css', 'scss']
+
+[[plugins]]
+repo = 'othree/html5.vim.git'
+on_ft = ['html', 'htmldjango', 'css', 'scss']
+
+# javascript
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax.git'
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript.git'
+on_ft = ['javascript']
+
+# ruby
+[[plugins]]
+repo = 'tpope/vim-rails.git'
+on_ft = ['ruby']
+
+# cpp
+[[plugins]]
+repo = 'vim-jp/cpp-vim'
+on_ft = ['cpp']
+
+[[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+on_ft = ['cpp']
+
