@@ -162,7 +162,7 @@ set rtp+=~/vimfiles/myplugin/
 "---------------------------------------------------------------------------
 
 if has('vim_starting')
-" set nocompatible               " Be iMproved
+  set nocompatible               " Be iMproved
   set rtp+=~/vimfiles/dein.vim/
 endif
 
@@ -187,6 +187,7 @@ if dein#check_install()
   call dein#install()
 endif
 
+filetype plugin indent on
 
 " unite
 "---------------------------------------------------------------------------
