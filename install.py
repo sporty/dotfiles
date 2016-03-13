@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
+
 import sys
 import os
 import shutil
@@ -52,7 +53,7 @@ def tmux():
 
 def vim():
     # submoduleを更新。主にvundle。
-    _do('cd '+_np('~/dotfiles'))
+    _do('cd ' + _np('~/dotfiles'))
     _do('git submodule init')
     _do('git submodule update')
 
@@ -66,10 +67,12 @@ def vim():
     _ln('~/dotfiles/vimfiles/_gvimrc', '~/{0}gvimrc'.format(prefix))
 
     # プラグインの更新
-    #if sys.platform == "win32":
-    #    _do('gvim +NeoBundleInstall +qall')
-    #else:
-    #    _do('vim +NeoBundleInstall +qall')
+    '''
+    if sys.platform == "win32":
+        _do('gvim +NeoBundleInstall +qall')
+    else:
+        _do('vim +NeoBundleInstall +qall')
+    '''
 
 
 def powerline():
@@ -266,7 +269,7 @@ if __name__ == "__main__":
         print("")
         print("TARGETS:")
         for key in funcs.keys():
-            print(" "+key)
+            print(" " + key)
     else:
         for arg in sys.argv[1:]:
             if arg in funcs.keys():
