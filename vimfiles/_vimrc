@@ -183,9 +183,9 @@ endif
 call dein#end()
 
 " もし、未インストールものものがあったらインストール
-if dein#check_install()
-  call dein#install()
-endif
+" if dein#check_install()
+"   call dein#install()
+" endif
 
 filetype plugin indent on
 

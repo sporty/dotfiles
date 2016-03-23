@@ -8,7 +8,7 @@ repo = 'chriskempson/vim-tomorrow-theme'
 
 # syntax checker
 [[plugins]]
-repo = 'scrooloose/syntastic.git'
+repo = 'scrooloose/syntastic'
 
 # other
 [[plugins]]

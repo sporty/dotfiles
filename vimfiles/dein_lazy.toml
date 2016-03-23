@@ -9,7 +9,7 @@ repo = 'Shougo/neomru.vim'
 on_source = ['unite.vim']
 
 [[plugins]]
-repo = 'Shougo/unite-outline.git'
+repo = 'Shougo/unite-outline'
 on_source = ['unite.vim']
 
 [[plugins]]
@@ -62,7 +62,7 @@ repo = "vim-scripts/pig.vim.git"
 on_ft = ['pig']
 
 [[plugins]]
-repo = "PProvost/vim-ps1.git"
+repo = "PProvost/vim-ps1"
 on_ft = ['psl']
 
 [[plugins]]
@@ -76,6 +76,10 @@ on_ft = ['maxscript']
 [[plugins]]
 repo = 'kelan/gyp.vim'
 on_ft = ['gyp']
+
+[[plugins]]
+repo = 'mitsuhiko/vim-jinja'
+on_ft = ['django']
 
 
 # python
