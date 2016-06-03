@@ -172,3 +172,41 @@ abbr "{0:0>8}".format(index)
 prev_word '^'
 	"{0:0>8}".format(index)
 
+snippet init logger (StreamHandler)
+abbr logging.StreamHandler()
+prev_word '^'
+	if ${1:flag}:
+		LOG_FORMAT = r"%(asctime)s %(name)s [%(levelname)s] %(filename)s:%(lineno)d %(message)s "
+		LOG_LEVEL = logging.DEBUG
+	else:
+		LOG_FORMAT = r"%(asctime)s [%(levelname)s] %(message)s "
+		LOG_LEVEL = logging.INFO
+	_formatter = logging.Formatter(LOG_FORMAT)
+	_stream_handler = logging.StreamHandler()
+	_stream_handler.setFormatter(_formatter)
+	_logger = logging.getLogger('${2:name}')
+	_logger.handlers = []
+	_logger.addHandler(_stream_handler)
+	_logger.setLevel(LOG_LEVEL)
+
+snippet init logger (FileHandler)
+abbr logging.FileHandler()
+prev_word '^'
+	LOG_FILENAME = "${1:filename}"
+
+	if ${2:flag}:
+		LOG_FORMAT = r"%(asctime)s %(name)s [%(levelname)s] %(filename)s:%(lineno)d %(message)s "
+		LOG_LEVEL = logging.DEBUG
+	else:
+		LOG_FORMAT = r"%(asctime)s [%(levelname)s] %(message)s "
+		LOG_LEVEL = logging.INFO
+
+	_formatter = logging.Formatter(LOG_FORMAT)
+	_file_handler = logging.FileHandler(LOG_FILENAME, 'a')
+	_file_handler.setFormatter(_formatter)
+	_logger = logging.getLogger('${3:name}')
+	_logger.handlers = []
+	_logger.addHandler(_file_handler)
+	_logger.setLevel(LOG_LEVEL)
+
+
