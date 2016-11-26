@@ -73,6 +73,9 @@ set showtabline=0
 " ツールバーにボタン追加
 "---------------------------------------------------------------------------
 
+" 4Kモニターではツールバーが小さすぎるので非表示
+set guioptions-=T
+
 if has("toolbar")
   " セパレータ
   an ToolBar.-MySeparatorNo01- <Nop>
