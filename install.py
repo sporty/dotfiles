@@ -3,18 +3,18 @@
 
 from __future__ import absolute_import, division, print_function
 
-import sys
+import inspect
 import os
 import shutil
-import inspect
 import subprocess
+import sys
 try:
     import urlparse
-except:
+except ImportError:
     import urllib.parse as urlparse
 try:
     import httplib
-except:
+except ImportError:
     import http.client as httplib
 
 
@@ -131,17 +131,12 @@ def chocolatey():
 
 
 def documents():
-    '''
-    #
-    # documents
-    #
+    u'''documents
 
-    install-documents:
-        http://jp2.php.net/get/php_manual_ja.tar.gz/from/jp.php.net/mirror
-        http://python-doc-ja.googlecode.com/files/python-doc-2.7ja1-html.tar.gz
-        mkdir -p ~/Documents/references
-        tar zxvf php_manual_ja.tgz -C ~/Documents/references
-
+    http://jp2.php.net/get/php_manual_ja.tar.gz/from/jp.php.net/mirror
+    http://python-doc-ja.googlecode.com/files/python-doc-2.7ja1-html.tar.gz
+    mkdir -p ~/Documents/references
+    tar zxvf php_manual_ja.tgz -C ~/Documents/references
     '''
     pass
 
@@ -163,9 +158,8 @@ def test():
 if __name__ == "__main__":
 
     def _np(fpath):
-        """
-        pathの正規化
-        """
+        u"""pathの正規化"""
+
         fpath = os.path.expanduser(fpath)
         fpath = os.path.expandvars(fpath)
         fpath = os.path.normpath(fpath)
@@ -173,16 +167,15 @@ if __name__ == "__main__":
         return fpath
 
     def _sudo(cmd):
-        """
-        _sudoでコマンド実行
+        u"""_sudoでコマンド実行
+
         TODO: 未実装
         """
         _do(cmd)
 
     def _do(cmd):
-        """
-        コマンド実行
-        """
+        u"""コマンド実行"""
+
         print(cmd)
         if sys.platform == "win32":
             pass
@@ -193,16 +186,13 @@ if __name__ == "__main__":
             raise Exception("process error. stop installation.")
 
     def _cp(src, dest):
-        """
-        コピー作成
-        """
+        u"""コピー作成"""
+
         print("cp {0} {1}".format(src, dest))
         shutil.copyfile(src, dest)
 
     def _ln(src, dest):
-        """
-        シンボリックリンク作成
-        """
+        u"""シンボリックリンク作成"""
 
         src = _np(src)
         dest = _np(dest)
@@ -227,9 +217,8 @@ if __name__ == "__main__":
             os.symlink(src, dest)
 
     def _dl(url, filename=None):
-        """
-        ファイルをダウンロード
-        """
+        u"""ファイルをダウンロード"""
+
         print("download {0}".format(url))
         o = urlparse.urlparse(url)
         if o.scheme == "http":
