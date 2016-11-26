@@ -18,8 +18,17 @@ except:
     import http.client as httplib
 
 
+def thisdir(filename=""):
+    if hasattr(sys, "frozen") and sys.frozen in ("windows_exe", "console_exe"):
+        path = os.path.dirname(unicode(sys.executable, sys.getfilesystemencoding()))
+    else:
+        path = os.path.dirname(unicode(__file__, sys.getfilesystemencoding()))
+
+    return os.path.normpath(os.path.abspath(os.path.join(path, filename)))
+
+
 def git():
-    _ln("~/dotfiles/git/_gitignore_global", "~/.gitignore_global")
+    _ln(thisdir("git/_gitignore_global"), "~/.gitignore_global")
     _do('git config --global user.name "Ryo Takahashi"')
     _do('git config --global user.email rt.sporty@gmail.com')
     _do('git config --global color.ui auto')
@@ -32,39 +41,39 @@ def git():
 
 
 def python():
-    _sudo('python {0}'.format(_np('~/dotfiles/python/get-pip.py')))
+    _sudo('python {0}'.format(_np(thisdir('python/get-pip.py'))))
     _sudo('python -m pip install -U pip')
-    _sudo('pip install -r {0}'.format(_np('~/dotfiles/python/requirements.txt')))
+    _sudo('pip install -r {0}'.format(_np(thisdir('python/requirements.txt'))))
 
 
 def bash():
-    _ln('~/dotfiles/bash/_bashrc', '~/.bashrc')
-    _ln('~/dotfiles/bash/_profile', '~/.profile')
-    _ln('~/dotfiles/bash/_inputrc', '~/.inputrc')
+    _ln(thisdir('bash/_bashrc'), '~/.bashrc')
+    _ln(thisdir('bash/_profile'), '~/.profile')
+    _ln(thisdir('bash/_inputrc'), '~/.inputrc')
 
 
 def zsh():
-    _ln('~/dotfiles/zsh/_zshrc', '~/.zshrc')
+    _ln(thisdir('zsh/_zshrc'), '~/.zshrc')
 
 
 def tmux():
-    _ln('~/dotfiles/tmux/_tmux.conf', '~/.tmux.conf')
+    _ln(thisdir('tmux/_tmux.conf'), '~/.tmux.conf')
 
 
 def vim():
     # submoduleを更新。主にvundle。
-    _do('cd ' + _np('~/dotfiles'))
+    _do('cd ' + _np(thisdir()))
     _do('git submodule init')
     _do('git submodule update')
 
     # ドットファイルのシンボリックリンクを作成
-    _ln('~/dotfiles/vimfiles', '~/vimfiles')
+    _ln(thisdir('vimfiles'), '~/vimfiles')
     if sys.platform == "win32":
         prefix = "_"
     else:
         prefix = "."
-    _ln('~/dotfiles/vimfiles/_vimrc', '~/{0}vimrc'.format(prefix))
-    _ln('~/dotfiles/vimfiles/_gvimrc', '~/{0}gvimrc'.format(prefix))
+    _ln(thisdir('vimfiles/_vimrc'), '~/{0}vimrc'.format(prefix))
+    _ln(thisdir('vimfiles/_gvimrc'), '~/{0}gvimrc'.format(prefix))
 
     # プラグインの更新
     '''
@@ -76,16 +85,16 @@ def vim():
 
 
 def powerline():
-    _ln('~/dotfiles/powerline', '~/.config/powerline')
+    _ln(thisdir('powerline'), '~/.config/powerline')
 
 
 def mac():
     if sys.platform == "mac":
         # ターミナル.appの設定をコピー
         _cp('~/Library/Preferences/com.apple.Terminal.plist',
-            '~/dotfiles/mac/com.apple.Terminal.plist.back')
+            thisdir('mac/com.apple.Terminal.plist.back'))
         print("backup plist to mac/ (with extension .back)...")
-        _cp('~/dotfiles/mac/com.apple.Terminal.plist',
+        _cp(thisdir('mac/com.apple.Terminal.plist'),
             '~/Library/Preferences/')
         # ファインダーのタイトルバーにパスを表示
         _do('defaults write com.apple.finder \
